@@ -1,0 +1,42 @@
+@import "_config.scss";
+
+/*
+******* NAV *******
+*/
+
+/*
+******* Header *******
+*/
+.header {
+    .header-container {
+        margin: 60px 0;
+    }
+}
+
+/*
+******* About Us Page *******
+*/
+.about-us {
+    .about-us-container {
+        h2 {
+            margin: 30px 0;
+        }
+        
+        .about-us__mission {
+            background-color: $blue;
+            color: $white;
+        }
+
+        .about-us__clients {
+            margin-bottom: 3em;
+        }
+    }
+}
+
+/*
+******* FOOTER *******
+*/
+footer {
+    background-color: $grey;
+    padding: 3em 2em;
+}

@@ -1,0 +1,24 @@
+/*
+Vars
+*/
+
+$beige: #A09B88;
+$grey: #C0C5CB;
+$blue: #006289;
+$light-blue: #569CBE;
+$lilac: #B49BB9; 
+$maroon: #571105;
+$black: #000;
+$white: #fff;
+
+body {
+	font-family: nunito sans,sans-serif;
+	//font-smoothing: antialiased;
+	color: $black;
+	background-color: $white;
+	font-display: swap;
+}
+
+/*
+Mixins 
+*/

@@ -17,9 +17,9 @@ function Nav() {
     return (
         <div>
             <Router>
-                <nav className="px-4 py-3">
-                    <Grid fluid>
-                        <Row>
+                <nav>
+                    <Grid fluid className="px-4 py-3">
+                        <Row className="mx-0">
                             <Col xs={12} md={2} className="nav-left">
                             <Link to="/">Logo Here</Link>
                             </Col>
@@ -49,27 +49,13 @@ function Nav() {
                     </Grid>
                 </nav>
                 <Switch>
-                    <Route exact path="/">
-                        <Home />
-                    </Route>
-                    <Route path="/about-us">
-                        <About />
-                    </Route>
-                    <Route path="/brands">
-                        <Brands />
-                    </Route>
-                    <Route path="/b2b">
-                        <B2B />
-                    </Route>
-                    <Route path="/schedule">
-                        <Schedule />
-                    </Route>
-                    <Route path="/contact">
-                        <Contact />
-                    </Route>
-                    <Route path="/sign-in">
-                        <Signin />
-                    </Route>
+                    <Route exact path="/" component={Home}/>          
+                    <Route path="/about-us" component={About}/>
+                    <Route path="/brands" component={Brands}/>      
+                    <Route path="/b2b" component={B2B}/>
+                    <Route path="/schedule" component={Schedule}/>
+                    <Route path="/contact" component={Contact}/>
+                    <Route path="/sign-in" component={Signin}/>
                 </Switch>          
             </Router>
         </div>

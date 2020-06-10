@@ -10,10 +10,13 @@ import Appointment from '../components/mainComponents/appointmentSection';
 
 
 class Home extends Component {
+  header = "Jaisun House";
+  slider = true;
+  
   render() {
     return (
-      <div>
-        <Header />
+      <div className="home-page">
+        <Header heading={this.header} isSlider={this.slider}/>
         <Brands />
         <History />
         <Appointment />

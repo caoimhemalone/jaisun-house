@@ -11,11 +11,12 @@ class Header extends Component {
         if (isSlider) {
             slider =  <HeaderCarousel />;
         }
+
         return (
             <section className="header">
                 <Grid fluid className="header-container">
                     <Row>
-                        <Col xs={12} md={12} className="header-item">
+                        <Col xs={12} md={12} className="header-item d-flex">
                             <h1 className="d-flex justify-content-center">{this.props.heading}</h1>
                             {slider}
                         </Col>

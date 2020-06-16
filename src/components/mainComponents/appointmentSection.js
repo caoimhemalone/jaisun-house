@@ -5,12 +5,10 @@ import { Row, Col } from 'react-flexbox-grid';
 
 function Appointment() {
     return (
-        <div>
-            <Row>
-                <Col xs={12} md={12}>
-                    <h2 className="d-flex justify-content-center">Appointment</h2>
-                </Col>
-            </Row>
+        <div className="appointment">
+            <div className="appointment-container">
+                <button className="d-flex justify-content-center">Make an Appointment</button>
+            </div>
         </div>
     );
 }

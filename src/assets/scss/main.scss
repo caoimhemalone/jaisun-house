@@ -6,13 +6,25 @@
 nav {
     position: fixed;
     top: 0;
-    background-color: transparent;
+    background-color: $white;
     display: block;
     width: 100%;
-    z-index: 2;
+    z-index: 3;
 
     .nav-right {
         padding-left: 20%;
+
+        a {
+            color: $black;
+
+            &:hover {
+                color: $light-blue;
+            }
+        }
+
+        .nav-item {
+            text-align: center;
+        }
     }
 }
 
@@ -26,11 +38,12 @@ nav {
         padding-right: 0;
 
         h1 {
-            position: absolute;
-            top: 50%;
+            //position: absolute;
+            //top: 50%;
             z-index: 2;
             width: 100%;
             text-align: center;
+            align-self: center;
         }
 
         .header-item {
@@ -38,10 +51,36 @@ nav {
         }
 
         .header-carousel {
-            margin-bottom: 3em;
             img {
                 width: 100%;
-                height: auto;
+                height: 90vh;
+            }
+        }
+    }
+}
+
+/*
+******* Appointment Section *******
+*/
+.appointment {
+    .appointment-container {
+        background-color: $grey;
+        color: $white;
+        display: flex;
+        padding: 20px 0;
+
+        button {
+            margin: 2em auto;
+            padding: 10px 30px;
+            width: 60%;
+            background-color: $white;
+            color: $blue;
+            border: none;
+            border-radius: 7px;
+            text-transform: uppercase;
+
+            &:hover {
+                cursor: pointer;
             }
         }
     }
@@ -53,11 +92,19 @@ nav {
 .home-page {
     .brands-container {
         padding: 0;
+        margin-top: 6em;
+        margin-bottom: 3em;
 
         .brands-tiles {
+            margin: 0;
+            overflow-x: scroll;
+            height: 204px;
+
             .brands-tiles__item {
                 position: relative;
                 padding: 0;
+                // height: 250px;
+                // width: 250px;
 
                 &:hover {
                     cursor: pointer;
@@ -76,11 +123,30 @@ nav {
                     top: 0;
                     width: 100%;
                     height: 100%;
-                    padding-top: 30%;
+                    padding-top: 40%;
                     display: none;
                     text-align: center;
                     color: $white;
                     background-color: rgba($color: #000000, $alpha: 0.6);
+                }
+            }
+        }
+    }
+
+    .history-container {
+        .history-info {
+            padding-bottom: 4em;
+            img {
+                width: 100%;
+                height: 250px;
+            }
+
+            .text-container {
+                display: flex;
+
+                p {
+                    line-height: 2;
+                    align-self: center;
                 }
             }
         }
@@ -91,18 +157,208 @@ nav {
 ******* About Us Page *******
 */
 .about-us {
+    .header-container {
+        margin-top: 4em;
+
+        .header-item {
+            background-image: url(../images/placeholder-square.jpg);
+            height: 400px;
+        }
+    }
+
     .about-us-container {
         h2 {
             margin: 30px 0;
+        }
+
+        .about-us__bio {
+            margin-bottom: 40px;
+
+            img {
+                margin: auto;
+                display: block;
+            }
+
+            .text-container {
+                display: flex;
+
+                p {
+                    line-height: 1.8;
+                    align-self: center;
+                }
+            }
         }
         
         .about-us__mission {
             background-color: $blue;
             color: $white;
+
+            p {
+                padding: 0 100px;
+                margin-bottom: 30px;
+            }
+        }
+
+        .about-us__goals {
+            margin: 40px 0 0 0;
+
+            ion-icon {
+                margin: 10px auto;
+                display: block;
+                font-size: 64px;
+                color: $grey;
+
+                &:hover {
+                    color: $maroon;
+                }
+            }
+
+            p {
+                text-align: center;
+                color: $grey;
+                margin-top: 10px;
+            }
         }
 
         .about-us__clients {
-            margin-bottom: 3em;
+            margin-bottom: 3em; 
+
+            h2 {
+                margin: 0;
+            }
+
+            p {
+                margin-bottom: 40px;
+            }
+
+            img {
+                width: 100%;
+                height: 100px;
+                border-radius: 10px;
+            }
+        }
+    }
+}
+
+/*
+******* Brands Page *******
+*/
+.brands {
+    .header-container {
+        margin-top: 4em;
+
+        .header-item {
+            height: 100px; 
+
+            h1 {
+                color: $black;
+                align-self: center;
+            }
+        }
+    }
+
+    .brands-container {
+        .brands__tiles {
+            .brands__tiles-item {
+                margin-bottom: 20px;
+            }
+
+            img {
+                width: 80%;
+                height: 200px;
+                display: block;
+                margin: auto;
+            }
+
+            span {
+                margin-top: 10px;
+            }
+        }
+    }
+}
+
+/*
+******* Schedule Page *******
+*/
+.schedule {
+    .header-container {
+        margin-top: 4em;
+
+        .header-item {
+            background-image: url(../images/placeholder-square.jpg);
+            height: 200px;  
+
+            h1 {
+                align-self: center;
+            }
+        }
+    }
+}
+
+/*
+******* Contact Page *******
+*/
+.contact {
+    .header-container {
+        margin-top: 4em;
+
+        .header-item {
+            background-image: url(../images/placeholder-square.jpg);
+            height: 200px;  
+
+            h1 {
+                align-self: center;
+            }
+        }
+    }
+
+    .contact-container {
+        padding-left: 40px;
+
+        .contact__info {
+            .contact__details {
+                align-self: center;
+            }
+
+            .contact__map {
+                background-image: url(../images/placeholder-square.jpg);
+                height: 500px; 
+            }
+
+            h2 {
+                text-align: left;
+                font-size: 24px;
+                padding: 10px 0;
+            }
+
+            .contact__details-item {
+                display: flex;
+                width: 100%;
+                margin: 10px 0;
+
+                ion-icon {
+                    margin-right: 10px;
+                    color: $dark-grey;
+                    background-color: $grey;
+                    font-size: 16px;
+                    border-radius: 50%;
+                    padding: 7px;
+                    align-self: center;
+
+                    &:hover {
+                        color: $grey;
+                        background-color: $dark-grey;
+                    }
+                }
+
+                span {
+                    align-self: center;
+                }
+            }
+        }
+
+        .contact__form {
+            margin: 0 20% 5% 20%;
         }
     }
 }
@@ -111,6 +367,7 @@ nav {
 ******* FOOTER *******
 */
 footer {
-    background-color: $grey;
+    background-color: $dark-grey;
     padding: 3em 2em;
+    color: $white;
 }

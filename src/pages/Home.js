@@ -18,8 +18,8 @@ class Home extends Component {
       <div className="home-page">
         <Header heading={this.header} isSlider={this.slider}/>
         <Brands />
-        <History />
         <Appointment />
+        <History />
       </div>
     );  
   }

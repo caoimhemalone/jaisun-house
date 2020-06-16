@@ -8,10 +8,11 @@ import Header from '../components/mainComponents/headerSection';
 
 
 class Schedule extends Component {
+  header = "Schedule";
   render() {
     return (
       <div className="schedule">
-        <Header />
+        <Header heading={this.header}/>
         <Grid fluid className="schedule-container px-0">
           <Row className="schedule__latest">
             <Col xs={12} md={12}>

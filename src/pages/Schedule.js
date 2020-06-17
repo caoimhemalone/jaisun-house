@@ -1,11 +1,12 @@
-//Flexbox guide https://roylee0704.github.io/react-flexbox-grid/
 import React, { Component } from "react";
 import { Grid, Row, Col } from 'react-flexbox-grid';
-
+import Diary from '../components/scheduleComponents/diary';
 
 //components
 import Header from '../components/mainComponents/headerSection';
 
+//images
+import ph_square from '../assets/images/placeholder-square.jpg';
 
 class Schedule extends Component {
   header = "Schedule";
@@ -21,29 +22,29 @@ class Schedule extends Component {
             <Col xs={12} md={12}>
                 <p className="d-flex justify-content-center mb-4">Summer 2020</p>
             </Col>
-            <Col xs={6} md={4}>
-                <span className="d-flex justify-content-center">Image goes here</span>
+            <Col xs={6} md={4} className="schedule__image">
+              <img src={ph_square} alt="Placeholder Image"/>
             </Col>
-            <Col xs={6} md={4}>
-                <span className="d-flex justify-content-center">Image goes here</span>
+            <Col xs={6} md={4} className="schedule__image">
+              <img src={ph_square} alt="Placeholder Image"/>
             </Col>
-            <Col xs={6} md={4}>
-                <span className="d-flex justify-content-center">Image goes here</span>
+            <Col xs={6} md={4} className="schedule__image">
+                <img src={ph_square} alt="Placeholder Image"/>
             </Col>
-            <Col xs={6} md={4}>
-                <span className="d-flex justify-content-center">Image goes here</span>
+            <Col xs={6} md={4} className="schedule__image"> 
+                <img src={ph_square} alt="Placeholder Image"/>
             </Col>
-            <Col xs={6} md={4}>
-                <span className="d-flex justify-content-center">Image goes here</span>
+            <Col xs={6} md={4} className="schedule__image">
+                <img src={ph_square} alt="Placeholder Image"/>
             </Col>
-            <Col xs={6} md={4}>
-                <span className="d-flex justify-content-center">Image goes here</span>
+            <Col xs={6} md={4} className="schedule__image">
+                <img src={ph_square} alt="Placeholder Image"/>
             </Col>
           </Row>
 
           <Row className="schedule__next">
             <Col xs={12} md={12}>
-            <span className="d-flex justify-content-center">Calendar image goes here</span>
+            <span className="d-flex justify-content-center"><ion-icon name="calendar-outline"></ion-icon></span>
             </Col>
             <Col xs={12} md={12}>
                 <h2 className="d-flex justify-content-center">Autumn 2020</h2>
@@ -55,8 +56,8 @@ class Schedule extends Component {
 
           <Row className="schedule__calendar">
             <Col xs={12} md={12}>
-            <span className="d-flex justify-content-center">Calendar goes here</span>
-            <table></table>
+              <hr/>
+              <Diary />
             </Col>
           </Row>
         </Grid>

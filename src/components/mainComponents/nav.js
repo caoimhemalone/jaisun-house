@@ -6,6 +6,7 @@ import { Grid, Row, Col } from 'react-flexbox-grid';
 import Home from '../../pages/Home';
 import About from '../../pages/About';
 import Brands from '../../pages/Brands';
+import IndBrand from '../../pages/IndBrand';
 import B2B from '../../pages/B2B';
 import Schedule from '../../pages/Schedule';
 import Contact from '../../pages/Contact';
@@ -51,7 +52,8 @@ function Nav() {
                 <Switch>
                     <Route exact path="/" component={Home}/>          
                     <Route path="/about-us" component={About}/>
-                    <Route path="/brands" component={Brands}/>      
+                    <Route path="/brands" component={Brands}/>  
+                    <Route path="/individual-brand" component={IndBrand}/>    
                     <Route path="/b2b" component={B2B}/>
                     <Route path="/schedule" component={Schedule}/>
                     <Route path="/contact" component={Contact}/>

@@ -1,4 +1,3 @@
-//Flexbox guide https://roylee0704.github.io/react-flexbox-grid/
 import React, { Component } from "react";
 import { Grid, Row, Col } from 'react-flexbox-grid';
 import axios from 'axios'
@@ -16,7 +15,7 @@ class Contact extends Component {
       <Grid fluid className="contact-container">
       <Row className="contact__info">
           <Col xs={12} md={6} className="contact__details">
-              <h2 className="d-flex">Dundrum, Dublin, Ireland</h2>
+              <h2 className="d-flex">Get in touch</h2>
               <div className="contact__details-item">
                 <ion-icon name="location-outline"></ion-icon>
                 <span>12345 Building, Dundrum, Dublin, Ireland</span>

@@ -1,8 +1,6 @@
 import React, {Component} from 'react';
 import { Grid, Row, Col } from 'react-flexbox-grid';
-import HeaderCarousel from "./carousel";
-
-//import heroOne from './heroImages/hero_1.png';
+import HeaderCarousel from "../homeComponents/carousel";
 
 class Header extends Component {
     render(){

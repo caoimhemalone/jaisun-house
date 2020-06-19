@@ -5,6 +5,7 @@ import axios from 'axios'
 
 //components
 import Header from '../components/mainComponents/headerSection';
+import GMap from '../components/scheduleComponents/map';
 
 class Contact extends Component {
   header = "Contact Us";
@@ -30,7 +31,7 @@ class Contact extends Component {
               </div>
           </Col>
           <Col xs={12} md={6} className="contact__map">
-              <p className="d-flex justify-content-center">Map goes here</p>
+                <GMap />
           </Col>
       </Row>
 

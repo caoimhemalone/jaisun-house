@@ -7,6 +7,14 @@ import Header from '../components/mainComponents/headerSection';
 
 //images
 import ph_square from '../assets/images/placeholder-square.jpg';
+import ps_1 from '../assets/images/photoshoots/ps_1.jpg';
+import ps_2 from '../assets/images/photoshoots/ps_2.jpg';
+import ps_3 from '../assets/images/photoshoots/ps_3.jpg';
+import ps_4 from '../assets/images/photoshoots/ps_4.jpg';
+import ps_5 from '../assets/images/photoshoots/ps_5.jpg';
+import ps_6 from '../assets/images/photoshoots/ps_6.jpg';
+
+
 
 class Schedule extends Component {
   header = "Schedule";
@@ -20,25 +28,25 @@ class Schedule extends Component {
                 <h2 className="d-flex justify-content-center">Latest Collection</h2>
             </Col>
             <Col xs={12} md={12}>
-                <p className="d-flex justify-content-center mb-4">Summer 2020</p>
+                <p className="d-flex justify-content-center">Summer 2020</p>
             </Col>
             <Col xs={6} md={4} className="schedule__image">
-              <img src={ph_square} alt="Placeholder Image"/>
+              <img src={ps_1} alt="Placeholder"/>
             </Col>
             <Col xs={6} md={4} className="schedule__image">
-              <img src={ph_square} alt="Placeholder Image"/>
+              <img src={ps_2} alt="Placeholder"/>
             </Col>
             <Col xs={6} md={4} className="schedule__image">
-                <img src={ph_square} alt="Placeholder Image"/>
+                <img src={ps_3} alt="Placeholder"/>
             </Col>
             <Col xs={6} md={4} className="schedule__image"> 
-                <img src={ph_square} alt="Placeholder Image"/>
+                <img src={ps_4} alt="Placeholder"/>
             </Col>
             <Col xs={6} md={4} className="schedule__image">
-                <img src={ph_square} alt="Placeholder Image"/>
+                <img src={ps_5} alt="Placeholder"/>
             </Col>
             <Col xs={6} md={4} className="schedule__image">
-                <img src={ph_square} alt="Placeholder Image"/>
+                <img src={ps_6} alt="Placeholder"/>
             </Col>
           </Row>
 

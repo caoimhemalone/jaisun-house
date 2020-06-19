@@ -7,7 +7,15 @@ import { BrowserRouter as Link} from "react-router-dom";
 import Header from '../components/mainComponents/headerSection';
 
 //images
-import gucci from '../assets/images/brands/gucci.jpg';
+import guess1 from '../assets/images/brands/photoshoots/guess_1.jpeg';
+import guess2 from '../assets/images/brands/photoshoots/guess_2.jpg';
+import guess3 from '../assets/images/brands/photoshoots/guess_3.jpg';
+import guess4 from '../assets/images/brands/photoshoots/guess_4.jpg';
+import guess5 from '../assets/images/brands/photoshoots/guess_5.jpg';
+import guess6 from '../assets/images/brands/photoshoots/guess_6.jpg';
+import guess7 from '../assets/images/brands/photoshoots/guess_7.jpeg';
+import guess8 from '../assets/images/brands/photoshoots/guess_8.jpg';
+
 import ph_square from '../assets/images/placeholder-square.jpg';
 
 
@@ -15,7 +23,7 @@ class IndBrand extends Component {
   header = "Individual Brand Name";
   render() {
     return (
-      <div className="ind-brands" style={{backgroundImage: 'url(' + gucci + ')'}}>
+      <div className="ind-brands" style={{backgroundImage: 'url(' + guess1 + ')'}}>
         <div className="overlay">
             <Header heading={this.header}/>
             <Grid fluid className="ind-brands-container px-0">
@@ -24,28 +32,31 @@ class IndBrand extends Component {
                         <a href="/brands">
                             <Link to="/brands">Back to Brands</Link>
                         </a>
-                        <span className="d-flex justify-content-center ind-brands__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</span>
+                        <span className="d-flex justify-content-center ind-brands__text">GUESS was established in 1981 by the Marciano brothers, who left the south of France in pursuit of the American dream. Inspired by a European influence, the Marcianos redefined denim. One of their initial designs was a stonewashed, slim-fitting jean, the 3-zip Marilyn. Bloomingdale's was the first department store to welcome the brand by ordering two dozen pairs of jeans. They disappeared from the shelves in just hours. This was the beginning of a long success story. <br/> <br/>Today GUESS has grown into a global lifestyle brand, found in more than 100 countries worldwide. The company operates approxitmately 950 retail stores in the Americas, Europe and Asia, with over 700 additional retail stores operated via the company distributors and licensees.</span>
                     </Col>
                 </Row>
                 <Row className="ind-brands__tiles">
-                    <Col xs={12} md={4} className="ind-brands__tiles__item">
-                        <img src={ph_square} alt="Placeholder Image"/>
+                    <Col xs={12} md={12} className="ind-brands__tiles__item item-1">
+                        <img src={guess2} alt="Placeholder"/>
                     </Col>
-                    <Col xs={12} md={4} className="ind-brands__tiles__item">
-                        <img src={ph_square} alt="Placeholder Image"/>
-                    </Col>
-                    <Col xs={12} md={4} className="ind-brands__tiles__item">
-                        <img src={ph_square} alt="Placeholder Image"/>
-                    </Col>
-                    <Col xs={12} md={4} className="ind-brands__tiles__item">
-                        <img src={ph_square} alt="Placeholder Image"/>
-                    </Col>
-                    <Col xs={12} md={4} className="ind-brands__tiles__item">
-                        <img src={ph_square} alt="Placeholder Image"/>
-                    </Col>
-                    <Col xs={12} md={4} className="ind-brands__tiles__item">
-                        <img src={ph_square} alt="Placeholder Image"/>
-                    </Col>
+                    <div className="ind-brands__tiles__item item-2">
+                        <img src={guess3} alt="Placeholder"/>
+                    </div>
+                    <div className="ind-brands__tiles__item item-3">
+                        <img src={guess8} alt="Placeholder"/>
+                    </div>
+                    <div className="ind-brands__tiles__item item-4">
+                        <img src={guess4} alt="Placeholder"/>
+                    </div>
+                    <div className="ind-brands__tiles__item item-5">
+                        <img src={guess5} alt="Placeholder"/>
+                    </div>
+                    <div className="ind-brands__tiles__item item-6">
+                        <img src={guess6} alt="Placeholder"/>
+                    </div>
+                    <div className="ind-brands__tiles__item item-7">
+                        <img src={guess7} alt="Placeholder"/>
+                    </div>
                 </Row>
             </Grid>
         </div>

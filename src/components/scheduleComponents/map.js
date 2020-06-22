@@ -2,13 +2,12 @@ import React, { Component } from 'react';
 import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
 
 class GMap extends Component {
-
-
   render() {
     const mapStyles = {
         width: '100%',
         height: '100%',
     };
+
     return (
       <div className="g-map">
         <Map
@@ -24,6 +23,8 @@ class GMap extends Component {
   }
 }
 
+const API_KEY = process.env.REACT_APP_GOOGLE_API_KEY;
+
 export default GoogleApiWrapper({
-    apiKey: 'AIzaSyB66NxSGTeJiHOGThgugVYu374crWUQi5s'
+    apiKey: {API_KEY}
   })(GMap);

@@ -17,12 +17,12 @@ import ph_5 from "../../assets/images/placeholder-5.jpg";
 class HeaderCarousel extends React.Component {
   render() {
     var settings = {
-        dots: true,
+        dots: false,
         infinite: true,
         slidesToShow: 1,
         slidesToScroll: 1,
         autoplay: true,
-        speed: 12000,
+        speed: 10000,
         autoplaySpeed: 1,
         cssEase: "linear"
     };

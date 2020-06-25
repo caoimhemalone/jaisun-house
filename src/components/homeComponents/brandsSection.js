@@ -8,7 +8,7 @@ import brand4 from "../../assets/images/brands/guess_brand.png";
 import brand5 from "../../assets/images/brands/nakd_brand.png";
 import brand6 from "../../assets/images/brands/mcgregor_brand.png";
 import brand7 from "../../assets/images/brands/vanessa_wu_brand.jpg";
-import brand8 from "../../assets/images/brands/fantasy_sandals_brand.png";
+import brand8 from "../../assets/images/brands/fantasy_sandals_brand.jpg";
 
 function Brands() {
     return (
@@ -20,40 +20,40 @@ function Brands() {
                     </Col>
                 </Row>
 
-                <Row className="brands-tiles">
-                    <Col xs={2} md={2} className="brands-tiles__item">
+                <div className="brands-tiles">
+                    <div className="brands-tiles__item">
                         <img src={brand1}/>
                         <span>GANT</span>
-                    </Col>
-                    <Col xs={2} md={2} className="brands-tiles__item">
+                    </div>
+                    <div className="brands-tiles__item">
                         <img src={brand2}/>
                         <span>Hapy Socks</span>
-                    </Col>
-                    <Col xs={2} md={2} className="brands-tiles__item">
+                    </div>
+                    <div className="brands-tiles__item">
                         <img src={brand6}/>
                         <span>McGregor</span>
-                    </Col>
-                    <Col xs={2} md={2} className="brands-tiles__item">
+                    </div>
+                    <div className="brands-tiles__item">
                         <img src={brand4}/>
                         <span>Guess</span>
-                    </Col>
-                    <Col xs={2} md={2} className="brands-tiles__item">
+                    </div>
+                    <div className="brands-tiles__item">
                         <img src={brand5}/>
                         <span>NA-KD</span>
-                    </Col>
-                    <Col xs={2} md={2} className="brands-tiles__item">
+                    </div>
+                    <div className="brands-tiles__item">
                         <img src={brand3}/>
                         <span>Joop</span>
-                    </Col>
-                    <Col xs={2} md={2} className="brands-tiles__item">
+                    </div>
+                    <div className="brands-tiles__item">
                         <img src={brand7}/>
                         <span>Vanessa Wu</span>
-                    </Col>
-                    <Col xs={2} md={2} className="brands-tiles__item">
+                    </div>
+                    <div className="brands-tiles__item">
                         <img src={brand8}/>
                         <span>Fantasy Sandals</span>
-                    </Col>
-                </Row>
+                    </div>
+                </div>
             </Grid>
         </div>
     );

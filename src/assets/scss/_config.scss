@@ -4,11 +4,10 @@ Vars
 
 $beige: #A09B88;
 $grey: #C0C5CB;
-$dark-grey: #212529;
-$blue: #006289;
-$light-blue: #569CBE;
-$lilac: #B49BB9; 
-$maroon: #571105;
+$blueberry: #6B7A8F;
+$apricot: #F7882F;
+$citrus: #F7C331;
+$apple-core: #DCC7AA;
 $black: #000;
 $white: #fff;
 
@@ -32,6 +31,17 @@ h2 {
 
 hr {
 	width: 100%;
+}
+
+button {
+	&:hover {
+		cursor: pointer;
+	}
+
+	&:focus {
+		outline: none;
+		box-shadow: none;
+	}
 }
 
 /*

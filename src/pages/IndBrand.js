@@ -36,25 +36,25 @@ class IndBrand extends Component {
                     </Col>
                 </Row>
                 <Row className="ind-brands__tiles">
-                    <Col xs={12} md={12} className="ind-brands__tiles__item item-1">
+                    <div className="ind-brands__tiles__item item-1 big">
                         <img src={guess2} alt="Placeholder"/>
-                    </Col>
-                    <div className="ind-brands__tiles__item item-2">
+                    </div>
+                    <div className="ind-brands__tiles__item item-2 vertical">
                         <img src={guess3} alt="Placeholder"/>
                     </div>
-                    <div className="ind-brands__tiles__item item-3">
+                    <div className="ind-brands__tiles__item item-3 horizontal">
                         <img src={guess8} alt="Placeholder"/>
                     </div>
-                    <div className="ind-brands__tiles__item item-4">
+                    <div className="ind-brands__tiles__item item-4 vertical-long">
                         <img src={guess4} alt="Placeholder"/>
                     </div>
-                    <div className="ind-brands__tiles__item item-5">
+                    <div className="ind-brands__tiles__item item-5 vertical">
                         <img src={guess5} alt="Placeholder"/>
                     </div>
-                    <div className="ind-brands__tiles__item item-6">
+                    <div className="ind-brands__tiles__item item-6 horizontal">
                         <img src={guess6} alt="Placeholder"/>
                     </div>
-                    <div className="ind-brands__tiles__item item-7">
+                    <div className="ind-brands__tiles__item item-7 small">
                         <img src={guess7} alt="Placeholder"/>
                     </div>
                 </Row>

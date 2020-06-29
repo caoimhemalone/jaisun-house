@@ -9,7 +9,7 @@ nav {
     background-color: $white;
     display: block;
     width: 100%;
-    z-index: 3;
+    z-index: 5;
 
     .nav-right {
         padding-left: 20%;
@@ -335,22 +335,27 @@ nav {
 ******* Brands Page *******
 */
 .brands {
+    background-color: #efeeec;
     .header-container {
         margin-top: 4em;
+        background-color: $apple-core;
 
         .header-item {
-            height: 100px; 
+            //height: 100px; 
 
             h1 {
-                color: $black;
+                color: $white;
+                text-shadow: 2px 2px rgba(0, 0, 0, 0.08);
                 align-self: center;
+                padding: 40px 0;
             }
         }
     }
 
     .brands-container {
         .brands__tiles {
-            margin: 5% 10%;
+            margin: 0 10%;
+            padding: 5% 0;
             .brands__tiles-item {
                 margin-bottom: 20px;
             }
@@ -358,6 +363,9 @@ nav {
             img {
                 display: block;
                 margin: auto;
+                background-color: $white;
+                -webkit-box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.08); 
+                box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.1);
             }
 
             span {
@@ -467,13 +475,16 @@ nav {
         margin-top: 4em;
 
         .header-item {
-            background-image: url(../images/banner/banner_3.jpg);
+            background-image: url(../images/banner/banner_4.jpg);
+            //https://pngtree.com/freebackground/yellow-gray-minimalist-cut-geometry-memphis-banner_931578.html
             height: 200px;  
             background-size: cover;
             background-position: left;
 
             h1 {
                 align-self: center;
+                color: $white;
+                text-shadow: rgba(0, 0, 0, 0.08);
             }
         }
     }
@@ -501,7 +512,8 @@ nav {
         }
 
         .schedule__next {
-            margin-top: 20px;
+            padding-top: 20px;
+            background-color: $apple-core;
 
             ion-icon {
                 font-size: 50px;
@@ -515,8 +527,64 @@ nav {
 
         .schedule__calendar {
             //margin-top: 60px;
+            h2 {
+                text-align: center;
+                padding-bottom: 24px;
+
+                a {
+                    color: $citrus;
+                    text-decoration: none;
+
+                    &:hover {
+                        color: $apricot;
+                        text-decoration: underline;
+                    }
+                }
+            }
+
             .diary {
-                margin-top: 30px;
+                //margin-top: 30px;
+
+                .rbc-event {
+                    background-color: $blueberry;
+                }
+
+                .rbc-btn-group {
+                    button {
+                        border-radius: 30em;
+                        background-color: $apricot;
+                        border-color: unset;
+                        color: $white;
+                        text-shadow: 1px 1px rgba(0, 0, 0, 0.08);
+                    }
+
+                    .rbc-active {
+                        background-color: $citrus;
+                    }
+                }
+
+                .rbc-toolbar {
+                    margin-bottom: 1em;
+                }
+
+                .rbc-toolbar-label {
+                    font-size: 20px;
+                    padding-left: 7%;
+                }
+
+                .rbc-today {
+                    background-color: $apple-core;
+                }
+       
+                .rbc-day-slot.rbc-today {
+                    background-color: $white;
+                }
+
+                .rbc-allday-cell {
+                    .rbc-today {
+                        background-color: $white;
+                    }
+                }
             }
         }
     }
@@ -530,11 +598,14 @@ nav {
         margin-top: 4em;
 
         .header-item {
-            background-image: url(../images/banner/banner_1.jpg);
+            background-image: url(../images/banner/banner_5.jpg);
             height: 200px;  
+            background-position: center;
 
             h1 {
                 align-self: center;
+                color: $white;
+                text-shadow: rgba(0, 0, 0, 0.08);
             }
         }
     }
@@ -565,15 +636,15 @@ nav {
 
                 &:hover {
                     ion-icon {
-                        color: $grey;
-                        background-color: $apricot;
+                        color: $citrus;
+                        background-color: $blueberry;
                     }
                 }
 
                 ion-icon {
                     margin-right: 10px;
-                    color: $apricot;
-                    background-color: $grey;
+                    color: $apple-core;
+                    background-color: $apricot;
                     font-size: 16px;
                     border-radius: 50%;
                     padding: 7px;

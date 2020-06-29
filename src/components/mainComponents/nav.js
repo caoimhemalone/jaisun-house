@@ -23,27 +23,28 @@ function Nav() {
                     <Grid fluid className="px-4 py-3">
                         <Row className="mx-0">
                             <Col xs={12} md={2} className="nav-left">
-                            <Link to="/">Logo Here</Link>
+                            <a href="/">Logo Here</a>
                             </Col>
                             <Col xs={12} md={10} className="nav-right">
                                 <Row end="xs" middle="xs">
                                     <Col xs={12} md className="nav-item"> 
-                                        <Link to="/about-us">About</Link>
+                                        {/* <Link to="/about-us">About</Link> */}
+                                        <a href="/about-us">About</a>
                                     </Col>
                                     <Col xs={12} md className="nav-item"> 
-                                        <Link to="/brands">Brands</Link>
+                                        <a href="/brands">Brands</a>
                                     </Col>
                                     <Col xs={12} md className="nav-item"> 
-                                        <Link to="/b2b">B2B</Link>
+                                        <a href="/b2b">B2B</a>
                                     </Col> 
                                     <Col xs={12} md className="nav-item"> 
-                                        <Link to="/schedule">Schedule</Link>
+                                        <a href="/schedule">Schedule</a>
                                     </Col>
                                     <Col xs={12} md className="nav-item"> 
-                                        <Link to="/contact">Contact</Link>
+                                        <a href="/contact">Contact</a>
                                     </Col>
                                     <Col xs={12} md className="nav-item"> 
-                                        <Link to="/sign-in">Sign in</Link>
+                                        <a href="/sign-in">Sign in</a>
                                     </Col>
                                 </Row>
                             </Col>

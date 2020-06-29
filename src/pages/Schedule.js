@@ -28,7 +28,7 @@ class Schedule extends Component {
                 <h2 className="d-flex justify-content-center">Latest Collection</h2>
             </Col>
             <Col xs={12} md={12}>
-                <p className="d-flex justify-content-center">Summer 2020</p>
+                <p className="d-flex justify-content-center">Guess Summer 2020</p>
             </Col>
             <Col xs={6} md={4} className="schedule__image">
               <img src={ps_1} alt="Placeholder"/>
@@ -55,15 +55,16 @@ class Schedule extends Component {
             <span className="d-flex justify-content-center"><ion-icon name="calendar-outline"></ion-icon></span>
             </Col>
             <Col xs={12} md={12}>
-                <h2 className="d-flex justify-content-center">Autumn 2020</h2>
+                <h2 className="d-flex justify-content-center">Next Launch</h2>
             </Col>
             <Col xs={12} md={12}>
-                <p className="d-flex justify-content-center">Info Info Info Info Info Info Info Info Info</p>
+                <p className="d-flex justify-content-center">Gant Fall 2020 Collection</p>
             </Col>
           </Row>
 
           <Row className="schedule__calendar">
             <Col xs={12} md={12}>
+              <h2>Here are our available dates. <a href="/contact">BOOK AN APPOINTMENT</a> and come see us!</h2>
               <hr/>
               <Diary />
             </Col>

@@ -14,7 +14,10 @@ function Footer() {
                     </Col>
                     <Col xs={12} md={10} className="footer-right">
                         <Row>
-                            <Col xs={12} md={4} >
+                            <Col xs={6} md={4} className="footer-logo">
+                                Footer House Logo
+                            </Col>
+                            <Col xs={6} md={4} >
                                 <ul>
                                     <li>
                                         <a href="/about-us">
@@ -53,7 +56,7 @@ function Footer() {
                                     </li> */}
                                 </ul>
                             </Col>
-                            <Col xs={12} md={4} >
+                            <Col xs={6} md={4} >
                                 <ul>
                                     <li>
                                         <a href="/">
@@ -72,7 +75,7 @@ function Footer() {
                                     </li>
                                 </ul>
                             </Col>
-                            <Col xs={12} md={4} >
+                            <Col xs={6} md={4} >
                                 <ul>
                                     <li>
                                         <a href="/">

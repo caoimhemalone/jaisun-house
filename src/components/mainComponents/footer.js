@@ -49,11 +49,11 @@ function Footer() {
                                             <Link to="/sign-in">Sign In</Link>
                                         </a>
                                     </li>
-                                    {/* <li>
-                                        <a href="/about-us">
-                                            <Link to="/about-us">Sitemap</Link>
+                                    <li>
+                                        <a href="/sitemap">
+                                            <Link to="/sitemap">Sitemap</Link>
                                         </a>
-                                    </li> */}
+                                    </li>
                                 </ul>
                             </Col>
                             <Col xs={6} md={4} >

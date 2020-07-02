@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Grid, Row, Col } from 'react-flexbox-grid';
 import axios from 'axios'
-
+import Pulse from 'react-reveal/Pulse';
 
 //components
 import Header from '../components/mainComponents/headerSection';
@@ -39,7 +39,9 @@ class Contact extends Component {
 
       <Row className="contact__form">
           <Col xs={12} md={12}>
+            <Pulse>
               <h2 className="d-flex justify-content-center">Send us a message</h2>
+            </Pulse>
 
               {/* <form id="contact-form" onSubmit={this.handleSubmit.bind(this)} method="POST"> */}
               <form>

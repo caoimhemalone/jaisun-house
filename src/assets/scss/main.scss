@@ -253,16 +253,31 @@ nav {
         display: flex;
         padding: 20px 0;
 
+        .btn-container {
+            display: block;
+            width: 60%;
+            margin: auto;
+
+            @media only screen and (max-width: 991px){
+                width: 80%;
+            }
+        }
+
         .appt-link {
             margin: 2em auto;
             padding: 10px 30px;
-            width: 60%;
+            width: 100%;
             background-color: $white;
             color: $apricot;
             border: none;
             border-radius: 7px;
             text-transform: uppercase;
             transition: 0.3s;
+            display: block;
+
+            @media only screen and (max-width: 991px) {
+                padding: 26px 40px;
+            }
 
             &:hover {
                 color: $white;
@@ -417,6 +432,11 @@ nav {
     .history-container {
         .history-info {
             padding-bottom: 4em;
+
+            @media only screen and (max-width: 991px) {
+                padding-bottom: 40px;
+            }
+
             img {
                 width: 100%;
                 height: 250px;
@@ -428,6 +448,11 @@ nav {
                 p {
                     line-height: 2;
                     align-self: center;
+
+                    @media only screen and (max-width: 991px){
+                        margin-top: 40px;
+                        margin-bottom: 0;
+                    }
                 }
             }
         }
@@ -456,6 +481,10 @@ nav {
     .about-us-container {
         h2 {
             margin: 30px 0;
+
+            @media only screen and (max-width: 991px) {
+                margin: 0;
+            }
         }
 
         .about-us__bio {
@@ -468,6 +497,10 @@ nav {
 
             .text-container {
                 display: flex;
+
+                @media only screen and (max-width: 991px) {
+                    padding: 40px 24px 0 24px;
+                }
 
                 p {
                     line-height: 1.8;
@@ -483,6 +516,10 @@ nav {
             p {
                 padding: 0 100px;
                 margin-bottom: 30px;
+
+                @media only screen and (max-width: 991px) {
+                    padding: 0;
+                }
             }
         }
 
@@ -566,6 +603,7 @@ nav {
                 background-color: $white;
                 -webkit-box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.08); 
                 box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.1);
+                padding: 10px;
 
                 @media only screen and (max-width: 991px) {
                     width: 100%;
@@ -592,14 +630,17 @@ nav {
     }
 
     .header-container {
-        margin-top: 4em;
-
         .header-item {
             height: 100px; 
+
+            @media only screen and (max-width: 991px) {
+                height: unset;
+            }
 
             h1 {
                 color: $white;
                 align-self: center;
+                margin-top: 3em;
             }
         }
     }
@@ -608,6 +649,10 @@ nav {
         .ind-brands__details {
             .ind-brands__details__container {
                 padding: 2% 60% 8% 20px;
+
+                @media only screen and (max-width: 991px) {
+                    padding: 2%;
+                }
 
                 a {
                     color: $white;
@@ -623,6 +668,10 @@ nav {
                     line-height: 1.8;
                     color: $white;
                     padding-top: 20px;
+
+                    @media only screen and (max-width: 991px) {
+                        padding-top: 40px;
+                    }
                 }
             }
         }
@@ -635,22 +684,38 @@ nav {
             grid-gap: 5px;
             grid-auto-flow: dense;
 
+            @media only screen and (max-width: 991px) {
+                padding-bottom: 5px;
+            }
+
             .ind-brands__tiles__item {
                 padding: 0;
             }
 
             .horizontal{
                 grid-column: span 2;
+
+                @media only screen and (max-width: 991px) {
+                    grid-column: span 3;
+                }
             }
 
             .vertical {
                 grid-row: span 2;
                 grid-column: span 2;
+
+                @media only screen and (max-width: 991px) {
+                    grid-column: span 3;
+                }
             }
 
             .vertical-long {
                 grid-row: span 3;
                 grid-column: span 2;
+
+                @media only screen and (max-width: 991px) {
+                    grid-column: span 3;
+                }
             }
 
             .big{
@@ -661,6 +726,11 @@ nav {
             .small {
                 grid-row: span 1;
                 grid-column: span 1;
+
+                @media only screen and (max-width: 991px) {
+                    grid-column: span 3;
+                    grid-row: span 2;
+                }
             }
 
             img {
@@ -801,8 +871,6 @@ nav {
 */
 .contact {
     .header-container {
-        margin-top: 4em;
-
         .header-item {
             background-image: url(../images/banner/banner_5.jpg);
             height: 200px;  
@@ -817,7 +885,13 @@ nav {
     }
 
     .contact-container {
-        padding-left: 40px;
+        @media only screen and (min-width: 992px){
+            padding-left: 40px;
+        }
+
+        @media only screen and (max-width: 991px) {
+            padding-top: 24px;
+        }
 
         .contact__info {
             .contact__details {
@@ -826,6 +900,10 @@ nav {
 
             .contact__map {
                 height: 500px; 
+
+                .g-map {
+                    position: relative;
+                }
             }
 
             h2 {
@@ -839,6 +917,10 @@ nav {
                 //width: 100%;
                 width: fit-content;
                 margin: 10px 0;
+
+                @media only screen and (max-width: 991px) {
+                    margin: 24px 0;
+                }
 
                 &:hover {
                     ion-icon {
@@ -855,6 +937,10 @@ nav {
                     border-radius: 50%;
                     padding: 7px;
                     align-self: center;
+
+                    @media only screen and (max-width: 991px) {
+                        font-size: 24px;
+                    }
                 }
 
                 span {
@@ -869,6 +955,10 @@ nav {
 
         .contact__form {
             margin: 0 20% 5% 20%;
+
+            @media only screen and (max-width: 991px) {
+                margin: 0 5% 15% 5%;
+            }
 
             form {
                 .form-control {
@@ -900,6 +990,48 @@ nav {
                     background-color: $apple-core;
                     border: none;
                     padding: 5px 35px;
+
+                    @media only screen and (max-width: 991px) {
+                        padding: 12px 40px;
+                        margin-top: 24px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+/*
+******* Sitemap Page *******
+*/
+.sitemap {
+    .header-container {
+        .header-item {
+            height: 200px;  
+            background-color: $blueberry;
+
+            h1 {
+                align-self: center;
+                color: $white;
+                text-shadow: rgba(0, 0, 0, 0.08);
+            }
+        }
+    }
+
+    .sitemap-container {
+        margin-top: 24px;
+
+        ul {
+            list-style: none;
+
+            li {
+                a {
+                    color: $black;
+                    padding: 5px 0;
+
+                    &:hover {
+                        color: $apricot;
+                    }
                 }
             }
         }

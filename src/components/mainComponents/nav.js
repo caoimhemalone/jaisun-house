@@ -12,6 +12,7 @@ import B2B from '../../pages/B2B';
 import Schedule from '../../pages/Schedule';
 import Contact from '../../pages/Contact';
 import Signin from '../../pages/Signin';
+import Sitemap from '../../pages/Sitemap';
 
 //import heroOne from './heroImages/hero_1.png';
 
@@ -79,6 +80,7 @@ class Nav extends React.Component {
                         <Route path="/schedule" component={Schedule}/>
                         <Route path="/contact" component={Contact}/>
                         <Route path="/sign-in" component={Signin}/>
+                        <Route path="/sitemap" component={Sitemap}/>
                     </Switch>          
                 </Router>
             </div>

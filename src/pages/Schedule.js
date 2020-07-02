@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Grid, Row, Col } from 'react-flexbox-grid';
 import Diary from '../components/scheduleComponents/diary';
+import Fade from 'react-reveal/Fade';
 
 //components
 import Header from '../components/mainComponents/headerSection';
@@ -64,7 +65,9 @@ class Schedule extends Component {
 
           <Row className="schedule__calendar">
             <Col xs={12} md={12}>
-              <h2>Here are our available dates. <a href="/contact">BOOK AN APPOINTMENT</a> and come see us!</h2>
+              <Fade bottom>
+                <h2>Here are our available dates. <a href="/contact">BOOK AN APPOINTMENT</a> and come see us!</h2>
+              </Fade>
               <hr/>
               <Diary />
             </Col>

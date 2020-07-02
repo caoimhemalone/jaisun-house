@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Grid, Row, Col } from 'react-flexbox-grid';
-
+import Zoom from 'react-reveal/Zoom';
 
 //components
 import Header from '../components/mainComponents/headerSection';
@@ -38,20 +38,26 @@ class About extends Component {
                 </Row>
 
                 <Row className="about-us__goals px-5">
-                    <Col xs={4} md={4}>
-                        <ion-icon name="bulb-outline"></ion-icon>
-                        <span className="d-flex justify-content-center">Goal 1 </span>
-                        <p className="d-flex justify-content-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut </p>
+                    <Col xs={12} md={4}>
+                        <Zoom>
+                            <ion-icon name="bulb-outline"></ion-icon>
+                            <span className="d-flex justify-content-center">Goal 1 </span>
+                            <p className="d-flex justify-content-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut </p>
+                        </Zoom>
                     </Col>
-                    <Col xs={4} md={4}>
-                        <ion-icon name="cash-outline"></ion-icon>
-                        <span className="d-flex justify-content-center">Goal 2 </span>
-                        <p className="d-flex justify-content-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut </p>
+                    <Col xs={13} md={4}>
+                        <Zoom>
+                            <ion-icon name="cash-outline"></ion-icon>
+                            <span className="d-flex justify-content-center">Goal 2 </span>
+                            <p className="d-flex justify-content-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut </p>
+                        </Zoom>
                     </Col>
-                    <Col xs={4} md={4}>
-                        <ion-icon name="star-outline"></ion-icon>
-                        <span className="d-flex justify-content-center">Goal 3 </span>
-                        <p className="d-flex justify-content-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut </p>
+                    <Col xs={12} md={4}>
+                        <Zoom>
+                            <ion-icon name="star-outline"></ion-icon>
+                            <span className="d-flex justify-content-center">Goal 3 </span>
+                            <p className="d-flex justify-content-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut </p>
+                        </Zoom>
                     </Col>
                     <hr/>
                 </Row>

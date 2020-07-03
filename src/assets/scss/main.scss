@@ -35,7 +35,7 @@ nav {
             color: $black;
 
             &:hover {
-                color: $blueberry;
+                color: $white;
             }
 
             @media only screen and (max-width: 991px) {
@@ -571,6 +571,11 @@ nav {
     background-color: #efeeec;
     .header-container {
         background-color: $apple-core;
+        padding: 6% 0 3% 0;
+
+        @media only screen and (max-width: 991px) {
+            padding: 0;
+        }
 
         .header-item {
             //height: 100px; 
@@ -749,12 +754,14 @@ nav {
         .header-item {
             background-image: url(../images/banner/banner_4.jpg);
             //https://pngtree.com/freebackground/yellow-gray-minimalist-cut-geometry-memphis-banner_931578.html
-            height: 200px;  
+            //height: 200px;  
             background-size: cover;
             background-position: left;
+            padding: 8% 0 5% 0;
 
             @media only screen and (max-width: 991px) {
                 background-position: center;
+                padding: 0;
             }
 
             h1 {
@@ -873,8 +880,13 @@ nav {
     .header-container {
         .header-item {
             background-image: url(../images/banner/banner_5.jpg);
-            height: 200px;  
+            //height: 200px;  
             background-position: center;
+            padding: 8% 0 5% 0;
+
+            @media only screen and (max-width: 991px) {
+                padding: 0;
+            }
 
             h1 {
                 align-self: center;

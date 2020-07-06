@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Grid, Row, Col } from 'react-flexbox-grid';
 import { BrowserRouter as Link} from "react-router-dom";
-
+import Image from 'react-bootstrap/Image'
 
 //components
 import Header from '../components/mainComponents/headerSection';
@@ -37,25 +37,26 @@ class IndBrand extends Component {
                 </Row>
                 <Row className="ind-brands__tiles">
                     <div className="ind-brands__tiles__item item-1 big">
-                        <img src={guess2} alt="Placeholder"/>
+                        {/* <img src={guess2} alt="Placeholder"/> */}
+                        <Image src={guess2} fluid alt="Placeholder"/>
                     </div>
                     <div className="ind-brands__tiles__item item-2 vertical">
-                        <img src={guess3} alt="Placeholder"/>
+                        <Image src={guess3} fluid alt="Placeholder"/>
                     </div>
                     <div className="ind-brands__tiles__item item-3 horizontal">
-                        <img src={guess8} alt="Placeholder"/>
+                        <Image fluid src={guess8} alt="Placeholder"/>
                     </div>
                     <div className="ind-brands__tiles__item item-4 vertical-long">
-                        <img src={guess4} alt="Placeholder"/>
+                        <Image fluid src={guess4} alt="Placeholder"/>
                     </div>
                     <div className="ind-brands__tiles__item item-5 vertical">
-                        <img src={guess5} alt="Placeholder"/>
+                        <Image fluid src={guess5} alt="Placeholder"/>
                     </div>
                     <div className="ind-brands__tiles__item item-6 horizontal">
-                        <img src={guess6} alt="Placeholder"/>
+                        <Image fluid src={guess6} alt="Placeholder"/>
                     </div>
                     <div className="ind-brands__tiles__item item-7 small">
-                        <img src={guess7} alt="Placeholder"/>
+                        <Image fluid src={guess7} alt="Placeholder"/>
                     </div>
                 </Row>
             </Grid>

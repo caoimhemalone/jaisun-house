@@ -23,11 +23,11 @@ class Nav extends React.Component {
     }
 
     listenScrollEvent = e => {
-    if (window.scrollY > 400) {
-        this.setState({nav: '#fff', hamburger: '#000'})
-    } else {
-        this.setState({nav: 'transparent', hamburger: '#fff'})
-    }
+        if (window.scrollY > 300) {
+            this.setState({nav: '#fff', hamburger: '#000', trans: '2s ease-in'})
+        } else {
+            this.setState({nav: 'transparent', hamburger: '#fff', trans: 'unset'})
+        }
     }
 
     componentDidMount() {
@@ -37,7 +37,7 @@ class Nav extends React.Component {
         return (
             <div>
                 <Router>
-                    <nav style={{backgroundColor: this.state.nav}}>
+                    <nav style={{backgroundColor: this.state.nav, transition: this.state.trans}}>
                         <input type="checkbox" className="toggler"/>
                         <div className="hamburger"><div style={{background: this.state.hamburger}}></div></div>
                         <Grid fluid className="px-4 py-3 menu">

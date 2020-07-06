@@ -5,7 +5,7 @@ import Pulse from 'react-reveal/Pulse';
 
 //components
 import Header from '../components/mainComponents/headerSection';
-import GMap from '../components/scheduleComponents/map';
+import GMap from '../components/contactComponents/map';
 
 class Contact extends Component {
   header = "Contact Us";
@@ -19,15 +19,21 @@ class Contact extends Component {
               <h2 className="d-flex">Get in touch</h2>
               <div className="contact__details-item">
                 <ion-icon name="location-outline"></ion-icon>
-                <span>12345 Building, Dundrum, Dublin, Ireland</span>
+                <span>
+                  <a target="_blank" href="http://maps.google.com/?q=1200 Pennsylvania Ave SE, Washington, District of Columbia, 20003">12345 Building, Dundrum, Dublin, Ireland</a>
+                </span>
               </div>
               <div className="contact__details-item">
                 <ion-icon name="mail-outline"></ion-icon>
-                <span>name@email.com</span>
+                <span>
+                  <a href = "mailto:admin@key-vah.com?subject = Feedback&body = Message">Email</a>
+                </span>
               </div>
               <div className="contact__details-item">
                 <ion-icon name="call-outline"></ion-icon>
-                <span>01 0000000</span>
+                <span>
+                  <a href="tel:123-456-7890">123-456-7890</a>
+                </span>
               </div>
           </Col>
           <Col xs={12} md={6} className="contact__map">
@@ -61,7 +67,7 @@ class Contact extends Component {
             </form>
           </Col>
       </Row>
-  </Grid>
+    </Grid>
   </div>
     );  
   }

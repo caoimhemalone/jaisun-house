@@ -7,6 +7,15 @@ import Header from '../components/mainComponents/headerSection';
 
 //images
 import ph_square from '../assets/images/placeholder-square.jpg';
+import brand1 from "../assets/images/brands/gant_brand.jpg";
+import brand2 from "../assets/images/brands/happy_socks_brand.png";
+import brand3 from "../assets/images/brands/joop_brand.png";
+import brand4 from "../assets/images/brands/guess_brand.png";
+import brand5 from "../assets/images/brands/nakd_brand.png";
+import brand6 from "../assets/images/brands/mcgregor_brand.png";
+import brand7 from "../assets/images/brands/vanessa_wu_brand.jpg";
+import brand8 from "../assets/images/brands/fantasy_sandals_brand.jpg";
+
 
 
 class About extends Component {
@@ -67,23 +76,40 @@ class About extends Component {
                         <h2 className="d-flex justify-content-center">Our clients</h2>
                     </Col>
                     <Col xs={12} md={12}>
-                        <p className="d-flex justify-content-center">A list of companies that have worked with us</p>
+                        <p className="d-flex justify-content-center">A list of companies that have worked with us (CHANGE THIS TO BE ACTUAL SHOPS)</p>
                     </Col>
-                    <Col xs={2} md={2} mdOffset={1}>
-                        <img src={ph_square} alt="Placeholder Image"/>
-                    </Col>
-                    <Col xs={2} md={2}>
-                        <img src={ph_square} alt="Placeholder Image"/>
-                    </Col>
-                    <Col xs={2} md={2}>
-                        <img src={ph_square} alt="Placeholder Image"/>
-                    </Col>
-                    <Col xs={2} md={2}>
-                        <img src={ph_square} alt="Placeholder Image"/>
-                    </Col>
-                    <Col xs={2} md={2}>
-                        <img src={ph_square} alt="Placeholder Image"/>
-                    </Col>
+                    <Row className="brands-tiles">
+                        <Col xs={6} md={2} className="brands-tiles__item">
+                            <a href="/individual-brand">
+                                <img src={brand1}/>
+                            </a>
+                        </Col>
+                        <Col xs={6} md={2} className="brands-tiles__item">
+                            <a href="/individual-brand">
+                                <img src={brand2}/>
+                            </a>
+                        </Col>
+                        <Col xs={6} md={2} className="brands-tiles__item">
+                            <a href="/individual-brand">
+                                <img src={brand6}/>
+                            </a>
+                        </Col>
+                        <Col xs={6} md={2} className="brands-tiles__item">
+                            <a href="/individual-brand">
+                                <img src={brand4}/>
+                            </a>
+                        </Col>
+                        <Col xs={6} md={2} className="brands-tiles__item">
+                            <a href="/individual-brand">
+                                <img src={brand5}/>
+                            </a>
+                        </Col>
+                        <Col xs={6} md={2} className="brands-tiles__item">
+                            <a href="/individual-brand">
+                                <img src={brand3}/>
+                            </a>
+                        </Col>
+                    </Row>
                 </Row>
                 
             </Grid>

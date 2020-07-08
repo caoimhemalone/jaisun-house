@@ -27,7 +27,7 @@ function Brands() {
                     </div>
                     <div className="brands-tiles__item">
                         <img src={brand2}/>
-                        <span>Hapy Socks</span>
+                        <span>Happy Socks</span>
                     </div>
                     <div className="brands-tiles__item">
                         <img src={brand6}/>

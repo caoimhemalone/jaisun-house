@@ -10,13 +10,13 @@ import ph_square from '../assets/images/placeholder-square.jpg';
 import guess from '../assets/images/brands/guess_brand.png'
 import mcgregor from '../assets/images/brands/mcgregor_brand.png'
 import fantasy_sandals from '../assets/images/brands/fantasy_sandals_brand.png'
-import gant from '../assets/images/brands/gant_brand.jpg'
+import gant from '../assets/images/brands/gant_brand.png'
 import happy_socks from '../assets/images/brands/happy_socks_brand.png'
 import joop from '../assets/images/brands/joop_brand.png'
-import kendall_and_kylie from '../assets/images/brands/kendall_and_kylie_brand.jpg'
+import kendall_and_kylie from '../assets/images/brands/kendall_and_kylie_brand.png'
 import nakd from '../assets/images/brands/nakd_brand.png'
-import tiffosi from '../assets/images/brands/tiffosi_brand.jpeg'
-import vanessa_wu from '../assets/images/brands/vanessa_wu_brand.jpg'
+import tiffosi from '../assets/images/brands/tiffosi_brand.png'
+import vanessa_wu from '../assets/images/brands/vanessa_wu_brand.png'
 
 
 

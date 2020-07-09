@@ -7,14 +7,14 @@ import Header from '../components/mainComponents/headerSection';
 
 //images
 import ph_square from '../assets/images/placeholder-square.jpg';
-import brand1 from "../assets/images/brands/gant_brand.jpg";
+import brand1 from "../assets/images/brands/gant_brand.png";
 import brand2 from "../assets/images/brands/happy_socks_brand.png";
 import brand3 from "../assets/images/brands/joop_brand.png";
 import brand4 from "../assets/images/brands/guess_brand.png";
 import brand5 from "../assets/images/brands/nakd_brand.png";
 import brand6 from "../assets/images/brands/mcgregor_brand.png";
-import brand7 from "../assets/images/brands/vanessa_wu_brand.jpg";
-import brand8 from "../assets/images/brands/fantasy_sandals_brand.jpg";
+import brand7 from "../assets/images/brands/vanessa_wu_brand.png";
+import brand8 from "../assets/images/brands/fantasy_sandals_brand.png";
 
 
 

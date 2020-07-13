@@ -33,6 +33,15 @@ hr {
 	width: 100%;
 }
 
+a {
+	color: $apricot;
+
+	&:hover {
+		color: $blueberry;
+		;
+	}
+}
+
 button {
 	&:hover {
 		cursor: pointer;

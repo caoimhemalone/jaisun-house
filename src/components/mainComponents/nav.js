@@ -1,6 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Link, Route, Switch} from "react-router-dom";
 import { Grid, Row, Col } from 'react-flexbox-grid';
+import ReactGA from "react-ga";
+
 
 
 //pages
@@ -18,8 +20,8 @@ import Sitemap from '../../pages/Sitemap';
 
 class Nav extends React.Component {
     state = {
-    nav: 'transparent',
-    hamburger: '#fff'
+        nav: 'transparent',
+        hamburger: '#fff'
     }
 
     listenScrollEvent = e => {
@@ -31,7 +33,13 @@ class Nav extends React.Component {
     }
 
     componentDidMount() {
-    window.addEventListener('scroll', this.listenScrollEvent)
+        window.addEventListener('scroll', this.listenScrollEvent)
+    }
+
+    constructor() {
+        super();
+        ReactGA.initialize("UA-111422776-1");
+        ReactGA.pageview(window.location.pathname);
     }
     render(){
         return (
@@ -75,12 +83,12 @@ class Nav extends React.Component {
                         <Route exact path="/" component={Home}/>          
                         <Route path="/about-us" component={About}/>
                         <Route path="/brands" component={Brands}/>  
-                        <Route path="/individual-brand" component={IndBrand}/>    
                         <Route path="/b2b" component={B2B}/>
                         <Route path="/schedule" component={Schedule}/>
                         <Route path="/contact" component={Contact}/>
                         <Route path="/sign-in" component={Signin}/>
                         <Route path="/sitemap" component={Sitemap}/>
+                        <Route exact path="/:id" component={IndBrand} />
                     </Switch>          
                 </Router>
             </div>

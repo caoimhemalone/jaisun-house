@@ -18,6 +18,8 @@ import nakd from '../assets/images/brands/nakd_brand.png'
 import tiffosi from '../assets/images/brands/tiffosi_brand.png'
 import vanessa_wu from '../assets/images/brands/vanessa_wu_brand.png'
 
+//USE THIS TO DIPKAY FROM JSON
+//https://www.cloudways.com/blog/use-react-with-wordpress-to-create-headless-cms/
 
 
 class Brands extends Component {

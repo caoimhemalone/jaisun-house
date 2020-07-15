@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { Grid, Row, Col } from 'react-flexbox-grid';
 import Diary from '../components/scheduleComponents/diary';
 import Fade from 'react-reveal/Fade';
+import axios from 'axios';
+
 
 //components
 import Header from '../components/mainComponents/headerSection';
@@ -18,8 +20,39 @@ import ps_6 from '../assets/images/photoshoots/ps_6.jpg';
 
 
 class Schedule extends Component {
+  state = {
+    ttable: {},
+    isLoaded: false
+  }
+
+  componentDidMount() {
+    axios.get("http://www.jaisunhouse.com/wp/wp-json/wp/v2/schedule").then(res => {
+        console.log(res.data);
+        this.setState({
+        scheduletable: res.data,
+        isLoaded: true
+        })
+    })
+    .catch(error => console.log(error));
+  }
+
+  constructor(props) {    
+    super(props)
+    this.state = {
+      condition: false
+    }
+    this.handleClick = this.handleClick.bind(this)
+  }
+
+  handleClick() {
+    this.setState({
+        condition: !this.state.condition
+    })
+  }
+
   header = "Schedule";
   render() {
+    const { scheduletable } = this.state;
     return (
       <div className="schedule">
         <Header heading={this.header}/>
@@ -29,7 +62,10 @@ class Schedule extends Component {
                 <h2 className="d-flex justify-content-center">Latest Collection</h2>
             </Col>
             <Col xs={12} md={12}>
-                <p className="d-flex justify-content-center">Guess Summer 2020</p>
+                <p className="d-flex justify-content-center">
+                  {/* {scheduletable.title.rendered} */}
+                  {/* {scheduletable.map(schedule => (<div key={schedule.id} dangerouslySetInnerHTML={{ __html:schedule.latest_collection}}/>))} */}
+                </p>
             </Col>
             <Col xs={6} md={4} className="schedule__image">
               <img src={ps_1} alt="Placeholder"/>
@@ -59,7 +95,7 @@ class Schedule extends Component {
                 <h2 className="d-flex justify-content-center">Next Launch</h2>
             </Col>
             <Col xs={12} md={12}>
-                <p className="d-flex justify-content-center">Gant Fall 2020 Collection</p>
+                {/* <p className="d-flex justify-content-center">{scheduletable.map(schedule => (<div key={schedule.id} dangerouslySetInnerHTML={{ __html:schedule.next_launch}}/>))}</p> */}
             </Col>
           </Row>
 

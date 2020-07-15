@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Grid, Row, Col } from 'react-flexbox-grid';
-import ContentLoader, { Facebook } from 'react-content-loader'
+import ContentLoader from 'react-content-loader'
 
 export class BrandItems extends Component {
     render() {

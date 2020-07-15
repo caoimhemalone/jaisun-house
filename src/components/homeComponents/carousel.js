@@ -34,24 +34,24 @@ class HeaderCarousel extends React.Component {
     return (
       <Slider {...settings} className="header-carousel">
         <div>
-          <img class="slider-img-desktop" src={ph_1} />
-          <img class="slider-img-mobile" src={ph_1_mobile} />
+          <img className="slider-img-desktop" src={ph_1} />
+          <img className="slider-img-mobile" src={ph_1_mobile} />
         </div>
         <div>
-            <img class="slider-img-desktop" src={ph_2} />
-            <img class="slider-img-mobile" src={ph_2_mobile} />
+            <img className="slider-img-desktop" src={ph_2} />
+            <img className="slider-img-mobile" src={ph_2_mobile} />
         </div>
         <div>
-            <img class="slider-img-desktop" src={ph_3} />
-            <img class="slider-img-mobile" src={ph_3_mobile} />
+            <img className="slider-img-desktop" src={ph_3} />
+            <img className="slider-img-mobile" src={ph_3_mobile} />
         </div>
         <div>
-            <img class="slider-img-desktop" src={ph_4} />
-            <img class="slider-img-mobile" src={ph_4_mobile} />
+            <img className="slider-img-desktop" src={ph_4} />
+            <img className="slider-img-mobile" src={ph_4_mobile} />
         </div>
         <div>
-            <img class="slider-img-desktop" src={ph_5} />
-            <img class="slider-img-mobile" src={ph_5_mobile} />
+            <img className="slider-img-desktop" src={ph_5} />
+            <img className="slider-img-mobile" src={ph_5_mobile} />
         </div>
       </Slider>
     );

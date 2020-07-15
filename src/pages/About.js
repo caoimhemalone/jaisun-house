@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { Grid, Row, Col } from 'react-flexbox-grid';
 import Zoom from 'react-reveal/Zoom';
+import axios from 'axios';
+
 
 //components
 import Header from '../components/mainComponents/headerSection';
@@ -19,8 +21,38 @@ import brand8 from "../assets/images/brands/fantasy_sandals_brand.png";
 
 
 class About extends Component {
+    state = {
+        ttable: {},
+        isLoaded: false
+     }
+  
+     componentDidMount(){
+        axios.get('http://www.jaisunhouse.com/wp/wp-json/wp/v2/about_us/')
+        .then(res => {
+            console.log(res.data);
+            this.setState({
+                abouttable: res.data,
+                isLoaded: true
+            })
+        })
+        .catch(err => console.log(err));
+     }
+  
+     constructor(props) {    
+      super(props)
+      this.state = {
+        condition: false
+      }
+      this.handleClick = this.handleClick.bind(this)
+    }
+    handleClick() {
+      this.setState({
+        condition: !this.state.condition
+      })
+    }
     header = "About Us";
     render() {
+        const {abouttable, isLoaded } = this.state;
         return (
             <div className="about-us">
                 <Header heading={this.header}/>
@@ -33,7 +65,9 @@ class About extends Component {
                         <img src={ph_square} alt="Placeholder Image"/>
                     </Col>
                     <Col xs={12} md={7} className="text-container">
-                        <p className="d-flex justify-content-right">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                        <p className="d-flex justify-content-right">
+                            {/* {abouttable.map(about => (<div key={about.id} dangerouslySetInnerHTML={{ __html:about.acf.who_are_we}}/>))} */}
+                        </p>
                     </Col>
                 </Row>
                 
@@ -42,7 +76,9 @@ class About extends Component {
                         <h2 className="d-flex justify-content-center">Our Mission</h2>
                     </Col>
                     <Col xs={12} md={12}>
-                        <p className="d-flex justify-content-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea </p>
+                        <p className="d-flex justify-content-center">
+                            {/* {abouttable.map(about => (<div key={about.id} dangerouslySetInnerHTML={{ __html:about.acf.mission}}/>))} */}
+                        </p>
                     </Col>
                 </Row>
 
@@ -50,22 +86,34 @@ class About extends Component {
                     <Col xs={12} md={4}>
                         <Zoom>
                             <ion-icon name="bulb-outline"></ion-icon>
-                            <span className="d-flex justify-content-center">Goal 1 </span>
-                            <p className="d-flex justify-content-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut </p>
+                            <span className="d-flex justify-content-center">
+                                {/* {abouttable.map(about => (<div key={about.id} dangerouslySetInnerHTML={{ __html:about.acf.goal_1}}/>))} */}
+                            </span>
+                            <p className="d-flex justify-content-center">
+                                {/* {abouttable.map(about => (<div key={about.id} dangerouslySetInnerHTML={{ __html:about.acf.goal_1_info}}/>))} */}
+                            </p>
                         </Zoom>
                     </Col>
                     <Col xs={13} md={4}>
                         <Zoom>
                             <ion-icon name="cash-outline"></ion-icon>
-                            <span className="d-flex justify-content-center">Goal 2 </span>
-                            <p className="d-flex justify-content-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut </p>
+                            <span className="d-flex justify-content-center">
+                                {/* {abouttable.map(about => (<div key={about.id} dangerouslySetInnerHTML={{ __html:about.acf.goal_2}}/>))} */}
+                            </span>
+                            <p className="d-flex justify-content-center">
+                                {/* {abouttable.map(about => (<div key={about.id} dangerouslySetInnerHTML={{ __html:about.acf.goal_2_info}}/>))} */}
+                            </p>
                         </Zoom>
                     </Col>
                     <Col xs={12} md={4}>
                         <Zoom>
                             <ion-icon name="star-outline"></ion-icon>
-                            <span className="d-flex justify-content-center">Goal 3 </span>
-                            <p className="d-flex justify-content-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut </p>
+                            <span className="d-flex justify-content-center">
+                                {/* {abouttable.map(about => (<div key={about.id} dangerouslySetInnerHTML={{ __html:about.acf.goal_3}}/>))} */}
+                            </span>
+                            <p className="d-flex justify-content-center">
+                                {/* {abouttable.map(about => (<div key={about.id} dangerouslySetInnerHTML={{ __html:about.acf.goal_3_info}}/>))} */}
+                            </p>
                         </Zoom>
                     </Col>
                     <hr/>

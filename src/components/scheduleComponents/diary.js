@@ -13,13 +13,13 @@ const localizer = momentLocalizer(moment);
 const API_KEY = process.env.GOOGLE_CAL_API_KEY;
 const calendarEl = document.getElementById('fullCalendar');
 
-let gCalendar = new Calendar(calendarEl, {
-  plugins: [ googleCalendarPlugin ],
-  googleCalendarApiKey: {API_KEY},
-  events: {
-    googleCalendarId: 'g86ul4de7vpclr4upft4d03nt0@group.calendar.google.com'
-  }
-});
+// let gCalendar = new Calendar(calendarEl, {
+//   plugins: [ googleCalendarPlugin ],
+//   googleCalendarApiKey: {API_KEY},
+//   events: {
+//     googleCalendarId: 'g86ul4de7vpclr4upft4d03nt0@group.calendar.google.com'
+//   }
+// });
 class Diary extends Component {
   // constructor() {
   //   super();
@@ -34,7 +34,7 @@ class Diary extends Component {
     return (
       <div className="diary">
         <div style={{ height: '500pt'}}>
-          <Calendar
+          {/* <Calendar
             events={events}
             startAccessor="start"
             endAccessor="end"
@@ -42,7 +42,7 @@ class Diary extends Component {
             defaultDate={moment().toDate()}
             localizer={localizer}
             ref={gCalendar}
-          />
+          /> */}
         </div>
       </div>
     );

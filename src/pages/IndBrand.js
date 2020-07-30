@@ -6,7 +6,7 @@ import { BrowserRouter as Link} from "react-router-dom";
 
 
 //images
-import guess1 from '../assets/images/brands/photoshoots/guess_1.jpeg';
+//import guess1 from '../assets/images/brands/photoshoots/guess_1.jpeg';
 
 
 //components

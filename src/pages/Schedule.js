@@ -8,16 +8,6 @@ import axios from 'axios';
 //components
 import Header from '../components/mainComponents/headerSection';
 
-//images
-import ph_square from '../assets/images/placeholder-square.jpg';
-import ps_1 from '../assets/images/photoshoots/ps_1.jpg';
-import ps_2 from '../assets/images/photoshoots/ps_2.jpg';
-import ps_3 from '../assets/images/photoshoots/ps_3.jpg';
-import ps_4 from '../assets/images/photoshoots/ps_4.jpg';
-import ps_5 from '../assets/images/photoshoots/ps_5.jpg';
-import ps_6 from '../assets/images/photoshoots/ps_6.jpg';
-
-
 
 class Schedule extends Component {
   state = {
@@ -30,6 +20,14 @@ class Schedule extends Component {
         console.log(res.data);
         this.setState({
         scheduletable: res.data,
+        latest_collection: res.data[0].acf.latest_collection,
+        latest_col_img_1: res.data[0].acf.latest_collection_image_1.sizes.large,
+        latest_col_img_2: res.data[0].acf.latest_collection_image_2.sizes.large,
+        latest_col_img_3: res.data[0].acf.latest_collection_image_3.sizes.large,
+        latest_col_img_4: res.data[0].acf.latest_collection_image_4.sizes.large,
+        latest_col_img_5: res.data[0].acf.latest_collection_image_5.sizes.large,
+        latest_col_img_6: res.data[0].acf.latest_collection_image_6.sizes.large,
+        next_launch: res.data[0].acf.next_launch,
         isLoaded: true
         })
     })
@@ -52,7 +50,6 @@ class Schedule extends Component {
 
   header = "Schedule";
   render() {
-    const { scheduletable } = this.state;
     return (
       <div className="schedule">
         <Header heading={this.header}/>
@@ -63,27 +60,26 @@ class Schedule extends Component {
             </Col>
             <Col xs={12} md={12}>
                 <p className="d-flex justify-content-center">
-                  {/* {scheduletable.title.rendered} */}
-                  {/* {scheduletable.map(schedule => (<div key={schedule.id} dangerouslySetInnerHTML={{ __html:schedule.latest_collection}}/>))} */}
+                  {this.state.latest_collection}
                 </p>
             </Col>
             <Col xs={6} md={4} className="schedule__image">
-              <img src={ps_1} alt="Placeholder"/>
+              <img src={this.state.latest_col_img_1} alt="Placeholder"/>
             </Col>
             <Col xs={6} md={4} className="schedule__image">
-              <img src={ps_2} alt="Placeholder"/>
+              <img src={this.state.latest_col_img_2} alt="Placeholder"/>
             </Col>
             <Col xs={6} md={4} className="schedule__image">
-                <img src={ps_3} alt="Placeholder"/>
+                <img src={this.state.latest_col_img_3} alt="Placeholder"/>
             </Col>
             <Col xs={6} md={4} className="schedule__image"> 
-                <img src={ps_4} alt="Placeholder"/>
+                <img src={this.state.latest_col_img_4} alt="Placeholder"/>
             </Col>
             <Col xs={6} md={4} className="schedule__image">
-                <img src={ps_5} alt="Placeholder"/>
+                <img src={this.state.latest_col_img_5} alt="Placeholder"/>
             </Col>
             <Col xs={6} md={4} className="schedule__image">
-                <img src={ps_6} alt="Placeholder"/>
+                <img src={this.state.latest_col_img_6} alt="Placeholder"/>
             </Col>
           </Row>
 
@@ -95,7 +91,7 @@ class Schedule extends Component {
                 <h2 className="d-flex justify-content-center">Next Launch</h2>
             </Col>
             <Col xs={12} md={12}>
-                {/* <p className="d-flex justify-content-center">{scheduletable.map(schedule => (<div key={schedule.id} dangerouslySetInnerHTML={{ __html:schedule.next_launch}}/>))}</p> */}
+                <p className="d-flex justify-content-center">{this.state.next_launch}</p>
             </Col>
           </Row>
 

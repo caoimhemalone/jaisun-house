@@ -9,16 +9,6 @@ import Header from '../components/mainComponents/headerSection';
 
 //images
 import ph_square from '../assets/images/placeholder-square.jpg';
-import brand1 from "../assets/images/brands/gant_brand.png";
-import brand2 from "../assets/images/brands/happy_socks_brand.png";
-import brand3 from "../assets/images/brands/joop_brand.png";
-import brand4 from "../assets/images/brands/guess_brand.png";
-import brand5 from "../assets/images/brands/nakd_brand.png";
-import brand6 from "../assets/images/brands/mcgregor_brand.png";
-import brand7 from "../assets/images/brands/vanessa_wu_brand.png";
-import brand8 from "../assets/images/brands/fantasy_sandals_brand.png";
-
-
 
 class About extends Component {
     state = {
@@ -32,6 +22,26 @@ class About extends Component {
             console.log(res.data);
             this.setState({
                 abouttable: res.data,
+                who_are_we: res.data[0].acf.who_are_we,
+                mission: res.data[0].acf.mission,
+                goal_1: res.data[0].acf.goal_1,
+                goal_1_info: res.data[0].acf.goal_1_info,
+                goal_2: res.data[0].acf.goal_2,
+                goal_2_info: res.data[0].acf.goal_2_info,
+                goal_3: res.data[0].acf.goal_3,
+                goal_3_info: res.data[0].acf.goal_3_info,
+                client_1: res.data[0].acf.client_1,
+                client_1_image: res.data[0].acf.client_1_image.sizes.medium,
+                client_2: res.data[0].acf.client_2,
+                client_2_image: res.data[0].acf.client_2_image.sizes.medium,
+                client_3: res.data[0].acf.client_3,
+                client_3_image: res.data[0].acf.client_3_image.sizes.medium,
+                client_4: res.data[0].acf.client_4,
+                client_4_image: res.data[0].acf.client_4_image.sizes.medium,
+                client_5: res.data[0].acf.client_5,
+                client_5_image: res.data[0].acf.client_5_image.sizes.medium,
+                client_6: res.data[0].acf.client_6,
+                client_6_image: res.data[0].acf.client_6_image.sizes.medium,
                 isLoaded: true
             })
         })
@@ -52,7 +62,6 @@ class About extends Component {
     }
     header = "About Us";
     render() {
-        const {abouttable, isLoaded } = this.state;
         return (
             <div className="about-us">
                 <Header heading={this.header}/>
@@ -66,7 +75,7 @@ class About extends Component {
                     </Col>
                     <Col xs={12} md={7} className="text-container">
                         <p className="d-flex justify-content-right">
-                            {/* {abouttable.map(about => (<div key={about.id} dangerouslySetInnerHTML={{ __html:about.acf.who_are_we}}/>))} */}
+                            {this.state.who_are_we}
                         </p>
                     </Col>
                 </Row>
@@ -77,7 +86,7 @@ class About extends Component {
                     </Col>
                     <Col xs={12} md={12}>
                         <p className="d-flex justify-content-center">
-                            {/* {abouttable.map(about => (<div key={about.id} dangerouslySetInnerHTML={{ __html:about.acf.mission}}/>))} */}
+                            {this.state.mission}
                         </p>
                     </Col>
                 </Row>
@@ -87,10 +96,10 @@ class About extends Component {
                         <Zoom>
                             <ion-icon name="bulb-outline"></ion-icon>
                             <span className="d-flex justify-content-center">
-                                {/* {abouttable.map(about => (<div key={about.id} dangerouslySetInnerHTML={{ __html:about.acf.goal_1}}/>))} */}
+                                {this.state.goal_1}
                             </span>
                             <p className="d-flex justify-content-center">
-                                {/* {abouttable.map(about => (<div key={about.id} dangerouslySetInnerHTML={{ __html:about.acf.goal_1_info}}/>))} */}
+                                {this.state.goal_1_info}
                             </p>
                         </Zoom>
                     </Col>
@@ -98,10 +107,10 @@ class About extends Component {
                         <Zoom>
                             <ion-icon name="cash-outline"></ion-icon>
                             <span className="d-flex justify-content-center">
-                                {/* {abouttable.map(about => (<div key={about.id} dangerouslySetInnerHTML={{ __html:about.acf.goal_2}}/>))} */}
+                                {this.state.goal_2}
                             </span>
                             <p className="d-flex justify-content-center">
-                                {/* {abouttable.map(about => (<div key={about.id} dangerouslySetInnerHTML={{ __html:about.acf.goal_2_info}}/>))} */}
+                                {this.state.goal_2_info}
                             </p>
                         </Zoom>
                     </Col>
@@ -109,10 +118,10 @@ class About extends Component {
                         <Zoom>
                             <ion-icon name="star-outline"></ion-icon>
                             <span className="d-flex justify-content-center">
-                                {/* {abouttable.map(about => (<div key={about.id} dangerouslySetInnerHTML={{ __html:about.acf.goal_3}}/>))} */}
+                                {this.state.goal_3}
                             </span>
                             <p className="d-flex justify-content-center">
-                                {/* {abouttable.map(about => (<div key={about.id} dangerouslySetInnerHTML={{ __html:about.acf.goal_3_info}}/>))} */}
+                                {this.state.goal_3_info}
                             </p>
                         </Zoom>
                     </Col>
@@ -129,32 +138,32 @@ class About extends Component {
                     <Row className="brands-tiles">
                         <Col xs={6} md={2} className="brands-tiles__item">
                             <a href="/individual-brand">
-                                <img src={brand1}/>
+                                <img src={this.state.client_1_image} alt={this.state.client_1}/>
                             </a>
                         </Col>
                         <Col xs={6} md={2} className="brands-tiles__item">
                             <a href="/individual-brand">
-                                <img src={brand2}/>
+                                <img src={this.state.client_2_image} alt={this.state.client_2}/>
                             </a>
                         </Col>
                         <Col xs={6} md={2} className="brands-tiles__item">
                             <a href="/individual-brand">
-                                <img src={brand6}/>
+                                <img src={this.state.client_3_image} alt={this.state.client_3}/>
                             </a>
                         </Col>
                         <Col xs={6} md={2} className="brands-tiles__item">
                             <a href="/individual-brand">
-                                <img src={brand4}/>
+                                <img src={this.state.client_4_image} alt={this.state.client_4}/>
                             </a>
                         </Col>
                         <Col xs={6} md={2} className="brands-tiles__item">
                             <a href="/individual-brand">
-                                <img src={brand5}/>
+                                <img src={this.state.client_5_image} alt={this.state.client_5}/>
                             </a>
                         </Col>
                         <Col xs={6} md={2} className="brands-tiles__item">
                             <a href="/individual-brand">
-                                <img src={brand3}/>
+                                <img src={this.state.client_6_image} alt={this.state.client_6}/>
                             </a>
                         </Col>
                     </Row>

@@ -23,51 +23,28 @@ class Contact extends Component {
     }
   }
 
-  // componentDidMount() {
-  //   axios.get("http://www.jaisunhouse.com/wp/wp-json/wp/v2/contact")
-  //   .then(res => this.setState({
-  //     contacttable: res.data[0],
-  //     isLoaded: true
-  //  }))
-  //   .catch(error => console.log(error));
-  // }
-
   componentDidMount (){
-
-    const contactUrl = 'http://www.jaisunhouse.com/wp/wp-json/wp/v2/contact';
-
+    const contactUrl = 'http://www.jaisunhouse.com/wp/wp-json/wp/v2/contact_us/116';
     fetch(contactUrl)
     .then(response => response.json())
     .then(response => {
       console.log(response);
       this.setState({
         contact: response,
+        address: response.acf.address,
+        phone: response.acf.phone,
+        email: response.acf.email,
+        map_address: response.acf.map_address,
+        email_mailto: "mailto:"+response.acf.email+"?subject = Feedback&body = Message",
         isLoaded: true
       })
     })
   }
 
-  // constructor(props) {    
-  //   super(props)
-  //   this.state = {
-  //     condition: false
-  //   }
-  //   this.handleClick = this.handleClick.bind(this)
-  // }
-
-  // handleClick() {
-  //   this.setState({
-  //       condition: !this.state.condition
-  //   })
-  // }
-
   header = "Contact Us";
   render() {
-    // const {contacttable } = this.state;
-    // console.log(contacttable);
     return (
       <div className="contact">
-        {JSON.stringify(this.state.contact.id)}
         <Header heading={this.header}/>
         <Grid fluid className="contact-container">
           <Row className="contact__info">
@@ -77,30 +54,29 @@ class Contact extends Component {
                     <ion-icon name="location-outline"></ion-icon>
                     <span>
                       <a target="_blank" href="/">
-                        {/* {contacttable.map(contact => (<div key={contact.id} dangerouslySetInnerHTML={{ __html:contact.acf.address}}/>))} */}
-                        {/* {contacttable.acf.address} */}
+                        {this.state.address}
                       </a>
                     </span>
                   </div>
                   <div className="contact__details-item">
                     <ion-icon name="mail-outline"></ion-icon>
                     <span>
-                      <a href="mailto:admin@key-vah.com?subject = Feedback&body = Message">
-                        {/* {contacttable.map(contact => (<div key={contact.id} dangerouslySetInnerHTML={{ __html:contact.acf.email}}/>))} */}
+                      <a href={this.state.email_mailto}>
+                        {this.state.email}
                       </a>
                     </span>
                   </div>
                   <div className="contact__details-item">
                     <ion-icon name="call-outline"></ion-icon>
                     <span>
-                      <a href="tel:123-456-7890">
-                        {/* {contacttable.map(contact => (<div key={contact.id} dangerouslySetInnerHTML={{ __html:contact.acf.phone}}/>))} */}
+                      <a href={this.state.phone}>
+                        {this.state.phone}
                       </a>
                     </span>
                   </div>
               </Col>
               <Col xs={12} md={6} className="contact__map">
-                    {/* <GMap /> */}
+                    <GMap />
               </Col>
           </Row>
 
@@ -112,8 +88,7 @@ class Contact extends Component {
                   <h2 className="d-flex justify-content-center">Send us a message</h2>
                 </Pulse>
 
-                  {/* <form id="contact-form" onSubmit={this.handleSubmit.bind(this)} method="POST"> */}
-                  <form>
+                <form action={this.state.email_mailto} method="POST" enctype="multipart/form-data" name="EmailForm">
                     <div className="form-group">
                         <label htmlFor="name">Name</label>
                         <input type="text" className="form-control" />

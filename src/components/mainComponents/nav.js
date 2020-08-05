@@ -16,7 +16,6 @@ import Contact from '../../pages/Contact';
 import Signin from '../../pages/Signin';
 import Sitemap from '../../pages/Sitemap';
 
-//import heroOne from './heroImages/hero_1.png';
 
 class Nav extends React.Component {
     state = {
@@ -34,6 +33,12 @@ class Nav extends React.Component {
 
     componentDidMount() {
         window.addEventListener('scroll', this.listenScrollEvent)
+        //console.log(this.props.navColor);
+        // if(this.props.navColor === 'apricot') {
+        //     this.setState({color: 'apricot'})
+        // } else if(this.props.navColor === 'blueberry'){
+        //     this.setState({color: 'blueberry'})
+        // }
     }
 
     constructor() {
@@ -42,10 +47,16 @@ class Nav extends React.Component {
         ReactGA.pageview(window.location.pathname);
     }
     render(){
+        console.log(this.props.navColor);
+        if(this.props.navColor === 'apricot') {
+            this.setState({color: 'apricot'})
+        } else if(this.props.navColor === 'blueberry'){
+            this.setState({color: 'blueberry'})
+        }
         return (
             <div>
                 <Router>
-                    <nav style={{backgroundColor: this.state.nav, transition: this.state.trans}}>
+                    <nav style={{backgroundColor: this.state.nav, transition: this.state.trans}} className={this.state.color}>
                         <input type="checkbox" className="toggler"/>
                         <div className="hamburger"><div style={{background: this.state.hamburger}}></div></div>
                         <Grid fluid className="px-4 py-3 menu">
@@ -56,7 +67,6 @@ class Nav extends React.Component {
                                 <Col xs={12} md={10} className="nav-right">
                                     <Row end="xs" middle="xs">
                                         <Col xs={12} md className="nav-item"> 
-                                            {/* <Link to="/about-us">About</Link> */}
                                             <a href="/about-us">About</a>
                                         </Col>
                                         <Col xs={12} md className="nav-item"> 
@@ -80,15 +90,15 @@ class Nav extends React.Component {
                         </Grid>
                     </nav>
                     <Switch>
-                        <Route exact path="/" component={Home}/>          
-                        <Route path="/about-us" component={About}/>
-                        <Route path="/brands" component={Brands}/>  
-                        <Route path="/b2b" component={B2B}/>
-                        <Route path="/schedule" component={Schedule}/>
-                        <Route path="/contact" component={Contact}/>
-                        <Route path="/sign-in" component={Signin}/>
-                        <Route path="/sitemap" component={Sitemap}/>
-                        <Route exact path="/:id" component={IndBrand} />
+                        <Route exact path="/" component={Home} navColor="apricot"/>          
+                        <Route path="/about-us" component={About} navColor="apricot"/>
+                        <Route path="/brands" component={Brands} navColor="blueberry"/>  
+                        <Route path="/b2b" component={B2B} navColor="blueberry"/>
+                        <Route path="/schedule" component={Schedule} navColor="blueberry"/>
+                        <Route path="/contact" component={Contact} navColor="blueberry"/>
+                        <Route path="/sign-in" component={Signin} navColor="blueberry"/>
+                        <Route path="/sitemap" component={Sitemap} navColor="apricot"/>
+                        <Route exact path="/:id" component={IndBrand} navColor="apricot"/>
                     </Switch>          
                 </Router>
             </div>

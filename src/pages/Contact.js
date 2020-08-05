@@ -10,11 +10,6 @@ import GMap from '../components/contactComponents/map';
 import { diffDates } from "@fullcalendar/core";
 
 class Contact extends Component {
-  // state = {
-  //   ttable: {},
-  //   isLoaded: false
-  // }
-
   constructor () {
     super();
     this.state = {

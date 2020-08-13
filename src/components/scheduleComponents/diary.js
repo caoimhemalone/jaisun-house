@@ -1,39 +1,42 @@
 import React, { Component } from 'react';
 //import { Calendar, momentLocalizer } from 'react-big-calendar';
-import { momentLocalizer } from 'react-big-calendar';
-import moment from 'moment';
-import 'react-big-calendar/lib/css/react-big-calendar.css';
-import events from '../scheduleComponents/events'
+import * as moment from 'moment';
+//import 'react-big-calendar/lib/css/react-big-calendar.css';
+////import events from '../scheduleComponents/events'
 import * as dates from '../../../src/utils/dates'
-import { Calendar } from '@fullcalendar/core';
-import googleCalendarPlugin from '@fullcalendar/google-calendar';
-import FullCalendar from "@fullcalendar/react";
+// import { Calendar } from '@fullcalendar/core';
+// import FullCalendar from "@fullcalendar/react";
+import BigCalendar from 'react-big-calendar'
+import { getEvents } from '../scheduleComponents/gcal'
 
-const localizer = momentLocalizer(moment);
+const localizer = BigCalendar.momentLocalizer(moment);
+
 const API_KEY = process.env.GOOGLE_CAL_API_KEY;
-const calendarEl = document.getElementById('fullCalendar');
 
-// let gCalendar = new Calendar(calendarEl, {
-//   plugins: [ googleCalendarPlugin ],
-//   googleCalendarApiKey: {API_KEY},
-//   events: {
-//     googleCalendarId: 'g86ul4de7vpclr4upft4d03nt0@group.calendar.google.com'
-//   }
-// });
+
 class Diary extends Component {
-  // constructor() {
-  //   super();
-  //   const now = new Date();
-  //   this.state = {
-  //     name: 'React',
-  //     events
-  //   };
-  // }
+
+
+  constructor () {
+    super()
+    this.state = {
+      events: []
+    }
+  }
+  componentDidMount () {
+    getEvents((events) => {
+      this.setState({events})
+    })
+  }
 
   render() {
     return (
       <div className="diary">
         <div style={{ height: '500pt'}}>
+        <BigCalendar
+        style={{height: '420px'}}
+        events={this.state.events}
+      />
           {/* <Calendar
             events={events}
             startAccessor="start"

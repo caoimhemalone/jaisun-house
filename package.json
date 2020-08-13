@@ -17,7 +17,7 @@
     "@types/markerclustererplus": "^2.1.33",
     "animate.css": "^4.1.0",
     "axios": "^0.19.2",
-    "babel-core": "^6.26.3",
+    "babel-core": "^7.0.0-bridge.0",
     "bootstrap": "^4.5.0",
     "clndr": "^1.5.1",
     "core-js": "^3.6.5",
@@ -29,14 +29,13 @@
     "gulp": "^4.0.2",
     "gulp-postcss": "^8.0.0",
     "jquery": "^3.5.1",
-    "moment": "^2.26.0",
+    "moment": "^2.27.0",
     "node-sass": "^4.14.1",
-    "react": "^16.13.1",
+    "popper.js": "^1.16.1",
     "react-animate-on-scroll": "^2.1.5",
-    "react-big-calendar": "^0.25.0",
+    "react-big-calendar": "^0.20.4",
     "react-bootstrap": "^1.1.0",
     "react-content-loader": "^5.1.0",
-    "react-dom": "^16.13.1",
     "react-flexbox-grid": "^2.1.2",
     "react-ga": "^3.1.2",
     "react-google-maps": "^9.4.5",
@@ -46,9 +45,10 @@
     "react-reveal": "^1.2.2",
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "3.4.1",
+    "react-scripts": "^3.4.3",
     "react-scrollspy-nav": "^1.2.4",
     "react-slick": "^0.26.1",
+    "react_google_calendar": "^2.2.4444",
     "sass": "^1.26.8",
     "skeleton-flexbox": "^3.0.0-beta.3",
     "slick-carousel": "^1.8.1",
@@ -76,8 +76,25 @@
       "last 1 safari version"
     ]
   },
+  "babel": {
+    "presets": [
+      "@babel/preset-env",
+      "@babel/preset-react"
+    ],
+    "plugins": [
+      "@babel/plugin-proposal-class-properties"
+    ]
+  },
   "devDependencies": {
+    "@babel/core": "^7.11.1",
+    "@babel/preset-env": "^7.11.0",
+    "babel-loader": "^8.1.0",
     "css-loader": "^3.5.3",
-    "style-loader": "^1.2.1"
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "style-loader": "^1.2.1",
+    "superagent": "^6.0.0",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12"
   }
 }

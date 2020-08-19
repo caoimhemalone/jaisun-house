@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import { BrowserRouter as Link} from "react-router-dom";
 import { Grid, Row, Col } from 'react-flexbox-grid';
 
+//images
+import Logo from '../../assets/images/logos/logo_2.png';
+
 
 class Footer extends Component {
     constructor () {
@@ -33,9 +36,6 @@ class Footer extends Component {
             <footer>
                 <Grid fluid>
                     <Row>
-                        <Col xs={12} md={2} className="footer-left">
-                            Jaisun House Logo
-                        </Col>
                         <Col xs={12} md={10} className="footer-right">
                             <Row>
                                 <Col xs={6} md={4} className="footer-logo">
@@ -112,6 +112,9 @@ class Footer extends Component {
                                             </a>
                                         </li>
                                     </ul>
+                                </Col>
+                                <Col>
+                                    <img src={Logo} alt="logo" />
                                 </Col>
                             </Row>
                         </Col>

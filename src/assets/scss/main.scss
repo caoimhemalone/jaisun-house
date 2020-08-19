@@ -15,6 +15,11 @@ nav {
         @media only screen and (max-width: 991px) {
             max-height: 10vh;
         }
+
+        img {
+            //width: 100%;
+            height: 75%;
+        }
     }
 
     .nav-right {
@@ -303,11 +308,11 @@ nav {
 ******* Home Page *******
 */
 .home-page {
-    h1 {
-        position: absolute;
-        top: 50%;
-        color: $white;
-    }
+    // h1 {
+    //     position: absolute;
+    //     top: 50%;
+    //     color: $white;
+    // }
 
     .welcome-container {
         display: flex;
@@ -315,7 +320,7 @@ nav {
         background-color: $apple-core;
         color: $white;
 
-        h2 {
+        h1 {
             width: fit-content;
             text-shadow: 2px 2px rgba(0, 0, 0, 0.08);
 
@@ -327,6 +332,7 @@ nav {
         .title-container {
             display: flex;
             width: 100%;
+            margin-top: 6%;
         }
 
         .title-seperator {
@@ -1050,11 +1056,11 @@ footer {
     padding: 1.5em 2em;
     color: $white;
 
-    .footer-left {
-        @media only screen and (max-width:991px) {
-            display: none;
-        }
-    }
+    // .footer-left {
+    //     @media only screen and (max-width:991px) {
+    //         display: none;
+    //     }
+    // }
 
     .footer-logo {
         display: none;

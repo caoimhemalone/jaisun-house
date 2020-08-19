@@ -15,7 +15,10 @@ class Header extends Component {
                 <Grid fluid className="header-container">
                     <Row>
                         <Col xs={12} md={12} className="header-item d-flex">
-                            <h1 className="d-flex justify-content-center">{this.props.heading}</h1>
+                            {this.props.heading !== null ?
+                                <h1 className="d-flex justify-content-center">{this.props.heading}</h1>
+                                : <span></span>
+                            }
                             {slider}
                         </Col>
                     </Row>

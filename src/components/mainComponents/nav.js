@@ -16,18 +16,21 @@ import Contact from '../../pages/Contact';
 import Signin from '../../pages/Signin';
 import Sitemap from '../../pages/Sitemap';
 
+//images
+import Logo from '../../assets/images/logos/logo_2.png';
+
 
 class Nav extends React.Component {
     state = {
         nav: 'transparent',
-        hamburger: '#fff'
+        hamburger: '#fff',
     }
 
     listenScrollEvent = e => {
         if (window.scrollY > 300) {
-            this.setState({nav: '#fff', hamburger: '#000', trans: '2s ease-in'})
+            this.setState({nav: '#fff', hamburger: '#000', trans: '2s ease-in', logo: '50%'})
         } else {
-            this.setState({nav: 'transparent', hamburger: '#fff', trans: 'unset'})
+            this.setState({nav: 'transparent', hamburger: '#fff', trans: 'unset', logo: '75%'})
         }
     }
 
@@ -62,7 +65,9 @@ class Nav extends React.Component {
                         <Grid fluid className="px-4 py-3 menu">
                             <Row className="mx-0">
                                 <Col xs={12} md={2} className="nav-left">
-                                <a href="/">Logo Here</a>
+                                <a href="/">
+                                    <img src={Logo} alt="logo" style={{height: this.state.logo, transition: '4s ease-in'}}/>
+                                </a>
                                 </Col>
                                 <Col xs={12} md={10} className="nav-right">
                                     <Row end="xs" middle="xs">

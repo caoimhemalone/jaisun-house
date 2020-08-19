@@ -11,7 +11,8 @@ import Appointment from '../components/mainComponents/appointmentSection';
 
 
 class Home extends Component {
-  header = "Jaisun House";
+  //header = "Jaisun House";
+  header = null;
   slider = true;
   
   render() {

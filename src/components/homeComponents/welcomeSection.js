@@ -39,7 +39,7 @@ class Welcome extends React.Component {
                         <div className="title-seperator title-seperator-container-left">
                             <div className="title-sep"></div>
                         </div>
-                        <h2>Welcome to Jaisun House</h2>
+                        <h1>Welcome to Jaisun House</h1>
                         <div className="title-seperator title-seperator-container-right">
                             <div className="title-sep"></div>
                         </div>

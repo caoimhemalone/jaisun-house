@@ -16,10 +16,10 @@ nav {
             max-height: 10vh;
         }
 
-        img {
-            //width: 100%;
-            height: 75%;
-        }
+        // img {
+        //     //width: 100%;
+        //     height: 75%;
+        // }
     }
 
     .nav-right {
@@ -221,8 +221,24 @@ nav {
             align-self: center;
         }
 
+        .header-logo {
+            position: absolute;
+            left: 2%;
+            top: 2%;
+            z-index: 1;
+
+            @media only screen and (max-width: 780px){
+                display: none;
+            }
+
+            img {
+                width: 75%;
+            }
+        }
+
         .header-item {
             padding: 0;
+            position: relative;
         }
 
         .header-carousel {
@@ -602,7 +618,7 @@ nav {
     background-color: #efeeec;
     .header-container {
         background-color: $apple-core;
-        padding: 6% 0 3% 0;
+        // padding: 6% 0 3% 0;
 
         @media only screen and (max-width: 767px) {
             padding: 0;
@@ -616,6 +632,7 @@ nav {
                 text-shadow: 2px 2px rgba(0, 0, 0, 0.08);
                 align-self: center;
                 padding: 40px 0;
+                padding: 8% 0 5% 0;
             }
         }
     }
@@ -726,6 +743,10 @@ nav {
 
             .ind-brands__tiles__item {
                 padding: 0;
+
+                &.white_placeholder {
+                    display: none;
+                }
             }
 
             img {
@@ -733,6 +754,11 @@ nav {
                 width: 100%;
             }
         }
+    }
+
+    &.vanessa-wu {
+        //background-position: 100% -40%;
+        background-position: 100% -240px;
     }
 }
 
@@ -1056,22 +1082,6 @@ footer {
     padding: 1.5em 2em;
     color: $white;
 
-    // .footer-left {
-    //     @media only screen and (max-width:991px) {
-    //         display: none;
-    //     }
-    // }
-
-    .footer-logo {
-        display: none;
-        text-align: center;
-        align-self: center;
-
-        @media only screen and (max-width:991px) {
-            display: flex;
-        }
-    }
-
     ul {
         padding-left: 0;
 
@@ -1085,6 +1095,13 @@ footer {
                 &:hover {
                     color: $apricot;
                 }
+            }
+        }
+        .footer-logo {
+            padding: 6% 2%;
+
+            img {
+                width: 40%;
             }
         }
     }

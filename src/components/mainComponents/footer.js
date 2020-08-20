@@ -36,11 +36,8 @@ class Footer extends Component {
             <footer>
                 <Grid fluid>
                     <Row>
-                        <Col xs={12} md={10} className="footer-right">
+                        <Col xs={12} md={12} className="footer-right">
                             <Row>
-                                <Col xs={6} md={4} className="footer-logo">
-                                    Footer House Logo
-                                </Col>
                                 <Col xs={6} md={4} >
                                     <ul>
                                         <li>
@@ -111,10 +108,12 @@ class Footer extends Component {
                                                 Email: {this.state.email}
                                             </a>
                                         </li>
+                                        <li className="footer-logo">
+                                            <a href="/">
+                                                <img src={Logo} alt="logo" />
+                                            </a>
+                                        </li>
                                     </ul>
-                                </Col>
-                                <Col>
-                                    <img src={Logo} alt="logo" />
                                 </Col>
                             </Row>
                         </Col>

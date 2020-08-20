@@ -16,8 +16,6 @@ import Contact from '../../pages/Contact';
 import Signin from '../../pages/Signin';
 import Sitemap from '../../pages/Sitemap';
 
-//images
-import Logo from '../../assets/images/logos/logo_2.png';
 
 
 class Nav extends React.Component {
@@ -28,9 +26,9 @@ class Nav extends React.Component {
 
     listenScrollEvent = e => {
         if (window.scrollY > 300) {
-            this.setState({nav: '#fff', hamburger: '#000', trans: '2s ease-in', logo: '50%'})
+            this.setState({nav: '#fff', hamburger: '#000', trans: '2s ease-in'})
         } else {
-            this.setState({nav: 'transparent', hamburger: '#fff', trans: 'unset', logo: '75%'})
+            this.setState({nav: 'transparent', hamburger: '#fff', trans: 'unset'})
         }
     }
 
@@ -50,7 +48,7 @@ class Nav extends React.Component {
         ReactGA.pageview(window.location.pathname);
     }
     render(){
-        console.log(this.props.navColor);
+        //console.log(this.props.navColor);
         if(this.props.navColor === 'apricot') {
             this.setState({color: 'apricot'})
         } else if(this.props.navColor === 'blueberry'){
@@ -65,9 +63,9 @@ class Nav extends React.Component {
                         <Grid fluid className="px-4 py-3 menu">
                             <Row className="mx-0">
                                 <Col xs={12} md={2} className="nav-left">
-                                <a href="/">
+                                {/* <a href="/">
                                     <img src={Logo} alt="logo" style={{height: this.state.logo, transition: '4s ease-in'}}/>
-                                </a>
+                                </a> */}
                                 </Col>
                                 <Col xs={12} md={10} className="nav-right">
                                     <Row end="xs" middle="xs">

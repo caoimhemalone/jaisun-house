@@ -6,7 +6,7 @@ import { BrowserRouter as Link} from "react-router-dom";
 
 //components
 import Header from '../components/mainComponents/headerSection';
-
+import BrandCarousel from '../components/brandComponents/brandCarousel';
 
 class IndBrands extends Component {
     state = {
@@ -21,12 +21,20 @@ class IndBrands extends Component {
             this.setState({
             indbrandtable: res.data,
             brand_image_1: res.data.acf.brand_image_1,
+            brand_image_1_title: res.data.acf.brand_image_1.title,
             brand_image_2: res.data.acf.brand_image_2,
+            brand_image_2_title: res.data.acf.brand_image_2.title,
             brand_image_3: res.data.acf.brand_image_3,
+            brand_image_3_title: res.data.acf.brand_image_3.title,
             brand_image_4: res.data.acf.brand_image_4,
+            brand_image_4_title: res.data.acf.brand_image_4.title,
             brand_image_5: res.data.acf.brand_image_5,
+            brand_image_5_title: res.data.acf.brand_image_5.title,
             brand_image_6: res.data.acf.brand_image_6,
+            brand_image_6_title: res.data.acf.brand_image_6.title,
             brand_image_7: res.data.acf.brand_image_7,
+            brand_image_7_title: res.data.acf.brand_image_7.title,
+            slug: res.data.slug,
             isLoaded: true
             })
         })
@@ -47,13 +55,41 @@ class IndBrands extends Component {
         })
     }
 
+    image_1 = this.state.brand_image_1;
+    image_2 = this.state.brand_image_2;
+    image_3 = this.state.brand_image_3;
+
     render() {
+        const brand_name = this.state.slug;
+        const classes = `ind-brands ${brand_name}`;
+
+        const image_title_1 = this.state.brand_image_1_title;
+        const img_classes_1 = `ind-brands__tiles__item item-1 ${image_title_1}`;
+
+        const image_title_2 = this.state.brand_image_2_title;
+        const img_classes_2 = `ind-brands__tiles__item item-2 ${image_title_2}`;
+
+        const image_title_3 = this.state.brand_image_3_title;
+        const img_classes_3 = `ind-brands__tiles__item item-3 ${image_title_3}`;
+
+        const image_title_4 = this.state.brand_image_4_title;
+        const img_classes_4 = `ind-brands__tiles__item item-4 ${image_title_4}`;
+
+        const image_title_5 = this.state.brand_image_5_title;
+        const img_classes_5 = `ind-brands__tiles__item item-5 ${image_title_5}`;
+
+        const image_title_6 = this.state.brand_image_6_title;
+        const img_classes_6 = `ind-brands__tiles__item item-6 ${image_title_6}`;
+
+        const image_title_7 = this.state.brand_image_7_title;
+        const img_classes_7 = `ind-brands__tiles__item item-7 ${image_title_7}`;
+
         const {indbrandtable, isLoaded } = this.state;
         const MyListLoader = () => <List />
 
         if(isLoaded) {
             return (
-                <div className="ind-brands" style={{backgroundImage: 'url(' + indbrandtable.acf.header_image.sizes.large + ')'}}>
+                <div className={classes} style={{backgroundImage: 'url(' + indbrandtable.acf.header_image.sizes.large + ')'}}>
                     <div className="overlay">   
                         <Header heading={indbrandtable.title.rendered}/>
                         <Grid fluid className="ind-brands-container px-0">
@@ -68,31 +104,33 @@ class IndBrands extends Component {
                                 </Col>
                             </Row>
                             <Row className="ind-brands__tiles">
-                                <Col xs={6} md={3} className="ind-brands__tiles__item item-1">
+                            <Col xs={12} md={12}>   
+                            <BrandCarousel img1={this.image_1} img2={this.image_2} img3={this.image_3}/>
+                            </Col>
+                                <Col xs={6} md={3} className={img_classes_1}>
                                     <img src={this.state.brand_image_1.sizes.large} alt={indbrandtable.title.rendered}/>
                                 </Col>
-                                <Col xs={6} md={3} className="ind-brands__tiles__item item-2">
+                                <Col xs={6} md={3} className={img_classes_2}>
                                     <img src={this.state.brand_image_2.sizes.large} alt={indbrandtable.title}/>
                                 </Col>
-                                <Col xs={6} md={3} className="ind-brands__tiles__item item-3">
+                                <Col xs={6} md={3} className={img_classes_3}>
                                     <img src={this.state.brand_image_3.sizes.large} alt={indbrandtable.title}/>
                                 </Col>
-                                <Col xs={6} md={3} className="ind-brands__tiles__item item-4">
+                                <Col xs={6} md={3} className={img_classes_4}>
                                     <img src={this.state.brand_image_4.sizes.large} alt={indbrandtable.title}/>
                                 </Col>
-                                <Col xs={6} md={3}  className="ind-brands__tiles__item item-5">
+
+                                <Col xs={6} md={3} className={img_classes_5}>
                                     <img src={this.state.brand_image_5.sizes.large} alt={indbrandtable.title}/>
                                 </Col>
                                 
-                                {!!(this.state.brand_image_6)?this.state.brand_image_6.sizes.large:""}
-                                <Col xs={6} md={3}  className="ind-brands__tiles__item item-6">
-                                    <img src={!!(this.state.brand_image_6)?this.state.brand_image_6.sizes.large:""} alt={indbrandtable.title}/>
+                                <Col xs={6} md={3}  className={img_classes_6}>
+                                    <img src={this.state.brand_image_6.sizes.large} alt={indbrandtable.title}/>
                                 </Col>
-                                
-                                
-                                    <Col xs={6} md={3}  className="ind-brands__tiles__item item-7">
-                                        <img src={!!(this.state.brand_image_7)?this.state.brand_image_7.sizes.large:""} alt={indbrandtable.title}/>
-                                    </Col>
+
+                                <Col xs={6} md={3}  className={img_classes_7}>
+                                    <img src={this.state.brand_image_7.sizes.large} alt={indbrandtable.title}/>
+                                </Col>
                                 
                             </Row>
                         </Grid>

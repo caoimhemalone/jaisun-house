@@ -19,7 +19,7 @@ class About extends Component {
      componentDidMount(){
         axios.get('http://www.jaisunhouse.com/wp/wp-json/wp/v2/about_us/')
         .then(res => {
-            console.log(res.data);
+            //console.log(res.data);
             this.setState({
                 abouttable: res.data,
                 who_are_we: res.data[0].acf.who_are_we,

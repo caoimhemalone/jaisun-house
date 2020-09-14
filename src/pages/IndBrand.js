@@ -13,57 +13,46 @@ class IndBrands extends Component {
         ttable: {},
         isLoaded: false
     }
-    
-    componentDidMount() {
-        axios.get("http://www.jaisunhouse.com/wp/wp-json/wp/v2/individual_brand/" + this.props.match.params.id)
-        .then(res => {
-            console.log(res.data);
-            this.setState({
-            indbrandtable: res.data,
-            brand_image_1: res.data.acf.brand_image_1,
-            brand_image_1_title: res.data.acf.brand_image_1.title,
-            brand_image_2: res.data.acf.brand_image_2,
-            brand_image_2_title: res.data.acf.brand_image_2.title,
-            brand_image_3: res.data.acf.brand_image_3,
-            brand_image_3_title: res.data.acf.brand_image_3.title,
-            brand_image_4: res.data.acf.brand_image_4,
-            brand_image_4_title: res.data.acf.brand_image_4.title,
-            brand_image_5: res.data.acf.brand_image_5,
-            brand_image_5_title: res.data.acf.brand_image_5.title,
-            brand_image_6: res.data.acf.brand_image_6,
-            brand_image_6_title: res.data.acf.brand_image_6.title,
-            brand_image_7: res.data.acf.brand_image_7,
-            brand_image_7_title: res.data.acf.brand_image_7.title,
-            brand_image_8: res.data.acf.brand_image_8,
-            brand_image_8_title: res.data.acf.brand_image_8.title,
-            brand_image_9: res.data.acf.brand_image_9,
-            brand_image_9_title: res.data.acf.brand_image_9.title,
-            slug: res.data.slug,
+
+    componentDidMount (){
+        const indBrandUrl = 'http://www.jaisunhouse.com/wp/wp-json/wp/v2/individual_brand/?slug=' + this.props.match.params.slug;
+        fetch(indBrandUrl)
+        .then(response => response.json())
+        .then(response => {
+          console.log(response[0]);
+          this.setState({
+            indbrandtable: response[0],
+            brand_image_1: response[0].acf.brand_image_1,
+            brand_image_1_title: response[0].acf.brand_image_1.title,
+            brand_image_2: response[0].acf.brand_image_2,
+            brand_image_2_title: response[0].acf.brand_image_2.title,
+            brand_image_3: response[0].acf.brand_image_3,
+            brand_image_3_title: response[0].acf.brand_image_3.title,
+            brand_image_4: response[0].acf.brand_image_4,
+            brand_image_4_title: response[0].acf.brand_image_4.title,
+            brand_image_5: response[0].acf.brand_image_5,
+            brand_image_5_title: response[0].acf.brand_image_5.title,
+            brand_image_6: response[0].acf.brand_image_6,
+            brand_image_6_title: response[0].acf.brand_image_6.title,
+            brand_image_7: response[0].acf.brand_image_7,
+            brand_image_7_title: response[0].acf.brand_image_7.title,
+            brand_image_8: response[0].acf.brand_image_8,
+            brand_image_8_title: response[0].acf.brand_image_8.title,
+            brand_image_9: response[0].acf.brand_image_9,
+            brand_image_9_title: response[0].acf.brand_image_9.title,
+            slug: response[0].slug,
             isLoaded: true
-            })
-        })
-        .catch(error => console.log(error));
+          })
+        })  
     }
-
-    constructor(props) {    
-        super(props)
-        this.state = {
-          condition: false
-        }
-        this.handleClick = this.handleClick.bind(this)
-    }
-
-    handleClick() {
-        this.setState({
-            condition: !this.state.condition
-        })
-    }
+    
 
     render() {
         const brand_name = this.state.slug;
         const classes = `ind-brands ${brand_name}`;
 
-        const {indbrandtable, isLoaded } = this.state;
+        const indbrandtable = this.state.indbrandtable;
+        const isLoaded  = this.state.isLoaded;
         const MyListLoader = () => <List />
 
         if(isLoaded) {

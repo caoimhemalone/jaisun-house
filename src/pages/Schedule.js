@@ -17,7 +17,7 @@ class Schedule extends Component {
 
   componentDidMount() {
     axios.get("http://www.jaisunhouse.com/wp/wp-json/wp/v2/schedule").then(res => {
-        console.log(res.data);
+        //console.log(res.data);
         this.setState({
         scheduletable: res.data,
         latest_collection: res.data[0].acf.latest_collection,

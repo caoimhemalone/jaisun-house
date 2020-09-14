@@ -22,7 +22,8 @@ export class BrandItems extends Component {
         let brandLoop = brands.map((brand, index)=> {
             let imgUrl = brand.acf.tile_image.sizes.medium;
             // let link = 'brands/'+brand.id
-            let link = brand.id
+            //let link = brand.id
+            let link = brand.slug
             return (
                 <Col xs={6} md={3} className="brands__tiles-item" key={index}>
                     <a href={link}>
@@ -39,7 +40,7 @@ export class BrandItems extends Component {
             return (       
                 <Grid fluid className="brands-container px-0">
                     <Row className="brands__tiles">
-                            {brandLoop}
+                        {brandLoop}
                     </Row>
                 </Grid>
             );

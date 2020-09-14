@@ -40,12 +40,29 @@ class Nav extends React.Component {
         // } else if(this.props.navColor === 'blueberry'){
         //     this.setState({color: 'blueberry'})
         // }
+
+        const brandUrl = 'http://www.jaisunhouse.com/wp/wp-json/wp/v2/individual_brand';
+    
+        fetch(brandUrl)
+        .then(response => response.json())
+        .then(response => {
+          //console.log(response);
+          //response.sort((a, b) => a.id - b.id);
+          this.setState({
+            brands: response,
+            isLoaded: true
+          })
+        })
     }
 
     constructor() {
         super();
         ReactGA.initialize("UA-111422776-1");
         ReactGA.pageview(window.location.pathname);
+        this.state = {
+            brands: [],
+            isLoaded: false
+        }
     }
     render(){
         //console.log(this.props.navColor);
@@ -54,6 +71,16 @@ class Nav extends React.Component {
         } else if(this.props.navColor === 'blueberry'){
             this.setState({color: 'blueberry'})
         }
+
+        const {brands, isLoaded } = this.state;
+
+        let brandLoop = brands.map((brand, index)=> {
+            let link = brand.slug
+            return ( 
+                <Route exact path={"/"+link} component={IndBrand} key={brand.id} navColor="apricot"/>
+            )
+        })
+        //console.log(brandLoop);
         return (
             <div>
                 <Router>
@@ -101,7 +128,9 @@ class Nav extends React.Component {
                         <Route path="/contact" component={Contact} navColor="blueberry"/>
                         <Route path="/sign-in" component={Signin} navColor="blueberry"/>
                         <Route path="/sitemap" component={Sitemap} navColor="apricot"/>
-                        <Route exact path="/:id" component={IndBrand} navColor="apricot"/>
+                        <Route exact path="/:slug" component={IndBrand} navColor="apricot"/>
+                        {brandLoop}
+                        {/* <Route exact path="/:id" component={IndBrand} navColor="apricot"/> */}
                     </Switch>          
                 </Router>
             </div>

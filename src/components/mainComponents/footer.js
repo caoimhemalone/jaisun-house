@@ -20,7 +20,6 @@ class Footer extends Component {
       fetch(contactUrl)
       .then(response => response.json())
       .then(response => {
-        console.log(response);
         this.setState({
           footer: response,
           phone: response.acf.phone,

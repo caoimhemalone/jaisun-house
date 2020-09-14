@@ -20,7 +20,6 @@ class Brands extends Component {
     fetch(brandUrl)
     .then(response => response.json())
     .then(response => {
-      console.log(response);
       response.sort((a, b) => a.id - b.id);
       this.setState({
         brands: response,

@@ -15,7 +15,7 @@ class Header extends Component {
 
         return (
             <section className="header">
-                <Grid fluid className="header-container">
+                <Grid fluid className="header-container" style={{backgroundColor: this.props.color}}>
                     <Row>
                         <Col xs={12} md={12} className="header-item d-flex">
                             <div className="header-logo">

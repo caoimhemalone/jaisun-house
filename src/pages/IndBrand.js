@@ -73,7 +73,8 @@ class IndBrands extends Component {
                             </Row>
                             <Row className="ind-brands__tiles">
                                 <Col xs={12} md={12}>   
-                                    <BrandCarousel img1={this.state.brand_image_1} img2={this.state.brand_image_2} img3={this.state.brand_image_3} img4={this.state.brand_image_4} img5={this.state.brand_image_5} img6={this.state.brand_image_6} img7={this.state.brand_image_7} img8={this.state.brand_image_8} img9={this.state.brand_image_9} />
+                                    {/* <BrandCarousel img1={this.state.brand_image_1} img2={this.state.brand_image_2} img3={this.state.brand_image_3} img4={this.state.brand_image_4} img5={this.state.brand_image_5} img6={this.state.brand_image_6} img7={this.state.brand_image_7} img8={this.state.brand_image_8} img9={this.state.brand_image_9} /> */}
+                                {/* Add a field in the DB that states if it's vertical or horizontal, if the foeld is empty don't show image */}
                                 </Col>    
                             </Row>
                         </Grid>

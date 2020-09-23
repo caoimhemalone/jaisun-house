@@ -6,7 +6,7 @@
 nav {
     position: fixed;
     top: 0;
-    background-color: $white;
+    background-color: transparent;
     display: block;
     width: 100%;
     z-index: 5;
@@ -617,7 +617,7 @@ nav {
 .brands {
     background-color: #efeeec;
     .header-container {
-        background-color: $apple-core;
+        // background-color: $apple-core;
         // padding: 6% 0 3% 0;
 
         @media only screen and (max-width: 767px) {

@@ -3,31 +3,44 @@ import React, { Component } from "react";
 
 //components
 import Nav from './components/mainComponents/nav';
-// import Home from './pages/Home';
-// import About from './pages/About';
-// import Brands from './pages/Brands';
-// import B2B from './pages/B2B';
-// import Schedule from './pages/Schedule';
-// import Contact from './pages/Contact';
-// import Signin from './pages/Signin';
 
 import Footer from './components/mainComponents/footer';
 
-//images
-// import logo from './logo.svg';
 
 //includes
 import './assets/css/main.css';
 
 class App extends Component {
+  state = {
+    loading: true
+  };
+
+  componentDidMount() {
+    // this simulates an async action, after which the component will render the content
+    demoAsyncCall().then(() => this.setState({ loading: false }));
+  }
+  
   render() {
+    const { loading } = this.state;
+    
+    if(loading) {
+      //return null; // render null when app is not ready
+      const hide = 1
+    }
+
+    const hide = 0
+    
     return (
-      <div>
+      <div style={{opacity: hide}}>
         <Nav />
         <Footer />
       </div>
-    );  
+    ); 
   }
+}
+
+function demoAsyncCall() {
+  return new Promise((resolve) => setTimeout(() => resolve(), 2500));
 }
 
 export default App;

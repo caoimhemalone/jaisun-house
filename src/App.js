@@ -31,7 +31,8 @@ class App extends Component {
     const hide = 0
     
     return (
-      <div style={{opacity: hide}}>
+      // <div style={{opacity: hide}}>
+      <div>
         <Nav />
         <Footer />
       </div>

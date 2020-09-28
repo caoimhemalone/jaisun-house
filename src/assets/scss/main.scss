@@ -348,7 +348,7 @@ nav {
         .title-container {
             display: flex;
             width: 100%;
-            margin-top: 6%;
+            margin-top: 4%;
         }
 
         .title-seperator {
@@ -380,9 +380,10 @@ nav {
 
             p {
                 display: block;
-                margin-bottom: 7%;
+                margin-bottom: 6%;
                 margin-top: 2%;
                 text-shadow: 2px 2px rgba(0, 0, 0, 0.08);
+                text-align: center;
             }
         }
     }
@@ -478,7 +479,7 @@ nav {
             .text-container {
                 display: flex;
 
-                p {
+                &__info {
                     line-height: 2;
                     align-self: center;
 
@@ -538,6 +539,8 @@ nav {
                 p {
                     line-height: 1.8;
                     align-self: center;
+                    display: block;
+                    width: 100%;
                 }
             }
         }
@@ -549,6 +552,8 @@ nav {
             p {
                 padding: 0 100px;
                 margin-bottom: 30px;
+                display: block;
+                width: 100%;
 
                 @media only screen and (max-width: 991px) {
                     padding: 0;
@@ -556,7 +561,7 @@ nav {
             }
         }
 
-        .about-us__goals {
+        .about-us__services {
             margin: 40px 0 0 0;
 
             ion-icon {
@@ -574,6 +579,18 @@ nav {
                 text-align: center;
                 color: $grey;
                 margin-top: 10px;
+                display: block;
+                width: 100%;
+            }
+
+            &-text {
+                max-height: 200px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+
+                p {
+                    text-shadow: 1px 1px #eaeaea;
+                }
             }
         }
 
@@ -838,68 +855,9 @@ nav {
             }
         }
 
-        .schedule__calendar {
-            //margin-top: 60px;
-            h2 {
-                text-align: center;
-                padding-bottom: 24px;
+       .schedule__appt {
 
-                a {
-                    color: $citrus;
-                    text-decoration: none;
-
-                    &:hover {
-                        color: $apricot;
-                        text-decoration: underline;
-                    }
-                }
-            }
-
-            .diary {
-                //margin-top: 30px;
-
-                .rbc-event {
-                    background-color: $blueberry;
-                }
-
-                .rbc-btn-group {
-                    button {
-                        border-radius: 30em;
-                        background-color: $apricot;
-                        border-color: unset;
-                        color: $white;
-                        text-shadow: 1px 1px rgba(0, 0, 0, 0.08);
-                    }
-
-                    .rbc-active {
-                        background-color: $citrus;
-                    }
-                }
-
-                .rbc-toolbar {
-                    margin-bottom: 1em;
-                }
-
-                .rbc-toolbar-label {
-                    font-size: 20px;
-                    padding-left: 7%;
-                }
-
-                .rbc-today {
-                    background-color: $apple-core;
-                }
-       
-                .rbc-day-slot.rbc-today {
-                    background-color: $white;
-                }
-
-                .rbc-allday-cell {
-                    .rbc-today {
-                        background-color: $white;
-                    }
-                }
-            }
-        }
+       }
     }
 }
 

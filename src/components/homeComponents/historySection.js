@@ -49,9 +49,9 @@ class History extends React.Component {
                                 <img src={ph_square} alt="Placeholder Image"/>
                             </Col>
                             <Col xs={12} md={7} className="text-container">
-                                <p>{historytable.map(home_history => (
-                                    <div key={home_history.id} dangerouslySetInnerHTML={{ __html:home_history.acf.history}}/>
-                                ))}</p>
+                                {historytable.map(home_history => (
+                                    <div className="text-container__info" key={home_history.id} dangerouslySetInnerHTML={{ __html:home_history.acf.history}}/>
+                                ))}
                             </Col>
                         </Row>
                     </Grid>

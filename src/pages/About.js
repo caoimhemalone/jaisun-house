@@ -24,12 +24,12 @@ class About extends Component {
                 abouttable: res.data,
                 who_are_we: res.data[0].acf.who_are_we,
                 mission: res.data[0].acf.mission,
-                goal_1: res.data[0].acf.goal_1,
-                goal_1_info: res.data[0].acf.goal_1_info,
-                goal_2: res.data[0].acf.goal_2,
-                goal_2_info: res.data[0].acf.goal_2_info,
-                goal_3: res.data[0].acf.goal_3,
-                goal_3_info: res.data[0].acf.goal_3_info,
+                service_1: res.data[0].acf.service_1,
+                service_1_info: res.data[0].acf.service_1_info,
+                service_2: res.data[0].acf.service_2,
+                service_2_info: res.data[0].acf.service_2_info,
+                service_3: res.data[0].acf.service_3,
+                service_3_info: res.data[0].acf.service_3_info,
                 client_1: res.data[0].acf.client_1,
                 client_1_image: res.data[0].acf.client_1_image.sizes.medium,
                 client_2: res.data[0].acf.client_2,
@@ -74,9 +74,7 @@ class About extends Component {
                         <img src={ph_square} alt="Placeholder Image"/>
                     </Col>
                     <Col xs={12} md={7} className="text-container">
-                        <p className="d-flex justify-content-right">
-                            {this.state.who_are_we}
-                        </p>
+                        <div dangerouslySetInnerHTML={{ __html: this.state.who_are_we }}></div>
                     </Col>
                 </Row>
                 
@@ -85,44 +83,39 @@ class About extends Component {
                         <h2 className="d-flex justify-content-center">Our Mission</h2>
                     </Col>
                     <Col xs={12} md={12}>
-                        <p className="d-flex justify-content-center">
-                            {this.state.mission}
-                        </p>
+                        <div dangerouslySetInnerHTML={{ __html: this.state.mission }}></div>
                     </Col>
                 </Row>
 
-                <Row className="about-us__goals px-5">
+                <Row className="about-us__services px-5">
                     <Col xs={12} md={4}>
                         <Zoom>
                             <ion-icon name="bulb-outline"></ion-icon>
                             <span className="d-flex justify-content-center">
-                                {this.state.goal_1}
+                                {this.state.service_1}
                             </span>
-                            <p className="d-flex justify-content-center">
-                                {this.state.goal_1_info}
-                            </p>
+                            <div className="justify-content-center about-us__services-text" dangerouslySetInnerHTML={{ __html: this.state.service_1_info }}></div>
+                            <a>Read More</a>
                         </Zoom>
                     </Col>
                     <Col xs={13} md={4}>
                         <Zoom>
                             <ion-icon name="cash-outline"></ion-icon>
                             <span className="d-flex justify-content-center">
-                                {this.state.goal_2}
+                                {this.state.service_2}
                             </span>
-                            <p className="d-flex justify-content-center">
-                                {this.state.goal_2_info}
-                            </p>
+                            <div className="justify-content-center about-us__services-text" dangerouslySetInnerHTML={{ __html: this.state.service_2_info }}></div>
+                            <a>Read More</a>
                         </Zoom>
                     </Col>
                     <Col xs={12} md={4}>
                         <Zoom>
                             <ion-icon name="star-outline"></ion-icon>
                             <span className="d-flex justify-content-center">
-                                {this.state.goal_3}
+                                {this.state.service_3}
                             </span>
-                            <p className="d-flex justify-content-center">
-                                {this.state.goal_3_info}
-                            </p>
+                            <div className="justify-content-center about-us__services-text" dangerouslySetInnerHTML={{ __html: this.state.service_3_info }}></div>
+                            <a>Read More</a>
                         </Zoom>
                     </Col>
                     <hr/>

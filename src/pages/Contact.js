@@ -1,13 +1,11 @@
 import React, { Component } from "react";
 import { Grid, Row, Col } from 'react-flexbox-grid';
-import axios from 'axios'
 import Pulse from 'react-reveal/Pulse';
 
 
 //components
 import Header from '../components/mainComponents/headerSection';
 import GMap from '../components/contactComponents/map';
-import { diffDates } from "@fullcalendar/core";
 
 class Contact extends Component {
   constructor () {
@@ -130,55 +128,57 @@ class Contact extends Component {
                   <div className="form-right">
                   <div className="form-group">
                       <span>Other Details</span>
-                      <label>I am interested in *</label>
-                      <br/>
+                      <label className="lbl-heading">I am interested in *</label>
 
-                      <input type="checkbox" id="item1" name="item1" value="Guess Handbags/Accessories"/>
-                      <label for="item1">Guess Handbags/Accessories</label>
-                      <br/>
+                      <div className="cbox-right">
+                        <input type="checkbox" id="item1" name="item1" value="Guess Handbags/Accessories"/>
+                        <label className="cbox" for="item1">Guess Handbags/Accessories</label>
+                        <br/>
 
-                      <input type="checkbox" id="item2" name="item2" value="Guess Clothing"/>
-                      <label for="item2">Guess Clothing</label>
-                      <br/>
+                        <input type="checkbox" id="item2" name="item2" value="Guess Clothing"/>
+                        <label className="cbox" for="item2">Guess Clothing</label>
+                        <br/>
 
-                      <input type="checkbox" id="item3" name="item3" value="Tiffosi"/>
-                      <label for="item3">Tiffosi</label>
-                      <br/>
+                        <input type="checkbox" id="item3" name="item3" value="Tiffosi"/>
+                        <label className="cbox" for="item3">Tiffosi</label>
+                        <br/>
 
-                      <input type="checkbox" id="item4" name="item4" value="Kendall and Kylie"/>
-                      <label for="item4">Kendall & Kylie</label>
-                      <br/>
+                        <input type="checkbox" id="item4" name="item4" value="Kendall and Kylie"/>
+                        <label className="cbox" for="item4">Kendall & Kylie</label>
+                        <br/>
 
-                      <input type="checkbox" id="item5" name="item5" value="NA-KD"/>
-                      <label for="item5">NA-KD</label>
-                      <br/>
+                        <input type="checkbox" id="item5" name="item5" value="NA-KD"/>
+                        <label className="cbox" for="item5">NA-KD</label>
+                        <br/>
 
-                      <input type="checkbox" id="item6" name="item6" value="Happy Socks"/>
-                      <label for="item6">Happy Socks</label>
-                      <br/>
+                        <input type="checkbox" id="item6" name="item6" value="Happy Socks"/>
+                        <label className="cbox" for="item6">Happy Socks</label>
+                      </div>
 
-                      <input type="checkbox" id="item7" name="item7" value="GANT Footwear"/>
-                      <label for="item7">GANT Footwear</label>
-                      <br/>
+                      <div className="cbox-right">
+                        <input type="checkbox" id="item7" name="item7" value="GANT Footwear"/>
+                        <label className="cbox" for="item7">GANT Footwear</label>
+                        <br/>
 
-                      <input type="checkbox" id="item8" name="item8" value="Joop"/>
-                      <label for="item8">Joop</label>
-                      <br/>
+                        <input type="checkbox" id="item8" name="item8" value="Joop"/>
+                        <label className="cbox" for="item8">Joop</label>
+                        <br/>
 
-                      <input type="checkbox" id="item9" name="item9" value="McGregor"/>
-                      <label for="item9">McGregor</label>
-                      <br/>
+                        <input type="checkbox" id="item9" name="item9" value="McGregor"/>
+                        <label className="cbox" for="item9">McGregor</label>
+                        <br/>
 
-                      <input type="checkbox" id="item10" name="item10" value="Vanessa Wu"/>
-                      <label for="item10">Vanessa Wu</label>
-                      <br/>
+                        <input type="checkbox" id="item10" name="item10" value="Vanessa Wu"/>
+                        <label className="cbox" for="item10">Vanessa Wu</label>
+                        <br/>
 
-                      <input type="checkbox" id="item11" name="item11" value="Fantasy Sandals"/>
-                      <label for="item11">Fantasy Sandals</label>
-                      <br/>
+                        <input type="checkbox" id="item11" name="item11" value="Fantasy Sandals"/>
+                        <label className="cbox" for="item11">Fantasy Sandals</label>
+                        <br/>
 
-                      <input type="checkbox" id="item12" name="item12" value="General Inquiry"/>
-                      <label for="item12">General Inquiry</label>
+                        <input type="checkbox" id="item12" name="item12" value="General Inquiry"/>
+                        <label className="cbox" for="item12">General Inquiry</label>
+                      </div>
                     </div>
 
                     <div className="form-group">
@@ -186,23 +186,23 @@ class Contact extends Component {
                       <br/>
 
                       <input type="checkbox" id="require1" name="require1" value="Book Appt"/>
-                      <label for="require1">Book an appointment to view our collection</label>
+                      <label className="cbox" for="require1">Book an appointment to view our collection</label>
                       <br/>
 
                       <input type="checkbox" id="require2" name="require2" value="Meeting"/>
-                      <label for="require2">Arrange a meeting for more information</label>
+                      <label className="cbox" for="require2">Arrange a meeting for more information</label>
                       <br/>
 
                       <input type="checkbox" id="require3" name="require3" value="Brand Marketing"/>
-                      <label for="require3">Brand Marketing & Imagery</label>
+                      <label className="cbox" for="require3">Brand Marketing & Imagery</label>
                       <br/>
 
                       <input type="checkbox" id="require4" name="require4" value="Corporate"/>
-                      <label for="require4">Corporate</label>
+                      <label className="cbox" for="require4">Corporate</label>
                       <br/>
 
                       <input type="checkbox" id="require5" name="require5" value="General"/>
-                      <label for="require5">General Inquiry</label>
+                      <label className="cbox" for="require5">General Inquiry</label>
                       <br/>
                     </div>
                  

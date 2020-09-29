@@ -8,7 +8,7 @@ import axios from 'axios';
 import Header from '../components/mainComponents/headerSection';
 
 //images
-import ph_square from '../assets/images/placeholder-square.jpg';
+import about_image from '../assets/images/stock/about-us.jpg';
 
 class About extends Component {
     state = {
@@ -70,8 +70,8 @@ class About extends Component {
                     <Col xs={12} md={12}>
                         <h2 className="d-flex justify-content-center heading">Who are we</h2>
                     </Col>
-                    <Col xs={12} md={5}>
-                        <img src={ph_square} alt="Placeholder Image"/>
+                    <Col xs={12} md={5} className="about-us__image">
+                        <img src={about_image} alt="Office Meeting"/>
                     </Col>
                     <Col xs={12} md={7} className="text-container">
                         <div dangerouslySetInnerHTML={{ __html: this.state.who_are_we }}></div>

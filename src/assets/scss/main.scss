@@ -13,7 +13,8 @@ nav {
 
     .nav-left {
         @media only screen and (max-width: 991px) {
-            max-height: 10vh;
+            //max-height: 10vh;
+            display: none;
         }
 
         // img {
@@ -34,6 +35,8 @@ nav {
             text-align: center;
             align-self: flex-start;
             justify-content: center;
+            height: 100%;
+            align-items: center;
         }
 
         a {
@@ -56,11 +59,16 @@ nav {
             @media only screen and (min-width: 767px) and (max-width: 991px) {
                 text-align: right;
             }
+
+            @media only screen and (max-width:991px) {
+                padding-top: 10px;
+            }
         }
         
         .row {
             @media only screen and (max-width: 991px) {
                 width: 100%;
+                height: fit-content;
             }
         }
     }
@@ -239,6 +247,10 @@ nav {
         .header-item {
             padding: 0;
             position: relative;
+
+            @media only screen and (max-width: 992px) {
+                height: 200px;
+            }
         }
 
         .header-carousel {
@@ -524,11 +536,6 @@ nav {
         .about-us__bio {
             margin-bottom: 40px;
 
-            img {
-                margin: auto;
-                display: block;
-            }
-
             .text-container {
                 display: flex;
 
@@ -624,6 +631,22 @@ nav {
                 padding: 8%;
                 border: 2px solid $blueberry;
             }
+        }
+    }
+
+    &__image {
+        position: relative;
+        height: 100%;
+        display: block;
+
+
+        img {
+            margin: auto;
+            display: block;
+            width: 100%;
+            padding: 20px;
+            position: sticky;
+            top: 0;
         }
     }
 }
@@ -856,8 +879,149 @@ nav {
         }
 
        .schedule__appt {
+            h2 {
+                text-align: center;
+                padding-bottom: 40px;
+            }
 
-       }
+            hr {
+                margin-top: 0;
+            }
+
+            form {
+                width: 60%;
+                margin: auto;
+                display: block;
+                float: right;
+                padding: 0 30px;
+
+                @media only screen and (max-width: 767px) {
+                    width: 100%;
+                    margin-top: 20px;
+                }
+
+                label {
+                    width: 100%;
+                    margin-top: 3%;
+
+                    &:first-child {
+                        margin-top: 0;
+                    }
+                }
+
+                .cbox {
+                    &-label {
+                        width: auto;
+                        margin-left: 1%;
+                    }
+
+                    &-left {
+                        width: 50%;
+                        float: left;
+                    }
+
+                    &-right {
+                        width: 50%;
+                        float: right;
+                    }
+                }
+
+                input {
+                    max-height: 10px;
+                    transition: max-height .15s ease-out;
+                    overflow: hidden;
+                    border: none;
+                    border-bottom: 1px solid #ced4da;
+                    border-radius: unset;
+
+                    &:focus {
+                        max-height: 30px;
+                        transition: max-height .25s ease-in;
+                        border-color: #f7882f;
+                        border-width: 2px;
+                        box-shadow: unset;
+                    }
+                }
+
+                #meeting-time {
+                    max-height: unset;
+                }
+
+                .form {
+                    &-top {
+                        display: flex;
+                    }
+
+                    &-group {
+                        width: 100%;
+                    }
+
+                    &-bottom {
+                        width: 100%;
+
+                        button {
+                            background-color: $apricot;
+                            margin: auto;
+                            width: 20%;
+                            margin: 20px auto;
+                            display: block;
+                            border-color: $apricot;
+
+                            &:hover {
+                                border-color: $apricot;
+                                background-color: $white;
+                                color: $apricot;
+                            }
+                        }
+                    }
+                }
+            }
+
+            &-message {
+                width: 40%;
+                float: left;
+                display: block;
+                padding: 0 20px;
+                height: 80%;
+                position: relative;
+
+                @media only screen and (max-width: 767px) {
+                    width: 100%;
+                    height: auto;
+                }
+
+                h2 {
+                    text-transform: uppercase;
+                    font-weight: 700;
+                    width: 100%;
+                    text-align: center;
+                    text-decoration: underline;
+
+                    @media only screen and (min-width: 768px){
+                        padding-top: 25%;
+                    }
+                }
+
+                &__container {
+                    display: flex;
+                    flex-wrap: wrap;
+
+                    @media only screen and (min-width: 768px){
+                        position: sticky;
+                        top: 0;
+                    }
+
+                    .message {
+                        align-self: center;
+
+                        p {
+                            display: block;
+                            width: 100%;
+                        }
+                    }
+                }
+            }
+        }
     }
 }
 
@@ -996,10 +1160,27 @@ nav {
                         width: 100%;
                         text-transform: uppercase;
                         border-bottom: 3px solid $citrus;
+                        margin-top: 40px;
                     }
 
                     label {
                         margin-top: 30px;
+
+                        &.cbox {
+                            margin-left: 1%;
+                        }
+                    }
+
+                    .cbox-left {
+                        display: block;
+                        width: 50%;
+                        float: left;
+                    }
+
+                    .cbox-right {
+                        display: block;
+                        width: 50%;
+                        float: right;
                     }
                 }
 
@@ -1015,6 +1196,11 @@ nav {
                         max-width: 50%;
                         float: right;
                     }
+
+                    .lbl-heading {
+                        width: 100%;
+                        display: block;    
+                    }
                 }
 
                 .form-bottom {
@@ -1025,13 +1211,18 @@ nav {
                 .btn {
                     margin: auto;
                     display: block;
-                    background-color: $apple-core;
-                    border: none;
+                    background-color: $apricot;
+                    border-color: $apricot;
                     padding: 5px 35px;
 
                     @media only screen and (max-width: 991px) {
                         padding: 12px 40px;
                         margin-top: 24px;
+                    }
+
+                    &:hover {
+                        background-color: $white;
+                        color: $apricot;
                     }
                 }
             }

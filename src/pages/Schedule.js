@@ -16,7 +16,7 @@ class Schedule extends Component {
 
   componentDidMount() {
     axios.get("http://www.jaisunhouse.com/wp/wp-json/wp/v2/schedule").then(res => {
-        //console.log(res.data);
+        console.log(res.data);
         this.setState({
         scheduletable: res.data,
         latest_collection: res.data[0].acf.latest_collection,
@@ -27,6 +27,7 @@ class Schedule extends Component {
         latest_col_img_5: res.data[0].acf.latest_collection_image_5.sizes.large,
         latest_col_img_6: res.data[0].acf.latest_collection_image_6.sizes.large,
         next_launch: res.data[0].acf.next_launch,
+        appt_msg: res.data[0].acf.appt_msg,
         isLoaded: true
         })
     })
@@ -100,80 +101,92 @@ class Schedule extends Component {
                 <h2><a href="/contact">BOOK AN APPOINTMENT</a> and come see us!</h2>
               </Fade>
               <hr/>
+
+              <div className="schedule__appt-message">
+                <div className="schedule__appt-message__container">
+                  <h2>Showroom update</h2>
+                  <div className="message" dangerouslySetInnerHTML={{ __html: this.state.appt_msg }}></div>
+                </div>
+              </div>
               <form action={this.state.email_mailto} method="POST" enctype="multipart/form-data" name="EmailForm">
-                  <div className="form-left">
-                    <div className="form-group">
-                        <label htmlFor="name">Name *</label>
-                        <input type="text" className="form-control" required/>
-                        
-                        <label htmlFor="email">Email *</label>
-                        <input type="email" className="form-control" required />
+                <div className="form-top">
+                  <div className="form-group">
+                    <label htmlFor="name">Name *</label>
+                    <input type="text" className="form-control" required/>
+                    
+                    <label htmlFor="email">Email *</label>
+                    <input type="email" className="form-control" required />
 
-                        <label htmlFor="phone">Phone Number *</label>
-                        <input type="number" className="form-control" required />
+                    <input type="checkbox" id="email-sub" name="email-sub" value="email-sub"/>
+                    <label className="cbox-label" for="email-sub">Check here to receive email updates</label>
 
-                        <label for="meeting-time">Choose a time for your appointment:</label>
+                    <label htmlFor="phone">Phone Number *</label>
+                    <input type="number" className="form-control" required />
 
-                        <input type="datetime-local" id="meeting-time" name="meeting-time" value="2018-06-12T19:30" min="2018-06-07T00:00" max="2018-06-14T00:00" required/>
+                    <label for="meeting-time">Choose a time for your appointment:</label>
 
-                        <label htmlFor="message">Comments/Questions</label>
-                        <textarea className="form-control" rows="5"></textarea>
+                    <input type="datetime-local" id="meeting-time" name="meeting-time" value="2018-06-12T19:30" min="2018-06-07T00:00" max="2018-06-14T00:00" required/>
 
-                      <label>I am interested in *</label>
-                      <br/>
+                    <label htmlFor="message">Comments/Questions</label>
+                    <textarea className="form-control" rows="5"></textarea>
 
+                    <label>I am interested in *</label>
+                    <br/>
+                    <div className="cbox-right">
                       <input type="checkbox" id="item1" name="item1" value="Guess Handbags/Accessories"/>
-                      <label for="item1">Guess Handbags/Accessories</label>
+                      <label for="item1" className="cbox-label">Guess Handbags/Accessories</label>
                       <br/>
 
                       <input type="checkbox" id="item2" name="item2" value="Guess Clothing"/>
-                      <label for="item2">Guess Clothing</label>
+                      <label for="item2" className="cbox-label">Guess Clothing</label>
                       <br/>
 
                       <input type="checkbox" id="item3" name="item3" value="Tiffosi"/>
-                      <label for="item3">Tiffosi</label>
+                      <label for="item3" className="cbox-label">Tiffosi</label>
                       <br/>
 
                       <input type="checkbox" id="item4" name="item4" value="Kendall and Kylie"/>
-                      <label for="item4">Kendall & Kylie</label>
+                      <label for="item4" className="cbox-label">Kendall & Kylie</label>
                       <br/>
 
                       <input type="checkbox" id="item5" name="item5" value="NA-KD"/>
-                      <label for="item5">NA-KD</label>
+                      <label for="item5" className="cbox-label">NA-KD</label>
                       <br/>
 
                       <input type="checkbox" id="item6" name="item6" value="Happy Socks"/>
-                      <label for="item6">Happy Socks</label>
-                      <br/>
-
+                      <label for="item6" className="cbox-label">Happy Socks</label>
+                    </div>  
+                    <div className="cbox-left">
                       <input type="checkbox" id="item7" name="item7" value="GANT Footwear"/>
-                      <label for="item7">GANT Footwear</label>
+                      <label for="item7" className="cbox-label">GANT Footwear</label>
                       <br/>
 
                       <input type="checkbox" id="item8" name="item8" value="Joop"/>
-                      <label for="item8">Joop</label>
+                      <label for="item8" className="cbox-label">Joop</label>
                       <br/>
 
                       <input type="checkbox" id="item9" name="item9" value="McGregor"/>
-                      <label for="item9">McGregor</label>
+                      <label for="item9" className="cbox-label">McGregor</label>
                       <br/>
 
                       <input type="checkbox" id="item10" name="item10" value="Vanessa Wu"/>
-                      <label for="item10">Vanessa Wu</label>
+                      <label for="item10" className="cbox-label">Vanessa Wu</label>
                       <br/>
 
                       <input type="checkbox" id="item11" name="item11" value="Fantasy Sandals"/>
-                      <label for="item11">Fantasy Sandals</label>
+                      <label for="item11" className="cbox-label">Fantasy Sandals</label>
                       <br/>
 
                       <input type="checkbox" id="item12" name="item12" value="General Inquiry"/>
-                      <label for="item12">General Inquiry</label>                   
-                    </div>
-                 </div>
-                 <div className="form-bottom">
-                    <button type="submit" className="btn btn-primary">Submit</button>
+                      <label for="item12" className="cbox-label">General Inquiry</label>   
+                    </div>                
                   </div>
-                </form>
+                </div>
+                
+                <div className="form-bottom">
+                  <button type="submit" className="btn btn-primary">Submit</button>
+                </div>
+              </form>
             </Col>
           </Row>
         </Grid>

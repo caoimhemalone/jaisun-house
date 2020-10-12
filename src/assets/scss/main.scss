@@ -688,6 +688,7 @@ nav {
 
             .brands__tiles-item {
                 margin-bottom: 20px;
+                width: 100%;
             }
 
             img {
@@ -697,14 +698,26 @@ nav {
                 -webkit-box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.08); 
                 box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.1);
                 padding: 10px;
+                width: 100%;
 
-                @media only screen and (max-width: 991px) {
-                    width: 100%;
-                }
+                // @media only screen and (max-width: 991px) {
+                //     width: 100%;
+                // }
             }
 
             span {
                 margin-top: 10px;
+            }
+
+            svg {
+                width: 100%;
+                overflow: hidden;
+
+                rect {
+                    width: 100%;
+                    height: 100%;
+                    display: block;
+                }
             }
         }
     }
@@ -761,50 +774,61 @@ nav {
                     line-height: 1.8;
                     color: $white;
                     padding-top: 20px;
+                    flex-wrap: wrap;
 
                     @media only screen and (max-width: 991px) {
                         padding-top: 40px;
+                    }
+
+                    p {
+                        display: block;
+                        width: 100%;
                     }
                 }
             }
         }
 
-        .ind-brands__tiles {
-            background-color: $white;
-            // display: grid;
-            // grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            // grid-auto-rows: 200px;
-            // grid-gap: 5px;
-            // grid-auto-flow: dense;
+        .ind-brands { 
+            &__tiles {
+                background-color: $white;
+                display: flex;
+                flex-wrap: wrap;
 
-            @media only screen and (max-width: 767px) {
-                padding-bottom: 5px;
-            }
+                @media only screen and (max-width: 767px) {
+                    padding-bottom: 5px;
+                }
 
-            .ind-brands__tiles__item {
-                padding: 0;
+                .Vertical {
+                    width: 50%;
+                }
 
-                &.white_placeholder {
-                    display: none;
+                .Horizontal {
+                    width: 100%;
+                }
+
+                .Vertical, .Horizontal {
+                    display: flex;
+                    background-color: $apple-core;
+
+                    @media only screen and (max-width: 767px) {
+                        width: 100%;
+                    }
+                }
+
+                img {
+                    width: 100%;
+                    align-self: center;
+                    padding: 5%;
                 }
             }
 
-            .brand-car-container {
-                width: 100%;
-                margin: 0 auto;
+            &__video {
+                background-color: $black;
+                padding: 40px 0;
 
-                .brand-car-item {
-                    display: flex;
-                    padding-top: 10px;
-                    padding-bottom: 10px;
-
-                    img {
-                        margin: 0 auto;
-                        align-self: center;
-                        display: flex;
-                        width: 100%;
-                        height: auto;
-                    }
+                iframe {
+                    margin: auto;
+                    display: block;
                 }
             }
         }

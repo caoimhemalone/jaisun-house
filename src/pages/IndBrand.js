@@ -22,30 +22,29 @@ class IndBrands extends Component {
           console.log(response[0]);
           this.setState({
             indbrandtable: response[0],
-            brand_image_1: response[0].acf.brand_image_1,
-            brand_image_1_title: response[0].acf.brand_image_1.title,
-            brand_image_2: response[0].acf.brand_image_2,
-            brand_image_2_title: response[0].acf.brand_image_2.title,
-            brand_image_3: response[0].acf.brand_image_3,
-            brand_image_3_title: response[0].acf.brand_image_3.title,
-            brand_image_4: response[0].acf.brand_image_4,
-            brand_image_4_title: response[0].acf.brand_image_4.title,
-            brand_image_5: response[0].acf.brand_image_5,
-            brand_image_5_title: response[0].acf.brand_image_5.title,
-            brand_image_6: response[0].acf.brand_image_6,
-            brand_image_6_title: response[0].acf.brand_image_6.title,
-            brand_image_7: response[0].acf.brand_image_7,
-            brand_image_7_title: response[0].acf.brand_image_7.title,
-            brand_image_8: response[0].acf.brand_image_8,
-            brand_image_8_title: response[0].acf.brand_image_8.title,
-            brand_image_9: response[0].acf.brand_image_9,
-            brand_image_9_title: response[0].acf.brand_image_9.title,
+            // brand_image_1: response[0].acf.brand_image_1,
+            // brand_image_1_title: response[0].acf.brand_image_1.title,
+            // brand_image_2: response[0].acf.brand_image_2,
+            // brand_image_2_title: response[0].acf.brand_image_2.title,
+            // brand_image_3: response[0].acf.brand_image_3,
+            // brand_image_3_title: response[0].acf.brand_image_3.title,
+            // brand_image_4: response[0].acf.brand_image_4,
+            // brand_image_4_title: response[0].acf.brand_image_4.title,
+            // brand_image_5: response[0].acf.brand_image_5,
+            // brand_image_5_title: response[0].acf.brand_image_5.title,
+            // brand_image_6: response[0].acf.brand_image_6,
+            // brand_image_6_title: response[0].acf.brand_image_6.title,
+            // brand_image_7: response[0].acf.brand_image_7,
+            // brand_image_7_title: response[0].acf.brand_image_7.title,
+            // brand_image_8: response[0].acf.brand_image_8,
+            // brand_image_8_title: response[0].acf.brand_image_8.title,
+            // brand_image_9: response[0].acf.brand_image_9,
+            // brand_image_9_title: response[0].acf.brand_image_9.title,
             slug: response[0].slug,
             isLoaded: true
           })
         })  
     }
-    
 
     render() {
         const brand_name = this.state.slug;
@@ -57,7 +56,7 @@ class IndBrands extends Component {
 
         if(isLoaded) {
             return (
-                <div className={classes} style={{backgroundImage: 'url(' + indbrandtable.acf.header_image.sizes.large + ')'}}>
+                <div className={classes} style={{backgroundImage: 'url(' + indbrandtable.acf.header_image + ')'}}>
                     <div className="overlay">   
                         <Header heading={indbrandtable.title.rendered}/>
                         <Grid fluid className="ind-brands-container px-0">
@@ -66,17 +65,100 @@ class IndBrands extends Component {
                                     <a href="/brands">
                                         <Link to="/brands">Back to Brands</Link>
                                     </a>
-                                    <span className="d-flex justify-content-center ind-brands__text">
-                                        {indbrandtable.acf.bio}
-                                    </span>
+                                    <span className="d-flex justify-content-center ind-brands__text"  dangerouslySetInnerHTML={{ __html:indbrandtable.acf.bio}}></span>
                                 </Col>
                             </Row>
                             <Row className="ind-brands__tiles">
-                                <Col xs={12} md={12}>   
-                                    {/* <BrandCarousel img1={this.state.brand_image_1} img2={this.state.brand_image_2} img3={this.state.brand_image_3} img4={this.state.brand_image_4} img5={this.state.brand_image_5} img6={this.state.brand_image_6} img7={this.state.brand_image_7} img8={this.state.brand_image_8} img9={this.state.brand_image_9} /> */}
-                                {/* Add a field in the DB that states if it's vertical or horizontal, if the foeld is empty don't show image */}
-                                </Col>    
+                                {/* Image 1 */}
+                                {indbrandtable.acf.brand_image_1 ? (
+                                     
+                                        <div className={indbrandtable.acf.image_1_orientation}>
+                                            <img src={indbrandtable.acf.brand_image_1} alt={ indbrandtable.title.rendered}/>
+                                        </div> 
+                                    ) : null
+                                }  
+
+                                 {/* Image 2 */}
+                                 {indbrandtable.acf.brand_image_2 ? (
+                                     
+                                        <div className={indbrandtable.acf.image_2_orientation}>
+                                            <img src={indbrandtable.acf.brand_image_2} alt={ indbrandtable.title.rendered}/>
+                                        </div> 
+                                    ) : null
+                                } 
+
+                                 {/* Image 3 */}
+                                 {indbrandtable.acf.brand_image_3 ? (
+                                     
+                                        <div className={indbrandtable.acf.image_3_orientation}>
+                                            <img src={indbrandtable.acf.brand_image_3} alt={ indbrandtable.title.rendered}/>
+                                        </div> 
+                                    ) : null
+                                } 
+
+                                 {/* Image 4 */}
+                                 {indbrandtable.acf.brand_image_4 ? (
+                                     
+                                        <div className={indbrandtable.acf.image_4_orientation}>
+                                            <img src={indbrandtable.acf.brand_image_4} alt={ indbrandtable.title.rendered}/>
+                                        </div> 
+                                    ) : null
+                                } 
+
+                                 {/* Image 5 */}
+                                 {indbrandtable.acf.brand_image_5 ? (
+                                     
+                                        <div className={indbrandtable.acf.image_5_orientation}>
+                                            <img src={indbrandtable.acf.brand_image_5} alt={ indbrandtable.title.rendered}/>
+                                        </div> 
+                                    ) : null
+                                } 
+
+                                 {/* Image 6 */}
+                                 {indbrandtable.acf.brand_image_6 ? (
+                                     
+                                        <div className={indbrandtable.acf.image_6_orientation}>
+                                            <img src={indbrandtable.acf.brand_image_6} alt={ indbrandtable.title.rendered}/>
+                                        </div> 
+                                    ) : null
+                                } 
+
+                                 {/* Image 7 */}
+                                 {indbrandtable.acf.brand_image_7 ? (
+                                     
+                                        <div className={indbrandtable.acf.image_7_orientation}>
+                                            <img src={indbrandtable.acf.brand_image_7} alt={ indbrandtable.title.rendered}/>
+                                        </div> 
+                                    ) : null
+                                } 
+
+                                 {/* Image 8 */}
+                                 {indbrandtable.acf.brand_image_8 ? (
+                                     
+                                        <div className={indbrandtable.acf.image_8_orientation}>
+                                            <img src={indbrandtable.acf.brand_image_8} alt={ indbrandtable.title.rendered}/>
+                                        </div> 
+                                    ) : null
+                                } 
+
+                                 {/* Image 9 */}
+                                 {indbrandtable.acf.brand_image_9 ? (
+                                     
+                                        <div className={indbrandtable.acf.image_9_orientation}>
+                                            <img src={indbrandtable.acf.brand_image_9} alt={ indbrandtable.title.rendered}/>
+                                        </div> 
+                                    
+                                    ) : null
+                                } 
                             </Row>
+
+                            {indbrandtable.acf.video ? (
+                                <Row className="ind-brands__video">
+                                    <Col xs={12} md={12}> 
+                                        <div dangerouslySetInnerHTML={{ __html:indbrandtable.acf.video}}></div> 
+                                   </Col>
+                               </Row>) : null
+                            }
                         </Grid>
                     </div>
                 </div>

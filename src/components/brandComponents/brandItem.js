@@ -20,7 +20,7 @@ export class BrandItems extends Component {
         let isLoaded = this.props.isLoaded;
 
         let brandLoop = brands.map((brand, index)=> {
-            let imgUrl = brand.acf.tile_image.sizes.medium;
+            let imgUrl = brand.acf.tile_image;
             // let link = 'brands/'+brand.id
             //let link = brand.id
             let link = brand.slug
@@ -44,7 +44,8 @@ export class BrandItems extends Component {
                     </Row>
                 </Grid>
             );
-        } return (
+        } 
+        return (
             <Grid fluid className="brands-container px-0">
                 <Row className="brands__tiles">
                     <Col xs={6} md={3} >

@@ -26,19 +26,6 @@ class Brands extends Component {
         isLoaded: true
       })
     })
-
-
-    const brandPageUrl = 'http://www.jaisunhouse.com/wp/wp-json/wp/v2/brands_page/';
-
-    fetch(brandPageUrl)
-    .then(response => response.json())
-    .then(response => {
-      this.setState({
-        brand_page: response[0],
-        header_color: response[0].acf.header_colour,
-        isLoaded: true
-      })
-    })
   }
   header = "Brands"; 
 
@@ -46,7 +33,7 @@ class Brands extends Component {
     return (
       <div className="brands">
         <div className="brands-items">
-          <Header heading={this.header} color={this.state.header_color} />
+          <Header heading={this.header} />
           <BrandItems brands={this.state.brands} isLoaded={this.state.isLoaded} />
         </div>
       </div>

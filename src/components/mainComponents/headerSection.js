@@ -3,7 +3,7 @@ import { Grid, Row, Col } from 'react-flexbox-grid';
 import HeaderCarousel from "../homeComponents/carousel";
 
 //images
-import Logo from '../../assets/images/logos/logo_2_shadow.png';
+import Logo from '../../assets/images/logos/logo_6_transparent.png';
 
 class Header extends Component {
     render(){
@@ -15,7 +15,7 @@ class Header extends Component {
 
         return (
             <section className="header">
-                <Grid fluid className="header-container" style={{backgroundColor: this.props.color}}>
+                <Grid fluid className="header-container">
                     <Row>
                         <Col xs={12} md={12} className="header-item d-flex">
                             <div className="header-logo">

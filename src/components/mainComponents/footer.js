@@ -3,7 +3,7 @@ import { BrowserRouter as Link} from "react-router-dom";
 import { Grid, Row, Col } from 'react-flexbox-grid';
 
 //images
-import Logo from '../../assets/images/logos/logo_2.png';
+import Logo from '../../assets/images/logos/logo_6_transparent.png';
 
 
 class Footer extends Component {

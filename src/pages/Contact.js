@@ -5,7 +5,6 @@ import Pulse from 'react-reveal/Pulse';
 
 //components
 import Header from '../components/mainComponents/headerSection';
-import GMap from '../components/contactComponents/map';
 
 class Contact extends Component {
   constructor () {
@@ -27,6 +26,7 @@ class Contact extends Component {
         address: response.acf.address,
         phone: response.acf.phone,
         email: response.acf.email,
+        opening_hours: response.acf.opening_hours,
         map_address: response.acf.map_address,
         email_mailto: "mailto:"+response.acf.email+"?subject = Feedback&body = Message",
         isLoaded: true
@@ -36,6 +36,11 @@ class Contact extends Component {
 
   header = "Contact Us";
   render() {
+    const iframe = '<iframe src="https://snazzymaps.com/embed/267102" width="100%" height="100%" style="border:none;"></iframe>';
+
+    function Iframe(props) {
+      return (<div className="map-container" dangerouslySetInnerHTML={ {__html:  props.iframe?props.iframe:""}} />);
+    }
     return (
       <div className="contact">
         <Header heading={this.header}/>
@@ -67,9 +72,18 @@ class Contact extends Component {
                       </a>
                     </span>
                   </div>
+                  <div className="contact__details-item">
+                    <ion-icon name="time"></ion-icon>
+                    <span>
+                      Opening Hours:
+                      <br/>
+                        {this.state.opening_hours}
+                    </span>
+                  </div>
               </Col>
               <Col xs={12} md={6} className="contact__map">
-                    <GMap />
+                    {/* <GMap /> */}
+                    <Iframe iframe={iframe} />,
               </Col>
           </Row>
 
@@ -81,7 +95,7 @@ class Contact extends Component {
                   <h2 className="d-flex justify-content-center">Send us a message</h2>
                 </Pulse>
 
-                <form action={this.state.email_mailto} method="POST" enctype="multipart/form-data" name="EmailForm">
+                <form action={this.state.email_mailto} method="POST" encType="multipart/form-data" name="EmailForm">
                   <div className="form-left">
                     <div className="form-group">
                       <span>Company Details</span>
@@ -132,52 +146,52 @@ class Contact extends Component {
 
                       <div className="cbox-right">
                         <input type="checkbox" id="item1" name="item1" value="Guess Handbags/Accessories"/>
-                        <label className="cbox" for="item1">Guess Handbags/Accessories</label>
+                        <label className="cbox" htmlFor="item1">Guess Handbags/Accessories</label>
                         <br/>
 
                         <input type="checkbox" id="item2" name="item2" value="Guess Clothing"/>
-                        <label className="cbox" for="item2">Guess Clothing</label>
+                        <label className="cbox" htmlFor="item2">Guess Clothing</label>
                         <br/>
 
                         <input type="checkbox" id="item3" name="item3" value="Tiffosi"/>
-                        <label className="cbox" for="item3">Tiffosi</label>
+                        <label className="cbox" htmlFor="item3">Tiffosi</label>
                         <br/>
 
                         <input type="checkbox" id="item4" name="item4" value="Kendall and Kylie"/>
-                        <label className="cbox" for="item4">Kendall & Kylie</label>
+                        <label className="cbox" htmlFor="item4">Kendall & Kylie</label>
                         <br/>
 
                         <input type="checkbox" id="item5" name="item5" value="NA-KD"/>
-                        <label className="cbox" for="item5">NA-KD</label>
+                        <label className="cbox" htmlFor="item5">NA-KD</label>
                         <br/>
 
                         <input type="checkbox" id="item6" name="item6" value="Happy Socks"/>
-                        <label className="cbox" for="item6">Happy Socks</label>
+                        <label className="cbox" htmlFor="item6">Happy Socks</label>
                       </div>
 
                       <div className="cbox-right">
                         <input type="checkbox" id="item7" name="item7" value="GANT Footwear"/>
-                        <label className="cbox" for="item7">GANT Footwear</label>
+                        <label className="cbox" htmlFor="item7">GANT Footwear</label>
                         <br/>
 
                         <input type="checkbox" id="item8" name="item8" value="Joop"/>
-                        <label className="cbox" for="item8">Joop</label>
+                        <label className="cbox" htmlFor="item8">Joop</label>
                         <br/>
 
                         <input type="checkbox" id="item9" name="item9" value="McGregor"/>
-                        <label className="cbox" for="item9">McGregor</label>
+                        <label className="cbox" htmlFor="item9">McGregor</label>
                         <br/>
 
                         <input type="checkbox" id="item10" name="item10" value="Vanessa Wu"/>
-                        <label className="cbox" for="item10">Vanessa Wu</label>
+                        <label className="cbox" htmlFor="item10">Vanessa Wu</label>
                         <br/>
 
                         <input type="checkbox" id="item11" name="item11" value="Fantasy Sandals"/>
-                        <label className="cbox" for="item11">Fantasy Sandals</label>
+                        <label className="cbox" htmlFor="item11">Fantasy Sandals</label>
                         <br/>
 
                         <input type="checkbox" id="item12" name="item12" value="General Inquiry"/>
-                        <label className="cbox" for="item12">General Inquiry</label>
+                        <label className="cbox" htmlFor="item12">General Inquiry</label>
                       </div>
                     </div>
 
@@ -186,23 +200,23 @@ class Contact extends Component {
                       <br/>
 
                       <input type="checkbox" id="require1" name="require1" value="Book Appt"/>
-                      <label className="cbox" for="require1">Book an appointment to view our collection</label>
+                      <label className="cbox" htmlFor="require1">Book an appointment to view our collection</label>
                       <br/>
 
                       <input type="checkbox" id="require2" name="require2" value="Meeting"/>
-                      <label className="cbox" for="require2">Arrange a meeting for more information</label>
+                      <label className="cbox" htmlFor="require2">Arrange a meeting for more information</label>
                       <br/>
 
                       <input type="checkbox" id="require3" name="require3" value="Brand Marketing"/>
-                      <label className="cbox" for="require3">Brand Marketing & Imagery</label>
+                      <label className="cbox" htmlFor="require3">Brand Marketing & Imagery</label>
                       <br/>
 
                       <input type="checkbox" id="require4" name="require4" value="Corporate"/>
-                      <label className="cbox" for="require4">Corporate</label>
+                      <label className="cbox" htmlFor="require4">Corporate</label>
                       <br/>
 
                       <input type="checkbox" id="require5" name="require5" value="General"/>
-                      <label className="cbox" for="require5">General Inquiry</label>
+                      <label className="cbox" htmlFor="require5">General Inquiry</label>
                       <br/>
                     </div>
                  

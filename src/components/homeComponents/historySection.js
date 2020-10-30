@@ -11,7 +11,7 @@ class History extends React.Component {
      }
   
      componentDidMount(){
-        axios.get('http://www.jaisunhouse.com/wp/wp-json/wp/v2/home/')
+        axios.get('http://www.jaisunhouse.com/wp/wp-json/wp/v2/home/17')
         .then(res => this.setState({
            historytable: res.data,
            isLoaded: true
@@ -46,12 +46,12 @@ class History extends React.Component {
 
                         <Row className="history-info">
                             <Col xs={12} md={5} className="align-center">
-                                <img src={his} alt="Apparel"/>
+                                <img src={historytable.acf.history_image} alt="Apparel"/>
                             </Col>
                             <Col xs={12} md={7} className="text-container align-center">
-                                {historytable.map(home_history => (
-                                    <div className="text-container__info" key={home_history.id} dangerouslySetInnerHTML={{ __html:home_history.acf.history}}/>
-                                ))}
+                                {/* {historytable.map(home_history => ( */}
+                                    <div className="text-container__info" key={historytable.id} dangerouslySetInnerHTML={{ __html:historytable.acf.history}}/>
+                                {/* ))} */}
                             </Col>
                         </Row>
                     </Grid>

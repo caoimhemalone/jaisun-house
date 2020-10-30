@@ -18,11 +18,11 @@ class Header extends Component {
                 <Grid fluid className="header-container">
                     <Row>
                         <Col xs={12} md={12} className="header-item d-flex">
-                            <div className="header-logo">
+                            {/* <div className="header-logo">
                                 <a href="/">
                                     <img src={Logo} alt="logo"/>
                                 </a>
-                            </div>
+                            </div> */}
                             {this.props.heading !== null ?
                                 <h1 className="d-flex justify-content-center">{this.props.heading}</h1>
                                 : <span></span>

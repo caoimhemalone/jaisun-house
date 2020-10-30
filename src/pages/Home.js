@@ -1,6 +1,6 @@
 //Flexbox guide https://roylee0704.github.io/react-flexbox-grid/
 import React, { Component } from "react";
-
+import { Helmet } from 'react-helmet';
 
 //components
 import Header from '../components/mainComponents/headerSection';
@@ -18,6 +18,12 @@ class Home extends Component {
   render() {
     return (
       <div className="home-page">
+        <Helmet>
+          <title>Jaisun House | Home</title>
+          <meta name="description" content="Jaisun House" />
+          <meta name="theme-color" content="#F7882F" />
+        </Helmet>
+
         <Header heading={this.header} isSlider={this.slider}/>
         <Welcome />
         <Brands />

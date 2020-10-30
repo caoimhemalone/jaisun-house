@@ -20,7 +20,8 @@ class Brands extends Component {
     fetch(brandUrl)
     .then(response => response.json())
     .then(response => {
-      response.sort((a, b) => a.id - b.id);
+      // response.sort((a, b) => a.id - b.id);
+      response.sort((a, b) => parseFloat(a.acf['order_no']) - parseFloat(b.acf['order_no']));
       this.setState({
         brands: response,
         isLoaded: true

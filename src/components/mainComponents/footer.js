@@ -4,6 +4,7 @@ import { Grid, Row, Col } from 'react-flexbox-grid';
 
 //images
 import Logo from '../../assets/images/logos/logo_6_transparent.png';
+import { resolveProjectReferencePath } from "typescript";
 
 
 class Footer extends Component {
@@ -23,6 +24,9 @@ class Footer extends Component {
         this.setState({
           footer: response,
           phone: response.acf.phone,
+          address: response.acf.address,
+          opening_hours: response.acf.opening_hours,
+          map_address: response.acf.map_address,
           email: response.acf.email,
           email_mailto: "mailto:"+response.acf.email+"?subject = Feedback&body = Message",
           isLoaded: true
@@ -35,9 +39,33 @@ class Footer extends Component {
             <footer>
                 <Grid fluid>
                     <Row>
-                        <Col xs={12} md={12} className="footer-right">
+                        <Col xs={12} md={12} className="footer-top">
                             <Row>
-                                <Col xs={6} md={4} >
+                                <Col xs={6} md={4} className="footer-section">
+                                    <ul>
+                                        <li className="footer-logo">
+                                            <a href="/">
+                                                <img src={Logo} alt="logo" />
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a target="_blank" href={this.state.map_address}>
+                                                {this.state.address}
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </Col>
+                                <Col xs={6} md={4} className="footer-section">
+                                    <ul>
+                                        <li>
+                                        <ion-icon name="time-outline"></ion-icon>
+                                        Opening Hours:
+                                        <br/>
+                                            {this.state.opening_hours}
+                                        </li>
+                                    </ul>
+                                </Col>
+                                {/* <Col xs={6} md={4} >
                                     <ul>
                                         <li>
                                             <a href="/about-us">
@@ -50,11 +78,16 @@ class Footer extends Component {
                                             </a>
                                         </li>
                                         <li>
+                                            <a href="/services">
+                                                <Link to="/services">Services</Link>
+                                            </a>
+                                        </li>
+                                        {/* <li>
                                             <a href="/b2b">
                                                 <Link to="/b2b">B2B</Link>
                                             </a>
-                                        </li>
-                                        <li>
+                                        </li> */}
+                                      {/*  <li>
                                             <a href="/schedule">
                                                 <Link to="/schedule">Schedule</Link>
                                             </a>
@@ -64,19 +97,19 @@ class Footer extends Component {
                                                 <Link to="/contact">Contact</Link>
                                             </a>
                                         </li>
-                                        <li>
+                                        {/* <li>
                                             <a href="/sign-in">
                                                 <Link to="/sign-in">Sign In</Link>
                                             </a>
-                                        </li>
-                                        <li>
+                                        </li> */}
+                                      {/*  <li>
                                             <a href="/sitemap">
                                                 <Link to="/sitemap">Sitemap</Link>
                                             </a>
                                         </li>
                                     </ul>
-                                </Col>
-                                <Col xs={6} md={4} >
+                                </Col> */}
+                                {/* <Col xs={6} md={4} >
                                     <ul>
                                         <li>
                                             <a href="/">
@@ -94,9 +127,10 @@ class Footer extends Component {
                                             </a>
                                         </li>
                                     </ul>
-                                </Col>
-                                <Col xs={6} md={4} >
+                                </Col> */}
+                                <Col xs={6} md={4} className="footer-section">
                                     <ul>
+                                        <li><ion-icon name="call-outline"></ion-icon></li>
                                         <li>
                                             <a href={this.state.phone}>
                                                 Phone: {this.state.phone}
@@ -107,14 +141,24 @@ class Footer extends Component {
                                                 Email: {this.state.email}
                                             </a>
                                         </li>
-                                        <li className="footer-logo">
+                                        <li>
+                                            <a href="/">
+                                                Social Media
+                                            </a>
+                                        </li>
+                                        {/* <li className="footer-logo">
                                             <a href="/">
                                                 <img src={Logo} alt="logo" />
                                             </a>
-                                        </li>
+                                        </li> */}
                                     </ul>
                                 </Col>
                             </Row>
+                        </Col>
+                        <hr/>
+                        <Col xs={12} md={12} className="footer-bottom">
+                            <span>All stock images are from <a href="https://www.unsplash.com" target="_blank" rel="noopener noreferrer">Unsplash.com</a></span>
+                            <span>Web design and development by <a href="https://www.key-vah.com" target="_blank" rel="noopener noreferrer">key-vah web creations</a></span>
                         </Col>
                     </Row>
                 </Grid>

@@ -1,5 +1,8 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch} from "react-router-dom";
+// import { BrowserRouter as Router, Route, Switch} from "react-router-dom";
+import { createBrowserHistory } from "history";
+import { Route, Switch, Redirect, BrowserRouter, Link } from "react-router-dom";
+
 import { Grid, Row, Col } from 'react-flexbox-grid';
 import ReactGA from "react-ga";
 
@@ -10,11 +13,15 @@ import Home from '../../pages/Home';
 import About from '../../pages/About';
 import Brands from '../../pages/Brands';
 import IndBrand from '../../pages/IndBrand';
-import B2B from '../../pages/B2B';
+//import B2B from '../../pages/B2B';
 import Schedule from '../../pages/Schedule';
+import Services from '../../pages/Services';
 import Contact from '../../pages/Contact';
-import Signin from '../../pages/Signin';
+//import Signin from '../../pages/Signin';
 import Sitemap from '../../pages/Sitemap';
+
+//images
+import Logo from '../../assets/images/logos/logo_6_transparent.png';
 
 
 
@@ -47,7 +54,7 @@ class Nav extends React.Component {
         .then(response => response.json())
         .then(response => {
           //console.log(response);
-          //response.sort((a, b) => a.id - b.id);
+          response.sort((a, b) => parseFloat(a.acf['order_no']) - parseFloat(b.acf['order_no']));
           this.setState({
             brands: response,
             isLoaded: true
@@ -65,6 +72,20 @@ class Nav extends React.Component {
         }
     }
     render(){
+        const hist = createBrowserHistory();
+
+        const brandLoop = this.state.brands.map((brand, index)=> {
+            return (
+                <li>
+                <a href={brand.slug} className="brands-link__item" key={index}>
+                    <span>
+                        {brand.title.rendered}
+                    </span>
+                </a>  
+                </li>    
+            )
+        })
+
         //console.log(this.props.navColor);
         if(this.props.navColor === 'apricot') {
             this.setState({color: 'apricot'})
@@ -74,46 +95,57 @@ class Nav extends React.Component {
 
         const {brands, isLoaded } = this.state;
 
-        let brandLoop = brands.map((brand, index)=> {
-            let link = brand.slug
-            return ( 
-                <Route exact path={"/"+link} component={IndBrand} key={brand.id} navColor="apricot"/>
-            )
-        })
+        // let brandLoop = brands.map((brand, index)=> {
+        //     let link = brand.slug
+        //     return ( 
+        //         <Route exact path={"/"+link} component={IndBrand} key={brand.id} navColor="apricot"/>
+        //     )
+        // })
         //console.log(brandLoop);
         return (
             <div>
-                <Router>
+                <BrowserRouter history={hist}>
                     <nav style={{backgroundColor: this.state.nav, transition: this.state.trans}} className={this.state.color}>
                         <input type="checkbox" className="toggler"/>
                         <div className="hamburger"><div style={{background: this.state.hamburger}}></div></div>
-                        <Grid fluid className="px-4 py-3 menu">
+                        <Grid fluid className="menu">
                             <Row className="mx-0">
                                 <Col xs={12} md={2} className="nav-left">
-                                {/* <a href="/">
+                                <a href="/">
                                     <img src={Logo} alt="logo" style={{height: this.state.logo, transition: '4s ease-in'}}/>
-                                </a> */}
+                                </a>
+                                  {/* <div className="header-logo">
+                                        <a href="/">
+                                            <img src={Logo} alt="logo"/>
+                                        </a>
+                                    </div> */}
                                 </Col>
                                 <Col xs={12} md={10} className="nav-right">
                                     <Row end="xs" middle="xs">
                                         <Col xs={12} md className="nav-item"> 
                                             <a href="/about-us">About</a>
                                         </Col>
-                                        <Col xs={12} md className="nav-item"> 
-                                            <a href="/brands">Brands</a>
+                                        <Col xs={12} md className="nav-item brands-link"> 
+                                            <a href="/brands">Brands <ion-icon name="chevron-down-outline"></ion-icon></a>
+                                            <ul className="nav-brands">
+                                                {brandLoop}
+                                            </ul>
                                         </Col>
                                         <Col xs={12} md className="nav-item"> 
+                                            <a href="/services">Services</a>
+                                        </Col>
+                                        {/* <Col xs={12} md className="nav-item"> 
                                             <a href="/b2b">B2B</a>
-                                        </Col> 
+                                        </Col>  */}
                                         <Col xs={12} md className="nav-item"> 
                                             <a href="/schedule">Schedule</a>
                                         </Col>
                                         <Col xs={12} md className="nav-item"> 
                                             <a href="/contact">Contact</a>
                                         </Col>
-                                        <Col xs={12} md className="nav-item"> 
+                                        {/* <Col xs={12} md className="nav-item"> 
                                             <a href="/sign-in">Sign in</a>
-                                        </Col>
+                                        </Col> */}
                                     </Row>
                                 </Col>
                             </Row>
@@ -123,16 +155,16 @@ class Nav extends React.Component {
                         <Route exact path="/" component={Home} navColor="apricot"/>          
                         <Route path="/about-us" component={About} navColor="apricot"/>
                         <Route path="/brands" component={Brands} navColor="blueberry"/>  
-                        <Route path="/b2b" component={B2B} navColor="blueberry"/>
+                        <Route path="/services" component={Services} navColor="blueberry"/>
+                        {/* <Route path="/b2b" component={B2B} navColor="blueberry"/> */}
                         <Route path="/schedule" component={Schedule} navColor="blueberry"/>
                         <Route path="/contact" component={Contact} navColor="blueberry"/>
-                        <Route path="/sign-in" component={Signin} navColor="blueberry"/>
+                        {/* <Route path="/sign-in" component={Signin} navColor="blueberry"/> */}
                         <Route path="/sitemap" component={Sitemap} navColor="apricot"/>
                         <Route exact path="/:slug" component={IndBrand} navColor="apricot"/>
-                        {brandLoop}
-                        {/* <Route exact path="/:id" component={IndBrand} navColor="apricot"/> */}
+                        {/* {brandLoop} */}
                     </Switch>          
-                </Router>
+                </BrowserRouter>
             </div>
         );
     }

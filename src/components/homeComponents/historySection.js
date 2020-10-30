@@ -2,7 +2,7 @@ import React from 'react';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 import axios from 'axios';
 
-import ph_square from "../../assets/images/placeholder-square.png";
+import his from "../../assets/images/stock/history.jpg";
 
 class History extends React.Component {
     state = {
@@ -45,10 +45,10 @@ class History extends React.Component {
                         </Row>
 
                         <Row className="history-info">
-                            <Col xs={12} md={5}>
-                                <img src={ph_square} alt="Placeholder Image"/>
+                            <Col xs={12} md={5} className="align-center">
+                                <img src={his} alt="Apparel"/>
                             </Col>
-                            <Col xs={12} md={7} className="text-container">
+                            <Col xs={12} md={7} className="text-container align-center">
                                 {historytable.map(home_history => (
                                     <div className="text-container__info" key={home_history.id} dangerouslySetInnerHTML={{ __html:home_history.acf.history}}/>
                                 ))}

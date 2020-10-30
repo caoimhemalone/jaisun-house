@@ -1,3 +1,6 @@
+@import "~slick-carousel/slick/slick.css";
+@import "~slick-carousel/slick/slick-theme.css";
+
 /*
 Vars
 */
@@ -51,6 +54,10 @@ button {
 		outline: none;
 		box-shadow: none;
 	}
+}
+
+.align-center {
+	align-self: center;
 }
 
 /*

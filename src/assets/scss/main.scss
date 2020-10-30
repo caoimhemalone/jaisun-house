@@ -10,6 +10,12 @@ nav {
     display: block;
     width: 100%;
     z-index: 5;
+    transition: 2s ease-out;
+
+    &:hover {
+        background-color: $white !important;
+        transition: 2s ease-in;
+    }
 
     .nav-left {
         @media only screen and (max-width: 991px) {
@@ -17,19 +23,21 @@ nav {
             display: none;
         }
 
-        // img {
-        //     //width: 100%;
-        //     height: 75%;
-        // }
+        img {
+            //width: 100%;
+            width: 70px;
+            padding: 10px;
+        }
     }
 
     .nav-right {
         padding-left: 20%;
+        margin-left: auto;
 
         @media only screen and (max-width: 991px) {
             padding-left: 0;
             max-height: 90vh;
-            overflow: hidden;
+            //overflow: hidden;
             display: flex;
             width: 100%;
             text-align: center;
@@ -55,13 +63,71 @@ nav {
 
         .nav-item {
             text-align: center;
+            height: 100%;
+            padding: 20px 0;
 
             @media only screen and (min-width: 767px) and (max-width: 991px) {
-                text-align: right;
+                //text-align: right;
             }
 
             @media only screen and (max-width:991px) {
-                padding-top: 10px;
+                //padding-top: 10px;
+            }
+
+            a {
+                margin: auto;
+                display: block;
+                width: 100%;
+                text-align: center;
+            }
+
+            &.brands-link {
+                position: relative;
+
+                &:hover {
+                    .nav-brands {
+                        opacity: 1;
+                        max-height: 300px;
+                        height: 290px;
+                        display: block;
+                    }
+
+                    ion-icon {
+                        transform: rotate(180deg);
+                    }
+                }
+            }
+
+            .nav-brands {
+                max-height: 0;
+                opacity: 0;
+                height: 0;
+                //box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.1);
+                position: absolute;
+                bottom: -300px;
+                width: 200px;
+                left: 0;
+                background-color: $white;
+                list-style: none;
+                padding: 5px;
+                margin-left: -40px;
+                margin-right: -40px;
+                display: none;
+
+                &:hover {
+                    opacity: 1;
+                    max-height: 250px;
+                    height: 250px;
+                    display: block;
+                }
+
+                li {
+                    display: block;
+                    text-align: center;
+                    width: 50%;
+                    float: left;
+                    padding: 5px;
+                }
             }
         }
         
@@ -233,8 +299,9 @@ nav {
             position: absolute;
             left: 2%;
             top: 3%;
-            z-index: 3;
-            width: 80px;
+            z-index: 6;
+            //width: 80px;
+            width: 55px;
 
             @media only screen and (max-width: 780px){
                 display: none;
@@ -265,11 +332,15 @@ nav {
             height: 80vh;
 
             div {
-                height: 90vh;
+                height: 100%;
 
                 @media only screen and (max-width: 991px){
                     width: auto;
                 }
+            }
+
+            .slick-dots {
+                bottom: 0;
             }
 
             .slider-img-desktop {
@@ -347,6 +418,16 @@ nav {
     //     top: 50%;
     //     color: $white;
     // }
+
+    .header {
+        &-container {
+            .header-item {
+                @media only screen and (max-width: 992px) {
+                    height: auto;
+                }
+            }
+        }
+    }
 
     .welcome-container {
         display: flex;
@@ -448,10 +529,10 @@ nav {
                 display: inline-flex;
 
                 @media only screen and (max-width: 991px) {
-                    max-width: 50%;
-                    width: 50%;
-                    display: flex;
-                    padding: 0 5%;
+                    // max-width: 50%;
+                    // width: 50%;
+                    // display: flex;
+                    padding: 0 5px;
                 }
 
                 &:hover {
@@ -484,6 +565,7 @@ nav {
     .history-container {
         .history-info {
             padding-bottom: 4em;
+            display: flex;
 
             @media only screen and (max-width: 991px) {
                 padding-bottom: 40px;
@@ -512,6 +594,106 @@ nav {
 }
 
 /*
+******* Services Page *******
+*/
+.services {
+    .header-container {
+        //margin-top: 4em;
+
+        .header-item {
+            background-image: url('/header_images/services.jpg');
+            height: 400px;
+            background-position: center;
+            background-size: cover;
+
+            h1 {
+                color: $white;
+            }
+        }
+    }
+
+    &__intro {
+        h2 {
+            text-align: center;
+            width: 50%;
+            margin: 20px auto;
+            border-bottom: 10px solid $apricot;
+            padding: 15px;
+
+            @media only screen and (max-width: 767px) {
+                width: 90%;
+            }
+        }
+
+        p {
+            color: $blueberry;
+            text-align: center;
+            line-height: 22px;
+        }
+    }
+
+    &__container {
+        margin: 40px 0 0 0;
+
+        ion-icon {
+            margin: 10px auto;
+            display: block;
+            font-size: 64px;
+            color: $citrus;
+
+            &:hover {
+                color: $grey;
+            }
+        }
+
+        p {
+            text-align: center;
+            color: $grey;
+            margin-top: 10px;
+            display: block;
+            width: 100%;
+        }
+
+        &-text {
+            max-height: 200px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+
+            p {
+                text-shadow: 1px 1px #eaeaea;
+            }
+        }
+
+        .service {
+            &-item {
+                display: flex;
+                margin: 20px 0;
+                border: 2px solid $blueberry;
+                border-radius: 0.25rem;
+                padding: 20px;
+            }
+
+            &-left, &-right {
+                margin-right: 0;
+                float: left;
+            }
+
+            &-left {
+                display: flex;
+                flex-wrap: wrap;
+                height: 50%;
+
+                span {
+                    width: 100%;
+                    text-align: center;
+                }
+            }
+        }
+        
+    }
+}
+
+/*
 ******* About Us Page *******
 */
 .about-us {
@@ -519,7 +701,7 @@ nav {
         //margin-top: 4em;
 
         .header-item {
-            background-image: url(../images/photoshoots/ps_5.jpg);
+            background-image: url("/header_images/about.jpg");
             height: 400px;
             background-position: center;
             background-size: cover;
@@ -574,38 +756,38 @@ nav {
             }
         }
 
-        .about-us__services {
-            margin: 40px 0 0 0;
+        // .about-us__services {
+        //     margin: 40px 0 0 0;
 
-            ion-icon {
-                margin: 10px auto;
-                display: block;
-                font-size: 64px;
-                color: $grey;
+        //     ion-icon {
+        //         margin: 10px auto;
+        //         display: block;
+        //         font-size: 64px;
+        //         color: $grey;
 
-                &:hover {
-                    color: $citrus;
-                }
-            }
+        //         &:hover {
+        //             color: $citrus;
+        //         }
+        //     }
 
-            p {
-                text-align: center;
-                color: $grey;
-                margin-top: 10px;
-                display: block;
-                width: 100%;
-            }
+        //     p {
+        //         text-align: center;
+        //         color: $grey;
+        //         margin-top: 10px;
+        //         display: block;
+        //         width: 100%;
+        //     }
 
-            &-text {
-                max-height: 200px;
-                overflow: hidden;
-                text-overflow: ellipsis;
+        //     &-text {
+        //         max-height: 200px;
+        //         overflow: hidden;
+        //         text-overflow: ellipsis;
 
-                p {
-                    text-shadow: 1px 1px #eaeaea;
-                }
-            }
-        }
+        //         p {
+        //             text-shadow: 1px 1px #eaeaea;
+        //         }
+        //     }
+        // }
 
         .about-us__clients {
             margin-bottom: 3em; 
@@ -767,6 +949,10 @@ nav {
                     padding: 2%;
                 }
 
+                @media only screen and (min-width: 768px) and (max-width: 991px) {
+                    padding: 2% 30% 3% 20px;
+                }
+
                 a {
                     color: $white;
 
@@ -797,7 +983,8 @@ nav {
 
         .ind-brands { 
             &__tiles {
-                background-color: $white;
+                // background-color: $white;
+                background-color: $apple-core;
                 display: flex;
                 flex-wrap: wrap;
 
@@ -815,7 +1002,7 @@ nav {
 
                 .Vertical, .Horizontal {
                     display: flex;
-                    background-color: $apple-core;
+                    // background-color: $apple-core;
 
                     @media only screen and (max-width: 767px) {
                         width: 100%;
@@ -853,7 +1040,7 @@ nav {
 .schedule {
     .header-container {
         .header-item {
-            background-image: url(../images/banner/banner_4.jpg);
+            background-image: url("/header_images/schedule.jpg");
             //https://pngtree.com/freebackground/yellow-gray-minimalist-cut-geometry-memphis-banner_931578.html
             //height: 200px;  
             background-size: cover;
@@ -1062,7 +1249,7 @@ nav {
 .contact {
     .header-container {
         .header-item {
-            background-image: url(../images/banner/banner_5.jpg);
+            background-image: url("/header_images/contact.jpg");
             //height: 200px;  
             background-position: center;
             padding: 8% 0 5% 0;
@@ -1135,7 +1322,7 @@ nav {
 
                 ion-icon {
                     margin-right: 10px;
-                    color: $apple-core;
+                    color: $white;
                     background-color: $apricot;
                     font-size: 16px;
                     border-radius: 50%;
@@ -1187,6 +1374,8 @@ nav {
 
                 .form-group {
                     margin-top: 20px;
+                    display: flex;
+                    flex-wrap: wrap;
 
                     span {
                         display: block;
@@ -1199,8 +1388,12 @@ nav {
                     label {
                         margin-top: 30px;
 
+                        width: 100%;
+
                         &.cbox {
                             margin-left: 1%;
+                            width: fit-content;
+                            font-size: 12px;
                         }
                     }
 
@@ -1221,6 +1414,8 @@ nav {
                     @media only screen and (min-width: 991px){
                         max-width: 50%;
                         float: left;
+                        width: 50%;
+                        padding: 0 15px;
                     }
                 }
 
@@ -1228,12 +1423,20 @@ nav {
                     @media only screen and (min-width: 991px){
                         max-width: 50%;
                         float: right;
+                        width: 50%;
+                        padding: 0 15px;
                     }
 
                     .lbl-heading {
                         width: 100%;
                         display: block;    
                     }
+                }
+
+                .form-top {
+                    display: flex;
+                    width: 100%;
+                    height: fit-content;
                 }
 
                 .form-bottom {
@@ -1304,9 +1507,11 @@ nav {
 ******* FOOTER *******
 */
 footer {
-    background-color: $black;
+    //background-color: $black;
+    background-color: rgba(220, 199, 170, 0.34);
     padding: 1.5em 2em;
-    color: $white;
+    //color: $white;
+    border-top: 10px solid $apricot;
 
     ul {
         padding-left: 0;
@@ -1316,11 +1521,17 @@ footer {
             text-align: center;
 
             a {
-                color: $white;
+                color: $black;
 
                 &:hover {
                     color: $apricot;
                 }
+            }
+
+            ion-icon {
+                font-size: 24px;
+                width: 100%;
+                text-align: center;
             }
         }
         .footer-logo {
@@ -1330,5 +1541,23 @@ footer {
                 width: 80px;
             }
         }
+    }
+
+    hr {
+        border-color: $blueberry;
+    }
+
+    .footer-bottom {
+        span {
+            text-align: right;
+            font-size: 12px;
+            display: block;
+            float: right;
+            width: 100%;
+        }
+    }
+
+    .footer-section {
+        align-self: center;
     }
 }

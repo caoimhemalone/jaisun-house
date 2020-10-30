@@ -22,24 +22,6 @@ class IndBrands extends Component {
           console.log(response[0]);
           this.setState({
             indbrandtable: response[0],
-            // brand_image_1: response[0].acf.brand_image_1,
-            // brand_image_1_title: response[0].acf.brand_image_1.title,
-            // brand_image_2: response[0].acf.brand_image_2,
-            // brand_image_2_title: response[0].acf.brand_image_2.title,
-            // brand_image_3: response[0].acf.brand_image_3,
-            // brand_image_3_title: response[0].acf.brand_image_3.title,
-            // brand_image_4: response[0].acf.brand_image_4,
-            // brand_image_4_title: response[0].acf.brand_image_4.title,
-            // brand_image_5: response[0].acf.brand_image_5,
-            // brand_image_5_title: response[0].acf.brand_image_5.title,
-            // brand_image_6: response[0].acf.brand_image_6,
-            // brand_image_6_title: response[0].acf.brand_image_6.title,
-            // brand_image_7: response[0].acf.brand_image_7,
-            // brand_image_7_title: response[0].acf.brand_image_7.title,
-            // brand_image_8: response[0].acf.brand_image_8,
-            // brand_image_8_title: response[0].acf.brand_image_8.title,
-            // brand_image_9: response[0].acf.brand_image_9,
-            // brand_image_9_title: response[0].acf.brand_image_9.title,
             slug: response[0].slug,
             isLoaded: true
           })
@@ -52,7 +34,7 @@ class IndBrands extends Component {
 
         const indbrandtable = this.state.indbrandtable;
         const isLoaded  = this.state.isLoaded;
-        const MyListLoader = () => <List />
+        const MyListLoader = () => <div style={{marginTop: 100 + 'px', marginBottom: 100 +'px', marginLeft: 10 +'px', marginRight: 10 +'px'}}><List /></div>
 
         if(isLoaded) {
             return (

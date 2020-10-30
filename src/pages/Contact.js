@@ -1,27 +1,47 @@
 import React, { Component } from "react";
 import { Grid, Row, Col } from 'react-flexbox-grid';
 import Pulse from 'react-reveal/Pulse';
+import axios from 'axios';
 
 
 //components
 import Header from '../components/mainComponents/headerSection';
 
 class Contact extends Component {
-  constructor () {
+  constructor(){
     super();
     this.state = {
-      ttable: [],
-      isLoaded: false
+        scheduletable: [],
+        contact: [],
+        // isLoaded: false
     }
-  }
+}
 
-  componentDidMount (){
+// componentDidMount (){
+  // const contactUrl = 'http://www.jaisunhouse.com/wp/wp-json/wp/v2/contact_us/116';
+  // fetch(contactUrl)
+  // .then(response => response.json())
+  // .then(response => {
+  //   //console.log(response);
+  //   this.setState({
+  //       contact: response,
+  //       address: response.acf.address,
+  //       phone: response.acf.phone,
+  //       email: response.acf.email,
+  //       opening_hours: response.acf.opening_hours,
+  //       map_address: response.acf.map_address,
+  //       email_mailto: "mailto:"+response.acf.email+"?subject = Feedback&body = Message",
+  //     })
+  //   }) 
+  // }
+
+  componentDidMount() {
     const contactUrl = 'http://www.jaisunhouse.com/wp/wp-json/wp/v2/contact_us/116';
-    fetch(contactUrl)
-    .then(response => response.json())
-    .then(response => {
-      //console.log(response);
-      this.setState({
+  fetch(contactUrl)
+  .then(response => response.json())
+  .then(response => {
+    //console.log(response);
+    this.setState({
         contact: response,
         address: response.acf.address,
         phone: response.acf.phone,
@@ -29,18 +49,39 @@ class Contact extends Component {
         opening_hours: response.acf.opening_hours,
         map_address: response.acf.map_address,
         email_mailto: "mailto:"+response.acf.email+"?subject = Feedback&body = Message",
-        isLoaded: true
       })
     })
+    
+      axios.get("http://www.jaisunhouse.com/wp/wp-json/wp/v2/schedule/79")
+        .then(res => this.setState({
+        scheduletable: res.data,
+        option_1: res.data.acf.form_brand_1,
+        option_2: res.data.acf.form_brand_2,
+        option_3: res.data.acf.form_brand_3,
+        option_4: res.data.acf.form_brand_4,
+        option_5: res.data.acf.form_brand_5,
+        option_6: res.data.acf.form_brand_6,
+        option_7: res.data.acf.form_brand_7,
+        option_8: res.data.acf.form_brand_8,
+        option_9: res.data.acf.form_brand_9,
+        option_10: res.data.acf.form_brand_10,
+        option_11: res.data.acf.form_brand_11,
+        appt_msg: res.data.acf.appt_msg,
+        isLoaded: true
+        }))
+    .catch(error => console.log(error));
   }
 
   header = "Contact Us";
   render() {
+    console.log('rerendering');
     const iframe = '<iframe src="https://snazzymaps.com/embed/267102" width="100%" height="100%" style="border:none;"></iframe>';
 
     function Iframe(props) {
       return (<div className="map-container" dangerouslySetInnerHTML={ {__html:  props.iframe?props.iframe:""}} />);
     }
+
+    // if(isLoaded) {
     return (
       <div className="contact">
         <Header heading={this.header}/>
@@ -83,7 +124,7 @@ class Contact extends Component {
               </Col>
               <Col xs={12} md={6} className="contact__map">
                     {/* <GMap /> */}
-                    <Iframe iframe={iframe} />,
+                    <Iframe iframe={iframe} />
               </Col>
           </Row>
 
@@ -96,6 +137,7 @@ class Contact extends Component {
                 </Pulse>
 
                 <form action={this.state.email_mailto} method="POST" encType="multipart/form-data" name="EmailForm">
+                  <div className="form-top">
                   <div className="form-left">
                     <div className="form-group">
                       <span>Company Details</span>
@@ -140,54 +182,54 @@ class Contact extends Component {
                     </div>
                  </div>
                   <div className="form-right">
-                  <div className="form-group">
+                    <div className="form-group">
                       <span>Other Details</span>
                       <label className="lbl-heading">I am interested in *</label>
 
                       <div className="cbox-right">
-                        <input type="checkbox" id="item1" name="item1" value="Guess Handbags/Accessories"/>
-                        <label className="cbox" htmlFor="item1">Guess Handbags/Accessories</label>
+                        <input type="checkbox" id="item1" name="item1" value={this.state.option_6}/>
+                        <label className="cbox" htmlFor="item1">{this.state.option_6}</label>
                         <br/>
 
-                        <input type="checkbox" id="item2" name="item2" value="Guess Clothing"/>
-                        <label className="cbox" htmlFor="item2">Guess Clothing</label>
+                        <input type="checkbox" id="item2" name="item2" value={this.state.option_7}/>
+                        <label className="cbox" htmlFor="item2">{this.state.option_7}</label>
                         <br/>
 
-                        <input type="checkbox" id="item3" name="item3" value="Tiffosi"/>
-                        <label className="cbox" htmlFor="item3">Tiffosi</label>
+                        <input type="checkbox" id="item3" name="item3" value={this.state.option_8}/>
+                        <label className="cbox" htmlFor="item3">{this.state.option_8}</label>
                         <br/>
 
-                        <input type="checkbox" id="item4" name="item4" value="Kendall and Kylie"/>
-                        <label className="cbox" htmlFor="item4">Kendall & Kylie</label>
+                        <input type="checkbox" id="item4" name="item4" value={this.state.option_9}/>
+                        <label className="cbox" htmlFor="item4">{this.state.option_9}</label>
                         <br/>
 
-                        <input type="checkbox" id="item5" name="item5" value="NA-KD"/>
-                        <label className="cbox" htmlFor="item5">NA-KD</label>
+                        <input type="checkbox" id="item5" name="item5" value={this.state.option_10}/>
+                        <label className="cbox" htmlFor="item5">{this.state.option_10}</label>
                         <br/>
 
-                        <input type="checkbox" id="item6" name="item6" value="Happy Socks"/>
-                        <label className="cbox" htmlFor="item6">Happy Socks</label>
+                        <input type="checkbox" id="item6" name="item6" value={this.state.option_11}/>
+                        <label className="cbox" htmlFor="item11">{this.state.option_11}</label>
                       </div>
 
-                      <div className="cbox-right">
-                        <input type="checkbox" id="item7" name="item7" value="GANT Footwear"/>
-                        <label className="cbox" htmlFor="item7">GANT Footwear</label>
+                      <div className="cbox-left">
+                        <input type="checkbox" id="item7" name="item7" value={this.state.option_1}/>
+                        <label className="cbox" htmlFor="item7">{this.state.option_1}</label>
                         <br/>
 
-                        <input type="checkbox" id="item8" name="item8" value="Joop"/>
-                        <label className="cbox" htmlFor="item8">Joop</label>
+                        <input type="checkbox" id="item8" name="item8" value={this.state.option_2}/>
+                        <label className="cbox" htmlFor="item8">{this.state.option_2}</label>
                         <br/>
 
-                        <input type="checkbox" id="item9" name="item9" value="McGregor"/>
-                        <label className="cbox" htmlFor="item9">McGregor</label>
+                        <input type="checkbox" id="item9" name="item9" value={this.state.option_3}/>
+                        <label className="cbox" htmlFor="item9">{this.state.option_3}</label>
                         <br/>
 
-                        <input type="checkbox" id="item10" name="item10" value="Vanessa Wu"/>
-                        <label className="cbox" htmlFor="item10">Vanessa Wu</label>
+                        <input type="checkbox" id="item10" name="item10" value={this.state.option_4}/>
+                        <label className="cbox" htmlFor="item10">{this.state.option_4}</label>
                         <br/>
 
-                        <input type="checkbox" id="item11" name="item11" value="Fantasy Sandals"/>
-                        <label className="cbox" htmlFor="item11">Fantasy Sandals</label>
+                        <input type="checkbox" id="item11" name="item11" value={this.state.option_5}/>
+                        <label className="cbox" htmlFor="item11">{this.state.option_5}</label>
                         <br/>
 
                         <input type="checkbox" id="item12" name="item12" value="General Inquiry"/>
@@ -225,6 +267,7 @@ class Contact extends Component {
                         <textarea className="form-control" rows="5"></textarea>
                     </div>
                   </div>
+                </div>
 
                   <div className="form-bottom">
                     <button type="submit" className="btn btn-primary">Submit</button>
@@ -235,6 +278,7 @@ class Contact extends Component {
         </Grid>
       </div>
     );
+    // } return null;
   }
 }
 

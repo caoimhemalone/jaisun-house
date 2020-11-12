@@ -75,7 +75,8 @@ class Contact extends Component {
   header = "Contact Us";
   render() {
     console.log('rerendering');
-    const iframe = '<iframe src="https://snazzymaps.com/embed/267102" width="100%" height="100%" style="border:none;"></iframe>';
+    //const iframe = '<iframe src="https://snazzymaps.com/embed/267102" width="100%" height="600px" style="border:none;"></iframe>';
+    const iframe = '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d596.0639658309783!2d-6.244817463867604!3d53.302863836844715!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x486709ea31ed84ed%3A0xd5639b90bf0b5bc9!2sJAISUN%20House!5e0!3m2!1sen!2sie!4v1605199341854!5m2!1sen!2sie" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>';
 
     function Iframe(props) {
       return (<div className="map-container" dangerouslySetInnerHTML={ {__html:  props.iframe?props.iframe:""}} />);
@@ -123,7 +124,6 @@ class Contact extends Component {
                   </div>
               </Col>
               <Col xs={12} md={6} className="contact__map">
-                    {/* <GMap /> */}
                     <Iframe iframe={iframe} />
               </Col>
           </Row>
@@ -276,6 +276,7 @@ class Contact extends Component {
               </Col>
           </Row>
         </Grid>
+      
       </div>
     );
     // } return null;

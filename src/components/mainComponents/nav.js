@@ -2,7 +2,9 @@ import React from 'react';
 // import { BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import { createBrowserHistory } from "history";
 import { Route, Switch, Redirect, BrowserRouter, Link } from "react-router-dom";
-
+import Dropdown from 'react-bootstrap/Dropdown';
+import Button from 'react-bootstrap/Button';
+import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 import ReactGA from "react-ga";
 
@@ -26,21 +28,21 @@ import Logo from '../../assets/images/logos/logo_6_transparent.png';
 
 
 class Nav extends React.Component {
-    state = {
-        nav: 'transparent',
-        hamburger: '#fff',
-    }
+    // state = {
+    //     nav: 'transparent',
+    //     hamburger: '#fff',
+    // }
 
-    listenScrollEvent = e => {
-        if (window.scrollY > 300) {
-            this.setState({nav: '#fff', hamburger: '#000', trans: '2s ease-in'})
-        } else {
-            this.setState({nav: 'transparent', hamburger: '#fff', trans: 'unset'})
-        }
-    }
+    // listenScrollEvent = e => {
+    //     if (window.scrollY > 300) {
+    //         this.setState({nav: '#fff', hamburger: '#000', trans: '2s ease-in'})
+    //     } else {
+    //         this.setState({nav: 'transparent', hamburger: '#fff', trans: 'unset'})
+    //     }
+    // }
 
     componentDidMount() {
-        window.addEventListener('scroll', this.listenScrollEvent)
+        //window.addEventListener('scroll', this.listenScrollEvent)
         //console.log(this.props.navColor);
         // if(this.props.navColor === 'apricot') {
         //     this.setState({color: 'apricot'})
@@ -68,32 +70,45 @@ class Nav extends React.Component {
         ReactGA.pageview(window.location.pathname);
         this.state = {
             brands: [],
-            isLoaded: false
+            isLoaded: false,
+            //navWhite: ""
         }
     }
+
+    // boxClick = (e) => {
+    //     this.setState({
+    //       nav: "#fff"
+    //     })
+    //   }
+
     render(){
         const hist = createBrowserHistory();
 
         const brandLoop = this.state.brands.map((brand, index)=> {
             return (
-                <li>
-                <a href={brand.slug} className="brands-link__item" key={index}>
-                    <span>
-                        {brand.title.rendered}
-                    </span>
-                </a>  
-                </li>    
+                // <li>
+                // <a href={brand.slug} className="brands-link__item" key={index}>
+                //     <span>
+                //         {brand.title.rendered}
+                //     </span>
+                // </a>  
+                // </li> 
+                
+                <div>
+                <Dropdown.Item href={brand.slug} className="brands-link__item" key={brand.id}>{brand.title.rendered}</Dropdown.Item>
+                </div>
             )
         })
 
         //console.log(this.props.navColor);
-        if(this.props.navColor === 'apricot') {
-            this.setState({color: 'apricot'})
-        } else if(this.props.navColor === 'blueberry'){
-            this.setState({color: 'blueberry'})
-        }
+        // if(this.props.navColor === 'apricot') {
+        //     this.setState({color: 'apricot'})
+        // } else if(this.props.navColor === 'blueberry'){
+        //     this.setState({color: 'blueberry'})
+        // }
 
         const {brands, isLoaded } = this.state;
+
 
         // let brandLoop = brands.map((brand, index)=> {
         //     let link = brand.slug
@@ -102,10 +117,16 @@ class Nav extends React.Component {
         //     )
         // })
         //console.log(brandLoop);
+
+        const toggleDesktop = 'down';
+        const toggleMobile = 'right';
+        
+        const toggleDirection = window.innerWidth >= 767 ? toggleDesktop : toggleMobile;
         return (
             <div>
                 <BrowserRouter history={hist}>
-                    <nav style={{backgroundColor: this.state.nav, transition: this.state.trans}} className={this.state.color}>
+                    {/* <nav style={{backgroundColor: this.state.nav, transition: this.state.trans}} className={this.state.color}> */}
+                    <nav>
                         <input type="checkbox" className="toggler"/>
                         <div className="hamburger"><div style={{background: this.state.hamburger}}></div></div>
                         <Grid fluid className="menu">
@@ -126,10 +147,16 @@ class Nav extends React.Component {
                                             <a href="/about-us">About</a>
                                         </Col>
                                         <Col xs={12} md className="nav-item brands-link"> 
-                                            <a href="/brands">Brands <ion-icon name="chevron-down-outline"></ion-icon></a>
-                                            <ul className="nav-brands">
-                                                {brandLoop}
-                                            </ul>
+                                            <Dropdown drop={toggleDirection} onClick={this.boxClick} as={ButtonGroup}>
+                                                <Dropdown.Toggle id="dropdown-basic">
+                                                    Brands
+                                                </Dropdown.Toggle>
+
+                                                <Dropdown.Menu>
+                                                    <Dropdown.Item href="/brands">All Brands</Dropdown.Item>
+                                                    {brandLoop}
+                                                </Dropdown.Menu>
+                                            </Dropdown>
                                         </Col>
                                         <Col xs={12} md className="nav-item"> 
                                             <a href="/services">Services</a>

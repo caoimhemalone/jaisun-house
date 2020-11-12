@@ -13,7 +13,7 @@ export class BrandItems extends Component {
               viewBox="0 0 380 70"
             >
               {/* Only SVG shapes */}
-              <rect x="0" y="0" rx="5" ry="5" width="70" height="70" />
+              <rect x="0" y="0" rx="5" ry="5" width="70" height="170" />
             </ContentLoader>
           )
         let brands = this.props.brands

@@ -22,10 +22,12 @@ class IndBrands extends Component {
           console.log(response[0]);
           this.setState({
             indbrandtable: response[0],
+            header_image: response[0].acf.header_image,
+            header_image_mobile: response[0].acf.header_image_mobile,
             slug: response[0].slug,
             isLoaded: true
           })
-        })  
+        })
     }
 
     render() {
@@ -34,11 +36,18 @@ class IndBrands extends Component {
 
         const indbrandtable = this.state.indbrandtable;
         const isLoaded  = this.state.isLoaded;
-        const MyListLoader = () => <div style={{marginTop: 100 + 'px', marginBottom: 100 +'px', marginLeft: 10 +'px', marginRight: 10 +'px'}}><List /></div>
+        const MyListLoader = () => <div className="loader" style={{marginTop: 100 + 'px', marginBottom: 100 +'px', marginLeft: 10 +'px', marginRight: 10 +'px', height: 340 +'px'}}><List /></div>
+        const desktopImage = this.state.header_image;
+        const mobileImage = this.state.header_image_mobile;
+        
+        const imageUrl = window.innerWidth >= 767 ? desktopImage : mobileImage;
+       
+
+      //style={{backgroundImage: 'url(' + indbrandtable.acf.header_image + ')'}}
 
         if(isLoaded) {
             return (
-                <div className={classes} style={{backgroundImage: 'url(' + indbrandtable.acf.header_image + ')'}}>
+                <div className={classes} style={{backgroundImage: `url(${imageUrl})` }}>
                     <div className="overlay">   
                         <Header heading={indbrandtable.title.rendered}/>
                         <Grid fluid className="ind-brands-container px-0">
@@ -145,7 +154,8 @@ class IndBrands extends Component {
                     </div>
                 </div>
             );
-        } return <MyListLoader/>;
+       } 
+        return <MyListLoader/>;
     }
 }
 

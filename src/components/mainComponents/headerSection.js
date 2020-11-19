@@ -13,11 +13,17 @@ class Header extends Component {
             slider =  <HeaderCarousel />;
         }
 
+        const styles = {
+            header_image: {
+                backgroundImage: this.props.image
+            }
+        };
+
         return (
             <section className="header">
                 <Grid fluid className="header-container">
                     <Row>
-                        <Col xs={12} md={12} className="header-item d-flex">
+                        <Col xs={12} md={12} className="header-item d-flex" style={styles.header_image}>
                             {/* <div className="header-logo">
                                 <a href="/">
                                     <img src={Logo} alt="logo"/>

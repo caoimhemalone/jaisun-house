@@ -13,30 +13,12 @@ class Contact extends Component {
     this.state = {
         scheduletable: [],
         contact: [],
-        // isLoaded: false
+        isLoaded: false
     }
 }
 
-// componentDidMount (){
-  // const contactUrl = 'http://www.jaisunhouse.com/wp/wp-json/wp/v2/contact_us/116';
-  // fetch(contactUrl)
-  // .then(response => response.json())
-  // .then(response => {
-  //   //console.log(response);
-  //   this.setState({
-  //       contact: response,
-  //       address: response.acf.address,
-  //       phone: response.acf.phone,
-  //       email: response.acf.email,
-  //       opening_hours: response.acf.opening_hours,
-  //       map_address: response.acf.map_address,
-  //       email_mailto: "mailto:"+response.acf.email+"?subject = Feedback&body = Message",
-  //     })
-  //   }) 
-  // }
-
   componentDidMount() {
-    const contactUrl = 'http://www.jaisunhouse.com/wp/wp-json/wp/v2/contact_us/116';
+  const contactUrl = 'http://www.jaisunhouse.com/wp/wp-json/wp/v2/contact_us/116';
   fetch(contactUrl)
   .then(response => response.json())
   .then(response => {
@@ -67,13 +49,17 @@ class Contact extends Component {
         option_10: res.data.acf.form_brand_10,
         option_11: res.data.acf.form_brand_11,
         appt_msg: res.data.acf.appt_msg,
-        isLoaded: true
         }))
     .catch(error => console.log(error));
+
+    setTimeout(function() { //Start the timer
+        this.setState({render: true}) //After 1 second, set render to true
+    }.bind(this), 3000)
   }
 
   header = "Contact Us";
   render() {
+    const isLoaded  = this.state.isLoaded;
     console.log('rerendering');
     //const iframe = '<iframe src="https://snazzymaps.com/embed/267102" width="100%" height="600px" style="border:none;"></iframe>';
     const iframe = '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d596.0639658309783!2d-6.244817463867604!3d53.302863836844715!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x486709ea31ed84ed%3A0xd5639b90bf0b5bc9!2sJAISUN%20House!5e0!3m2!1sen!2sie!4v1605199341854!5m2!1sen!2sie" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>';
@@ -82,8 +68,13 @@ class Contact extends Component {
       return (<div className="map-container" dangerouslySetInnerHTML={ {__html:  props.iframe?props.iframe:""}} />);
     }
 
-    // if(isLoaded) {
-    return (
+    //if(isLoaded) {
+    //return (
+
+      //let renderContainer = false //By default don't render anything
+      let renderContainer = <div class="loading"></div>
+      if(this.state.render) { //If this.state.render == true, which is set to true by the timer.
+      renderContainer =
       <div className="contact">
         <Header heading={this.header}/>
         <Grid fluid className="contact-container">
@@ -278,8 +269,11 @@ class Contact extends Component {
         </Grid>
       
       </div>
-    );
-    // } return null;
+    //);
+    } return (
+      //<div class="loading"></div>
+      renderContainer
+    )
   }
 }
 

@@ -1046,7 +1046,10 @@ nav {
 
     .header-container {
         .header-item {
-            height: 100px; 
+            height: 70vh; 
+            background-position: top;
+            background-size: cover;
+            
 
             @media only screen and (max-width: 767px) {
                 height: unset;
@@ -1063,39 +1066,42 @@ nav {
     .ind-brands-container {
         .ind-brands__details {
             .ind-brands__details__container {
-                padding: 2% 60% 8% 20px;
+                // padding: 2% 60% 8% 20px;
+                padding: 3% 10%;
 
-                @media only screen and (max-width: 767px) {
-                    padding: 2%;
-                }
+                // @media only screen and (max-width: 767px) {
+                //     padding: 2%;
+                // }
 
-                @media only screen and (min-width: 768px) and (max-width: 991px) {
-                    padding: 2% 30% 3% 20px;
-                }
+                // @media only screen and (min-width: 768px) and (max-width: 991px) {
+                //     padding: 2% 30% 3% 20px;
+                // }
 
-                a {
-                    color: $white;
+                // a {
+                //     color: $black;
+                //     text-align: left;
 
-                    &:hover {
-                        cursor: pointer;
-                        text-decoration: underline;
-                        color: rgba($color: #fff, $alpha: 0.7);
-                    }
-                }
+                //     &:hover {
+                //         cursor: pointer;
+                //         text-decoration: underline;
+                //         color: rgba($color: #000, $alpha: 0.7);
+                //     }
+                // }
 
                 .ind-brands__text {
                     line-height: 1.8;
-                    color: $white;
-                    padding-top: 20px;
+                    color: $black;
+                    // padding-top: 10px;
                     flex-wrap: wrap;
 
-                    @media only screen and (max-width: 991px) {
-                        padding-top: 40px;
-                    }
+                    // @media only screen and (max-width: 991px) {
+                    //     padding-top: 40px;
+                    // }
 
                     p {
                         display: block;
                         width: 100%;
+                        text-align: center;
                     }
                 }
             }

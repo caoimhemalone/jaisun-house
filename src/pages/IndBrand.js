@@ -47,15 +47,16 @@ class IndBrands extends Component {
 
         if(isLoaded) {
             return (
-                <div className={classes} style={{backgroundImage: `url(${imageUrl})` }}>
-                    <div className="overlay">   
-                        <Header heading={indbrandtable.title.rendered}/>
+                // <div className={classes} style={{backgroundImage: `url(${imageUrl})` }}>
+                <div className={classes}>
+                    {/* <div className="overlay">    */}
+                        <Header heading={indbrandtable.title.rendered} image={`url(${imageUrl})`}/>
                         <Grid fluid className="ind-brands-container px-0">
                             <Row className="ind-brands__details">
                                 <Col xs={12} md={12} className="ind-brands__details__container">
-                                    <a href="/brands">
+                                    {/* <a href="/brands">
                                         <Link to="/brands">Back to Brands</Link>
-                                    </a>
+                                    </a> */}
                                     <span className="d-flex justify-content-center ind-brands__text"  dangerouslySetInnerHTML={{ __html:indbrandtable.acf.bio}}></span>
                                 </Col>
                             </Row>
@@ -141,6 +142,16 @@ class IndBrands extends Component {
                                     
                                     ) : null
                                 } 
+
+                                {/* Image 10 */}
+                                {indbrandtable.acf.brand_image_10 ? (
+                                     
+                                     <div className={indbrandtable.acf.image_10_orientation}>
+                                         <img src={indbrandtable.acf.brand_image_10} alt={ indbrandtable.title.rendered}/>
+                                     </div> 
+                                 
+                                 ) : null
+                             }
                             </Row>
 
                             {indbrandtable.acf.video ? (
@@ -151,7 +162,7 @@ class IndBrands extends Component {
                                </Row>) : null
                             }
                         </Grid>
-                    </div>
+                    {/* </div> */}
                 </div>
             );
        } 

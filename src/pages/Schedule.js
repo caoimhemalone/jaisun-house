@@ -41,6 +41,12 @@ componentDidMount (){
         latest_col_img_4: res.data.acf.latest_collection_image_4.sizes.large,
         latest_col_img_5: res.data.acf.latest_collection_image_5.sizes.large,
         latest_col_img_6: res.data.acf.latest_collection_image_6.sizes.large,
+        latest_col_img_7: res.data.acf.latest_collection_image_7.sizes.large,
+        latest_col_img_8: res.data.acf.latest_collection_image_8.sizes.large,
+        latest_col_img_9: res.data.acf.latest_collection_image_9.sizes.large,
+        latest_col_img_10: res.data.acf.latest_collection_image_10.sizes.large,
+        latest_col_img_11: res.data.acf.latest_collection_image_11.sizes.large,
+        latest_col_img_12: res.data.acf.latest_collection_image_12.sizes.large,
         next_launch: res.data.acf.next_launch,
         option_1: res.data.acf.form_brand_1,
         option_2: res.data.acf.form_brand_2,
@@ -57,13 +63,20 @@ componentDidMount (){
         isLoaded: true
         }))
     .catch(error => console.log(error));
+
+    setTimeout(function() { //Start the timer
+      this.setState({render: true}) //After 1 second, set render to true
+    }.bind(this), 3000)
   }
 
   header = "Schedule";
   render() {
     console.log(this.state.scheduletable);
     const mailTo = "mailto:admin@key-vah.com?subject = Feedback&body = Message"
-    return (
+    //return (
+      let renderContainer = <div class="loading"></div>
+      if(this.state.render) { //If this.state.render == true, which is set to true by the timer.
+      renderContainer =
       <div className="schedule">
         <Header heading={this.header}/>
         <Grid fluid className="schedule-container px-0">
@@ -72,9 +85,7 @@ componentDidMount (){
                 <h2 className="d-flex justify-content-center">Latest Collection</h2>
             </Col>
             <Col xs={12} md={12}>
-                <p className="d-flex justify-content-center">
-                  {this.state.latest_collection}
-                </p>
+                <p className="d-flex justify-content-center latest_collection" dangerouslySetInnerHTML={{ __html:this.state.latest_collection}}></p>
             </Col>
             <Col xs={6} md={4} className="schedule__image">
               <img src={this.state.latest_col_img_1} alt="Placeholder"/>
@@ -94,6 +105,24 @@ componentDidMount (){
             <Col xs={6} md={4} className="schedule__image">
                 <img src={this.state.latest_col_img_6} alt="Placeholder"/>
             </Col>
+            <Col xs={6} md={4} className="schedule__image">
+                <img src={this.state.latest_col_img_7} alt="Placeholder"/>
+            </Col>
+            <Col xs={6} md={4} className="schedule__image">
+                <img src={this.state.latest_col_img_8} alt="Placeholder"/>
+            </Col>
+            <Col xs={6} md={4} className="schedule__image">
+                <img src={this.state.latest_col_img_9} alt="Placeholder"/>
+            </Col>
+            <Col xs={6} md={4} className="schedule__image">
+                <img src={this.state.latest_col_img_10} alt="Placeholder"/>
+            </Col>
+            <Col xs={6} md={4} className="schedule__image">
+                <img src={this.state.latest_col_img_11} alt="Placeholder"/>
+            </Col>
+            <Col xs={6} md={4} className="schedule__image">
+                <img src={this.state.latest_col_img_12} alt="Placeholder"/>
+            </Col>
           </Row>
 
           <Row className="schedule__next">
@@ -104,7 +133,7 @@ componentDidMount (){
                 <h2 className="d-flex justify-content-center">Next Launch</h2>
             </Col>
             <Col xs={12} md={12}>
-                <p className="d-flex justify-content-center">{this.state.next_launch}</p>
+                <p className="d-flex justify-content-center next_launch" dangerouslySetInnerHTML={{ __html:this.state.next_launch}}></p>
             </Col>
           </Row>
 
@@ -146,49 +175,159 @@ componentDidMount (){
                     <label>I am interested in *</label>
                     <br/>
                     <div className="cbox-right">
-                      <input type="checkbox" id="item1" name="item1" value={this.state.option_6}/>
-                      <label for="item1" className="cbox-label">{this.state.option_6}</label>
-                      <br/>
+                      {this.state.option_6 ? (
+                          <div>
+                            <input type="checkbox" id="item1" name="item1" value={this.state.option_6}/>
+                            <label for="item1" className="cbox-label">{this.state.option_6}</label>
+                            <br/>
+                          </div>
+                        ) : null
+                      }
 
-                      <input type="checkbox" id="item2" name="item2" value={this.state.option_7}/>
-                      <label for="item2" className="cbox-label">{this.state.option_7}</label>
-                      <br/>
+                      {this.state.option_7 ? (
+                          <div>
+                            <input type="checkbox" id="item2" name="item2" value={this.state.option_7}/>
+                            <label for="item2" className="cbox-label">{this.state.option_7}</label>
+                            <br/>
+                          </div>
+                        ) : null
+                      } 
 
-                      <input type="checkbox" id="item3" name="item3" value={this.state.option_8}/>
-                      <label for="item3" className="cbox-label">{this.state.option_8}</label>
-                      <br/>
+                      {this.state.option_8 ? (
+                          <div>
+                            <input type="checkbox" id="item3" name="item3" value={this.state.option_8}/>
+                            <label for="item3" className="cbox-label">{this.state.option_8}</label>
+                            <br/>
+                          </div>
+                        ) : null
+                      } 
 
-                      <input type="checkbox" id="item4" name="item4" value={this.state.option_9}/>
-                      <label for="item4" className="cbox-label">{this.state.option_9}</label>
-                      <br/>
+                      {this.state.option_9 ? (
+                          <div>
+                            <input type="checkbox" id="item4" name="item4" value={this.state.option_9}/>
+                            <label for="item4" className="cbox-label">{this.state.option_9}</label>
+                            <br/>
+                          </div>
+                        ) : null
+                      } 
 
-                      <input type="checkbox" id="item5" name="item5" value={this.state.option_10}/>
-                      <label for="item5" className="cbox-label">{this.state.option_10}</label>
-                      <br/>
+                      {this.state.option_10 ? (
+                          <div>
+                            <input type="checkbox" id="item5" name="item5" value={this.state.option_10}/>
+                            <label for="item5" className="cbox-label">{this.state.option_10}</label>
+                            <br/>
+                          </div>
+                        ) : null
+                      } 
 
-                      <input type="checkbox" id="item6" name="item6" value={this.state.option_11}/>
-                      <label for="item6" className="cbox-label">{this.state.option_11}</label>
+                      {this.state.option_11 ? (
+                          <div>
+                            <input type="checkbox" id="item6" name="item6" value={this.state.option_11}/>
+                            <label for="item6" className="cbox-label">{this.state.option_11}</label>
+                            <br/>
+                          </div>
+                        ) : null
+                      }  
+
+                      {this.state.option_12 ? (
+                          <div>
+                            <input type="checkbox" id="item7" name="item7" value={this.state.option_12}/>
+                            <label for="item7" className="cbox-label">{this.state.option_12}</label>
+                            <br/>
+                          </div>
+                        ) : null
+                      }  
+
+                      {this.state.option_13 ? (
+                          <div>
+                            <input type="checkbox" id="item8" name="item8" value={this.state.option_13}/>
+                            <label for="item8" className="cbox-label">{this.state.option_13}</label>
+                            <br/>
+                          </div>
+                        ) : null
+                      } 
+
+                      {this.state.option_14 ? (
+                          <div>
+                            <input type="checkbox" id="item9" name="item9" value={this.state.option_14}/>
+                            <label for="item9" className="cbox-label">{this.state.option_14}</label>
+                            <br/>
+                          </div>
+                        ) : null
+                      } 
+
+                      {this.state.option_15 ? (
+                          <div>
+                            <input type="checkbox" id="item10" name="item10" value={this.state.option_15}/>
+                            <label for="item10" className="cbox-label">{this.state.option_15}</label>
+                            <br/>
+                          </div>
+                        ) : null
+                      } 
+
+                      {this.state.option_16 ? (
+                          <div>
+                            <input type="checkbox" id="item11" name="item11" value={this.state.option_16}/>
+                            <label for="item11" className="cbox-label">{this.state.option_16}</label>
+                            <br/>
+                          </div>
+                        ) : null
+                      } 
+
+                      {this.state.option_17 ? (
+                          <div>
+                            <input type="checkbox" id="item12" name="item12" value={this.state.option_17}/>
+                            <label for="item7" className="cbox-label">{this.state.option_17}</label>
+                            <br/>
+                          </div>
+                        ) : null
+                      } 
                     </div>  
                     <div className="cbox-left">
-                      <input type="checkbox" id="item7" name="item7" value={this.state.option_1}/>
-                      <label for="item7" className="cbox-label">{this.state.option_1}</label>
-                      <br/>
+                      {this.state.option_1 ? (
+                          <div>
+                            <input type="checkbox" id="item13" name="item13" value={this.state.option_1}/>
+                            <label for="item13" className="cbox-label">{this.state.option_1}</label>
+                            <br/>
+                          </div>
+                        ) : null
+                      } 
 
-                      <input type="checkbox" id="item8" name="item8" value={this.state.option_2}/>
-                      <label for="item8" className="cbox-label">{this.state.option_2}</label>
-                      <br/>
+                      {this.state.option_2 ? (
+                          <div>
+                            <input type="checkbox" id="item14" name="item14" value={this.state.option_2}/>
+                            <label for="item14" className="cbox-label">{this.state.option_2}</label>
+                            <br/>
+                          </div>
+                        ) : null
+                      } 
 
-                      <input type="checkbox" id="item9" name="item9" value={this.state.option_3}/>
-                      <label for="item9" className="cbox-label">{this.state.option_3}</label>
-                      <br/>
+                      {this.state.option_3 ? (
+                          <div>
+                            <input type="checkbox" id="item15" name="item15" value={this.state.option_3}/>
+                            <label for="item15" className="cbox-label">{this.state.option_3}</label>
+                            <br/>
+                          </div>
+                        ) : null
+                      } 
 
-                      <input type="checkbox" id="item10" name="item10" value={this.state.option_4}/>
-                      <label for="item10" className="cbox-label">{this.state.option_4}</label>
-                      <br/>
+                      {this.state.option_4 ? (
+                          <div>
+                            <input type="checkbox" id="item16" name="item16" value={this.state.option_4}/>
+                            <label for="item16" className="cbox-label">{this.state.option_4}</label>
+                            <br/>
+                          </div>
+                        ) : null
+                      } 
 
-                      <input type="checkbox" id="item11" name="item11" value={this.state.option_5}/>
-                      <label for="item11" className="cbox-label">{this.state.option_5}</label>
-                      <br/>
+                      {this.state.option_5 ? (
+                          <div>
+                            <input type="checkbox" id="item17" name="item17" value={this.state.option_5}/>
+                            <label for="item17" className="cbox-label">{this.state.option_5}</label>
+                            <br/>
+                          </div>
+                        ) : null
+                      } 
 
                       <input type="checkbox" id="item12" name="item12" value="General Inquiry"/>
                       <label for="item12" className="cbox-label">General Inquiry</label>   
@@ -204,7 +343,10 @@ componentDidMount (){
           </Row>
         </Grid>
       </div>
-    );  
+      } return (
+        renderContainer
+      )
+    //);  
   }
 }
 

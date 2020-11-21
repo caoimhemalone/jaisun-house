@@ -15,12 +15,12 @@ import Home from '../../pages/Home';
 import About from '../../pages/About';
 import Brands from '../../pages/Brands';
 import IndBrand from '../../pages/IndBrand';
-//import B2B from '../../pages/B2B';
 import Schedule from '../../pages/Schedule';
 import Services from '../../pages/Services';
 import Contact from '../../pages/Contact';
-//import Signin from '../../pages/Signin';
 import Sitemap from '../../pages/Sitemap';
+import PrivacyPolicy from '../../pages/PrivacyPolicy';
+import Terms from '../../pages/Terms';
 
 //images
 import Logo from '../../assets/images/logos/logo_6_transparent.png';
@@ -28,16 +28,16 @@ import Logo from '../../assets/images/logos/logo_6_transparent.png';
 
 
 class Nav extends React.Component {
-    // state = {
-    //     nav: 'transparent',
-    //     hamburger: '#fff',
-    // }
+    state = {
+        //hamburger: '#fff'
+        isSubNavVisible: false
+    }
 
     // listenScrollEvent = e => {
     //     if (window.scrollY > 300) {
-    //         this.setState({nav: '#fff', hamburger: '#000', trans: '2s ease-in'})
+    //         this.setState({hamburger: '#000', trans: '2s ease-in'})
     //     } else {
-    //         this.setState({nav: 'transparent', hamburger: '#fff', trans: 'unset'})
+    //         this.setState({hamburger: '#fff', trans: 'unset'})
     //     }
     // }
 
@@ -71,64 +71,43 @@ class Nav extends React.Component {
         this.state = {
             brands: [],
             isLoaded: false,
-            //navWhite: ""
         }
     }
 
-    // boxClick = (e) => {
-    //     this.setState({
-    //       nav: "#fff"
-    //     })
-    //   }
+    toggleSubNav = () => {
+        this.setState(prevState => ({ isSubNavVisible: !prevState.isSubNavVisible }));
+      };
 
     render(){
         const hist = createBrowserHistory();
 
-        const brandLoop = this.state.brands.map((brand, index)=> {
-            return (
-                // <li>
-                // <a href={brand.slug} className="brands-link__item" key={index}>
-                //     <span>
-                //         {brand.title.rendered}
-                //     </span>
-                // </a>  
-                // </li> 
-                
-                <div>
-                <Dropdown.Item href={brand.slug} className="brands-link__item" key={brand.id}>{brand.title.rendered}</Dropdown.Item>
-                </div>
-            )
-        })
-
-        //console.log(this.props.navColor);
-        // if(this.props.navColor === 'apricot') {
-        //     this.setState({color: 'apricot'})
-        // } else if(this.props.navColor === 'blueberry'){
-        //     this.setState({color: 'blueberry'})
-        // }
-
         const {brands, isLoaded } = this.state;
 
+        const { isSubNavVisible } = this.state;
 
-        // let brandLoop = brands.map((brand, index)=> {
-        //     let link = brand.slug
-        //     return ( 
-        //         <Route exact path={"/"+link} component={IndBrand} key={brand.id} navColor="apricot"/>
-        //     )
-        // })
-        //console.log(brandLoop);
+        let brandLoop = brands.map((brand, index)=> {
+            let link = brand.slug
+            return (
+                <li className="sub-nav-item">
+                    <a href={link}>
+                        <img src={brand.acf.tile_image} alt={brand.title.rendered}/>
+                        <span><u>{brand.title.rendered}</u></span>
+                    </a>
+                </li>
+            )
+        })
+        console.log(this.state.hamburger);
 
-        const toggleDesktop = 'down';
-        const toggleMobile = 'right';
-        
-        const toggleDirection = window.innerWidth >= 767 ? toggleDesktop : toggleMobile;
         return (
             <div>
                 <BrowserRouter history={hist}>
                     {/* <nav style={{backgroundColor: this.state.nav, transition: this.state.trans}} className={this.state.color}> */}
                     <nav>
                         <input type="checkbox" className="toggler"/>
-                        <div className="hamburger"><div style={{background: this.state.hamburger}}></div></div>
+                        <div className="hamburger">
+                            {/* <div style={{background: this.state.hamburger}}></div> */}
+                            <div></div>
+                        </div>
                         <Grid fluid className="menu">
                             <Row className="mx-0">
                                 <Col xs={12} md={2} className="nav-left">
@@ -143,10 +122,25 @@ class Nav extends React.Component {
                                 </Col>
                                 <Col xs={12} md={10} className="nav-right">
                                     <Row end="xs" middle="xs">
-                                        <Col xs={12} md className="nav-item"> 
-                                            <a href="/about-us">About</a>
+                                    <Col xs={12} md className="nav-item home-link"> 
+                                            <a href="/">Home</a>
                                         </Col>
-                                        <Col xs={12} md className="nav-item brands-link"> 
+                                        <Col xs={12} md className="nav-item"> 
+                                            <a href="/about">About</a>
+                                        </Col>
+                                        <Col xs={12} md className="nav-item brands-link" onClick={this.toggleSubNav}> 
+                                            <a href="/brands">Brands</a>
+
+                                            <ul className={`sub-menu ${isSubNavVisible ? "" : "hidden"}`}>
+                                                <li className="sub-nav-item all-brands">
+                                                    <a href="/brands">
+                                                        <span>ALL BRANDS</span>
+                                                    </a>
+                                                </li>
+                                                {brandLoop}
+                                            </ul>
+                                        </Col>
+                                        {/* <Col xs={12} md className="nav-item brands-link"> 
                                             <Dropdown drop={toggleDirection} onClick={this.boxClick} as={ButtonGroup}>
                                                 <Dropdown.Toggle id="dropdown-basic">
                                                     Brands
@@ -157,7 +151,7 @@ class Nav extends React.Component {
                                                     {brandLoop}
                                                 </Dropdown.Menu>
                                             </Dropdown>
-                                        </Col>
+                                        </Col> */}
                                         <Col xs={12} md className="nav-item"> 
                                             <a href="/services">Services</a>
                                         </Col>
@@ -179,17 +173,16 @@ class Nav extends React.Component {
                         </Grid>
                     </nav>
                     <Switch>
-                        <Route exact path="/" component={Home} navColor="apricot"/>          
-                        <Route path="/about-us" component={About} navColor="apricot"/>
-                        <Route path="/brands" component={Brands} navColor="blueberry"/>  
-                        <Route path="/services" component={Services} navColor="blueberry"/>
-                        {/* <Route path="/b2b" component={B2B} navColor="blueberry"/> */}
-                        <Route path="/schedule" component={Schedule} navColor="blueberry"/>
-                        <Route path="/contact" component={Contact} navColor="blueberry"/>
-                        {/* <Route path="/sign-in" component={Signin} navColor="blueberry"/> */}
-                        <Route path="/sitemap" component={Sitemap} navColor="apricot"/>
-                        <Route exact path="/:slug" component={IndBrand} navColor="apricot"/>
-                        {/* {brandLoop} */}
+                        <Route exact path="/" component={Home}/>          
+                        <Route path="/about" component={About}/>
+                        <Route path="/brands" component={Brands}/>  
+                        <Route path="/services" component={Services}/>
+                        <Route path="/schedule" component={Schedule}/>
+                        <Route path="/contact" component={Contact}/>
+                        <Route path="/sitemap" component={Sitemap}/>
+                        <Route path="/privacy-policy" component={PrivacyPolicy}/>
+                        <Route path="/terms-and-conditions" component={Terms}/>
+                        <Route exact path="/:slug" component={IndBrand}/>
                     </Switch>          
                 </BrowserRouter>
             </div>

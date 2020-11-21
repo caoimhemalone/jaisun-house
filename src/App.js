@@ -3,12 +3,15 @@ import React, { Component } from "react";
 
 //components
 import Nav from './components/mainComponents/nav';
-
 import Footer from './components/mainComponents/footer';
+import Cookie from './components/mainComponents/cookie';
 
 
 //includes
 import './assets/css/main.css';
+
+//images
+import Logo from './assets/images/logos/logo_6_transparent.png';
 
 class App extends Component {
   state = {
@@ -23,18 +26,16 @@ class App extends Component {
   render() {
     const { loading } = this.state;
     
-    if(loading) {
-      //return null; // render null when app is not ready
-      const hide = 1
-    }
-
-    const hide = 0
-    
     return (
-      // <div style={{opacity: hide}}>
       <div>
+        <div className="mobile-logo">
+          <a href="/">
+              <img src={Logo} alt="logo"/>
+          </a>
+        </div>
         <Nav />
         <Footer />
+        <Cookie />
       </div>
     ); 
   }

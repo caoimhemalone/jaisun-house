@@ -41,18 +41,6 @@ class About extends Component {
                 who_are_we: res.data[0].acf.who_are_we,
                 who_are_we_image: res.data[0].acf.who_are_we_image,
                 mission: res.data[0].acf.mission,
-                client_1: res.data[0].acf.client_1,
-                client_1_image: res.data[0].acf.client_1_image.sizes.medium,
-                client_2: res.data[0].acf.client_2,
-                client_2_image: res.data[0].acf.client_2_image.sizes.medium,
-                client_3: res.data[0].acf.client_3,
-                client_3_image: res.data[0].acf.client_3_image.sizes.medium,
-                client_4: res.data[0].acf.client_4,
-                client_4_image: res.data[0].acf.client_4_image.sizes.medium,
-                client_5: res.data[0].acf.client_5,
-                client_5_image: res.data[0].acf.client_5_image.sizes.medium,
-                client_6: res.data[0].acf.client_6,
-                client_6_image: res.data[0].acf.client_6_image.sizes.medium,
                 isLoaded: true
             })
         })
@@ -60,10 +48,11 @@ class About extends Component {
      }
   
 
-    header = "About Us";
+    header = "About";
     render() {
 
-        const brandsInfo = this.state.brands.slice(0, 6);
+        // const brandsInfo = this.state.brands.slice(0, 6);
+        const brandsInfo = this.state.brands;
         console.log(brandsInfo);
         const brandLoop = brandsInfo.map((brand, index)=> {
             return (
@@ -102,11 +91,11 @@ class About extends Component {
                     
                     <Row className="about-us__clients">
                         <Col xs={12} md={12}>
-                            <h2 className="d-flex justify-content-center">Our clients</h2>
+                            <h2 className="d-flex justify-content-center">Our Brands</h2>
                         </Col>
-                        <Col xs={12} md={12}>
+                        {/* <Col xs={12} md={12}>
                             <p className="d-flex justify-content-center">Some companies that have worked with us</p>
-                        </Col>
+                        </Col> */}
                         <Row className="brands-tiles">
                             {brandLoop}
                         </Row>

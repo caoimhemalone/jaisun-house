@@ -41,14 +41,15 @@ class Brands extends React.Component {
   
     render() {
         const { isLoaded } = this.state;
-        const brandsInfo = this.state.brands.slice(0, 8);
+        // const brandsInfo = this.state.brands.slice(0, 8);
+        const brandsInfo = this.state.brands;
         const brandLoop = brandsInfo.map((brand, index)=> {
             return (
                 <a href={brand.slug} className="brands-tiles__item" key={index}>
                     <img src={brand.acf.tile_image} alt={brand.title.rendered}/>
-                    <span>
+                    {/* <span>
                         {brand.title.rendered}
-                    </span>
+                    </span> */}
                 </a>      
             )
         })

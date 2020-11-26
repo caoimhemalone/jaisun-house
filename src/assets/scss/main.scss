@@ -264,11 +264,15 @@ nav {
                 }
 
                 &.brands-link {
+                    overflow: hidden;
+
                     @media only screen and (max-width: 767px) {
                         flex-wrap: wrap;
                     }
 
                     &:hover {
+                        overflow: inherit;
+
                         @media only screen and (min-width: 768px) {
                             .sub-menu {
                                 max-height: initial;
@@ -277,6 +281,14 @@ nav {
                                 max-width: initial;
                                 z-index: 2;
                                 transition: 2s ease-in;
+                            }
+                        }
+                    }
+
+                    &:not(:hover) {
+                        @media only screen and (min-width: 768px) {
+                            .sub-menu.hidden {
+                                transition: 2s ease-out;
                             }
                         }
                     }
@@ -1175,6 +1187,10 @@ nav {
                 color: $white;
                 align-self: center;
                 margin-top: 3em;
+                //font-family: 'Montserrat', sans-serif;
+                //font-family: 'Playfair Display', serif;
+                font-family: 'Bitter', serif;
+                font-weight: bold;
             }
         }
     }
@@ -1204,20 +1220,34 @@ nav {
                 //     }
                 // }
 
-                .ind-brands__text {
-                    line-height: 1.8;
-                    color: $black;
-                    // padding-top: 10px;
-                    flex-wrap: wrap;
 
-                    // @media only screen and (max-width: 991px) {
-                    //     padding-top: 40px;
-                    // }
 
-                    p {
-                        display: block;
-                        width: 100%;
-                        text-align: center;
+                .ind-brands{
+                    &__logo {
+                        float: left;
+
+                        img {
+                            width: 100%;
+                        }
+                    }
+
+                    &__text {
+                        line-height: 1.8;
+                        color: $black;
+                        // padding-top: 10px;
+                        flex-wrap: wrap;
+                        // width: 80%;
+                        float: right;
+
+                        // @media only screen and (max-width: 991px) {
+                        //     padding-top: 40px;
+                        // }
+
+                        p {
+                            display: block;
+                            width: 100%;
+                            text-align: center;
+                        }
                     }
                 }
             }
@@ -1834,11 +1864,19 @@ footer {
     }
 
     .footer-bottom {
-        span {
+        .right {
             text-align: right;
             font-size: 12px;
             display: block;
             float: right;
+            width: fit-content;
+        }
+
+        .left {
+            text-align: left;
+            font-size: 12px;
+            display: block;
+            float: left;
             width: 100%;
         }
     }

@@ -6,6 +6,8 @@ import axios from 'axios';
 
 //components
 import Header from '../components/mainComponents/headerSection';
+import ContactForm from '../components/mainComponents/contactform';
+
 
 class Contact extends Component {
   constructor(){
@@ -60,6 +62,7 @@ class Contact extends Component {
   header = "Contact Us";
   render() {
     const isLoaded  = this.state.isLoaded;
+    const phone = 'tel:+'+this.state.phone;
     console.log('rerendering');
     //const iframe = '<iframe src="https://snazzymaps.com/embed/267102" width="100%" height="600px" style="border:none;"></iframe>';
     const iframe = '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d596.0639658309783!2d-6.244817463867604!3d53.302863836844715!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x486709ea31ed84ed%3A0xd5639b90bf0b5bc9!2sJAISUN%20House!5e0!3m2!1sen!2sie!4v1605199341854!5m2!1sen!2sie" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>';
@@ -72,7 +75,7 @@ class Contact extends Component {
     //return (
 
       //let renderContainer = false //By default don't render anything
-      let renderContainer = <div class="loading"></div>
+      let renderContainer = <div className="loading"></div>
       if(this.state.render) { //If this.state.render == true, which is set to true by the timer.
       renderContainer =
       <div className="contact">
@@ -100,8 +103,8 @@ class Contact extends Component {
                   <div className="contact__details-item">
                     <ion-icon name="call-outline"></ion-icon>
                     <span>
-                      <a href={this.state.phone}>
-                        {this.state.phone}
+                      <a href={phone}>
+                        +{this.state.phone}
                       </a>
                     </span>
                   </div>
@@ -131,6 +134,7 @@ class Contact extends Component {
                   <div className="form-top">
                   <div className="form-left">
                     <div className="form-group">
+                    <ContactForm />
                       <span>Company Details</span>
                       {/* Company Name */}
                       <label htmlFor="name">Company Name *</label>
@@ -233,23 +237,31 @@ class Contact extends Component {
                       <br/>
 
                       <input type="checkbox" id="require1" name="require1" value="Book Appt"/>
-                      <label className="cbox" htmlFor="require1">Book an appointment to view our collection</label>
+                      <label className="cbox" htmlFor="require1">To Book an appointment to view our collection</label>
                       <br/>
 
                       <input type="checkbox" id="require2" name="require2" value="Meeting"/>
-                      <label className="cbox" htmlFor="require2">Arrange a meeting for more information</label>
+                      <label className="cbox" htmlFor="require2">To Arrange a meeting for more information</label>
                       <br/>
 
                       <input type="checkbox" id="require3" name="require3" value="Brand Marketing"/>
                       <label className="cbox" htmlFor="require3">Brand Marketing & Imagery</label>
                       <br/>
 
-                      <input type="checkbox" id="require4" name="require4" value="Corporate"/>
-                      <label className="cbox" htmlFor="require4">Corporate</label>
+                      <input type="checkbox" id="require4" name="require4" value="Retail Consultancy"/>
+                      <label className="cbox" htmlFor="require4">Retail Consultancy</label>
                       <br/>
 
-                      <input type="checkbox" id="require5" name="require5" value="General"/>
-                      <label className="cbox" htmlFor="require5">General Inquiry</label>
+                      <input type="checkbox" id="require5" name="require5" value="Long Term Partnership & Wholesale"/>
+                      <label className="cbox" htmlFor="require5">Long Term Partnership & Wholesale</label>
+                      <br/>
+
+                      <input type="checkbox" id="require6" name="require6" value="Marketing & PR"/>
+                      <label className="cbox" htmlFor="require6">Marketing & PR</label>
+                      <br/>
+
+                      <input type="checkbox" id="require7" name="require7" value="General"/>
+                      <label className="cbox" htmlFor="require7">A General Inquiry</label>
                       <br/>
                     </div>
                  
@@ -271,7 +283,6 @@ class Contact extends Component {
       </div>
     //);
     } return (
-      //<div class="loading"></div>
       renderContainer
     )
   }

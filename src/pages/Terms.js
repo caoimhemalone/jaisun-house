@@ -38,7 +38,7 @@ class Terms extends Component {
                 <Grid fluid className="legal-container">
                     <Row>
                         <Col xs={12} md={12}>
-                            <div class="legal-date">
+                            <div className="legal-date">
                                 Last Updated: <span dangerouslySetInnerHTML={{ __html:this.state.legal.acf.last_updated}}></span>
                             </div>
                             <div className="legal-text" dangerouslySetInnerHTML={{ __html:this.state.legal.acf.main_text}}></div>

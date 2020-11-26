@@ -115,7 +115,9 @@ class Footer extends Component {
                                     </Col>
                                     <Col xs={6} md={4} >
                                         <ul className="social-media-footer">
-                                            <li className="social-media-footer__header">Follow Us On Social Media</li>
+                                            {this.state.footer.acf.instagram ? (
+                                                <li className="social-media-footer__header">Follow Us On Social Media</li>) : null
+                                            }
                                             {this.state.footer.acf.instagram ? (
                                                 <li className="social-media-footer__link">
                                                     <a className="social-media" href={this.state.footer.acf.instagram} traget="_blank">
@@ -178,8 +180,9 @@ class Footer extends Component {
                             </Col>
                             <hr/>
                             <Col xs={12} md={12} className="footer-bottom">
-                                <span>All stock images are from <a href="https://www.unsplash.com" target="_blank" rel="noopener noreferrer">Unsplash.com</a></span>
-                                <span>Web design and development by <a href="https://www.key-vah.com" target="_blank" rel="noopener noreferrer">key-vah web creations</a></span>
+                                <span className="left">Registered in Ireland No. 476267</span>
+                                <span className="right">All stock images are from <a href="https://www.unsplash.com" target="_blank" rel="noopener noreferrer">Unsplash.com</a></span>
+                                <span className="right">Web design and development by <a href="https://www.key-vah.com" target="_blank" rel="noopener noreferrer">key-vah web creations</a></span>
                             </Col>
                         </Row>
                     </Grid>

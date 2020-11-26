@@ -5,6 +5,7 @@ import axios from 'axios';
 
 //components
 import Header from '../components/mainComponents/headerSection';
+import ScheduleForm from '../components/mainComponents/scheduleform';
 
 
 class Schedule extends Component {
@@ -74,7 +75,7 @@ componentDidMount (){
     console.log(this.state.scheduletable);
     const mailTo = "mailto:admin@key-vah.com?subject = Feedback&body = Message"
     //return (
-      let renderContainer = <div class="loading"></div>
+      let renderContainer = <div className="loading"></div>
       if(this.state.render) { //If this.state.render == true, which is set to true by the timer.
       renderContainer =
       <div className="schedule">
@@ -150,7 +151,8 @@ componentDidMount (){
                   <div className="message" dangerouslySetInnerHTML={{ __html: this.state.appt_msg }}></div>
                 </div>
               </div>
-              <form action={this.state.email_mailto} method="POST" enctype="multipart/form-data" name="EmailForm">
+              <ScheduleForm />
+              <form action={this.state.email_mailto} method="POST" encType="multipart/form-data" name="EmailForm">
                 <div className="form-top">
                   <div className="form-group">
                     <label htmlFor="name">Name *</label>
@@ -160,12 +162,12 @@ componentDidMount (){
                     <input type="email" className="form-control" required />
 
                     <input type="checkbox" id="email-sub" name="email-sub" value="email-sub"/>
-                    <label className="cbox-label" for="email-sub">Check here to receive email updates</label>
+                    <label className="cbox-label" htmlFor="email-sub">Check here to receive email updates</label>
 
                     <label htmlFor="phone">Phone Number *</label>
                     <input type="number" className="form-control" required />
 
-                    <label for="meeting-time">Choose a time for your appointment:</label>
+                    <label htmlFor="meeting-time">Choose a time for your appointment:</label>
 
                     <input type="datetime-local" id="meeting-time" name="meeting-time"></input>
 
@@ -178,7 +180,7 @@ componentDidMount (){
                       {this.state.option_6 ? (
                           <div>
                             <input type="checkbox" id="item1" name="item1" value={this.state.option_6}/>
-                            <label for="item1" className="cbox-label">{this.state.option_6}</label>
+                            <label htmlFor="item1" className="cbox-label">{this.state.option_6}</label>
                             <br/>
                           </div>
                         ) : null
@@ -187,7 +189,7 @@ componentDidMount (){
                       {this.state.option_7 ? (
                           <div>
                             <input type="checkbox" id="item2" name="item2" value={this.state.option_7}/>
-                            <label for="item2" className="cbox-label">{this.state.option_7}</label>
+                            <label htmlFor="item2" className="cbox-label">{this.state.option_7}</label>
                             <br/>
                           </div>
                         ) : null
@@ -196,7 +198,7 @@ componentDidMount (){
                       {this.state.option_8 ? (
                           <div>
                             <input type="checkbox" id="item3" name="item3" value={this.state.option_8}/>
-                            <label for="item3" className="cbox-label">{this.state.option_8}</label>
+                            <label htmlFor="item3" className="cbox-label">{this.state.option_8}</label>
                             <br/>
                           </div>
                         ) : null
@@ -205,7 +207,7 @@ componentDidMount (){
                       {this.state.option_9 ? (
                           <div>
                             <input type="checkbox" id="item4" name="item4" value={this.state.option_9}/>
-                            <label for="item4" className="cbox-label">{this.state.option_9}</label>
+                            <label htmlFor="item4" className="cbox-label">{this.state.option_9}</label>
                             <br/>
                           </div>
                         ) : null
@@ -214,7 +216,7 @@ componentDidMount (){
                       {this.state.option_10 ? (
                           <div>
                             <input type="checkbox" id="item5" name="item5" value={this.state.option_10}/>
-                            <label for="item5" className="cbox-label">{this.state.option_10}</label>
+                            <label htmlFor="item5" className="cbox-label">{this.state.option_10}</label>
                             <br/>
                           </div>
                         ) : null
@@ -223,7 +225,7 @@ componentDidMount (){
                       {this.state.option_11 ? (
                           <div>
                             <input type="checkbox" id="item6" name="item6" value={this.state.option_11}/>
-                            <label for="item6" className="cbox-label">{this.state.option_11}</label>
+                            <label htmlFor="item6" className="cbox-label">{this.state.option_11}</label>
                             <br/>
                           </div>
                         ) : null
@@ -232,7 +234,7 @@ componentDidMount (){
                       {this.state.option_12 ? (
                           <div>
                             <input type="checkbox" id="item7" name="item7" value={this.state.option_12}/>
-                            <label for="item7" className="cbox-label">{this.state.option_12}</label>
+                            <label htmlFor="item7" className="cbox-label">{this.state.option_12}</label>
                             <br/>
                           </div>
                         ) : null
@@ -241,7 +243,7 @@ componentDidMount (){
                       {this.state.option_13 ? (
                           <div>
                             <input type="checkbox" id="item8" name="item8" value={this.state.option_13}/>
-                            <label for="item8" className="cbox-label">{this.state.option_13}</label>
+                            <label htmlFor="item8" className="cbox-label">{this.state.option_13}</label>
                             <br/>
                           </div>
                         ) : null
@@ -250,7 +252,7 @@ componentDidMount (){
                       {this.state.option_14 ? (
                           <div>
                             <input type="checkbox" id="item9" name="item9" value={this.state.option_14}/>
-                            <label for="item9" className="cbox-label">{this.state.option_14}</label>
+                            <label htmlFor="item9" className="cbox-label">{this.state.option_14}</label>
                             <br/>
                           </div>
                         ) : null
@@ -259,7 +261,7 @@ componentDidMount (){
                       {this.state.option_15 ? (
                           <div>
                             <input type="checkbox" id="item10" name="item10" value={this.state.option_15}/>
-                            <label for="item10" className="cbox-label">{this.state.option_15}</label>
+                            <label htmlFor="item10" className="cbox-label">{this.state.option_15}</label>
                             <br/>
                           </div>
                         ) : null
@@ -268,7 +270,7 @@ componentDidMount (){
                       {this.state.option_16 ? (
                           <div>
                             <input type="checkbox" id="item11" name="item11" value={this.state.option_16}/>
-                            <label for="item11" className="cbox-label">{this.state.option_16}</label>
+                            <label htmlFor="item11" className="cbox-label">{this.state.option_16}</label>
                             <br/>
                           </div>
                         ) : null
@@ -277,7 +279,7 @@ componentDidMount (){
                       {this.state.option_17 ? (
                           <div>
                             <input type="checkbox" id="item12" name="item12" value={this.state.option_17}/>
-                            <label for="item7" className="cbox-label">{this.state.option_17}</label>
+                            <label htmlFor="item7" className="cbox-label">{this.state.option_17}</label>
                             <br/>
                           </div>
                         ) : null
@@ -287,7 +289,7 @@ componentDidMount (){
                       {this.state.option_1 ? (
                           <div>
                             <input type="checkbox" id="item13" name="item13" value={this.state.option_1}/>
-                            <label for="item13" className="cbox-label">{this.state.option_1}</label>
+                            <label htmlFor="item13" className="cbox-label">{this.state.option_1}</label>
                             <br/>
                           </div>
                         ) : null
@@ -296,7 +298,7 @@ componentDidMount (){
                       {this.state.option_2 ? (
                           <div>
                             <input type="checkbox" id="item14" name="item14" value={this.state.option_2}/>
-                            <label for="item14" className="cbox-label">{this.state.option_2}</label>
+                            <label htmlFor="item14" className="cbox-label">{this.state.option_2}</label>
                             <br/>
                           </div>
                         ) : null
@@ -305,7 +307,7 @@ componentDidMount (){
                       {this.state.option_3 ? (
                           <div>
                             <input type="checkbox" id="item15" name="item15" value={this.state.option_3}/>
-                            <label for="item15" className="cbox-label">{this.state.option_3}</label>
+                            <label htmlFor="item15" className="cbox-label">{this.state.option_3}</label>
                             <br/>
                           </div>
                         ) : null
@@ -314,7 +316,7 @@ componentDidMount (){
                       {this.state.option_4 ? (
                           <div>
                             <input type="checkbox" id="item16" name="item16" value={this.state.option_4}/>
-                            <label for="item16" className="cbox-label">{this.state.option_4}</label>
+                            <label htmlFor="item16" className="cbox-label">{this.state.option_4}</label>
                             <br/>
                           </div>
                         ) : null
@@ -323,14 +325,14 @@ componentDidMount (){
                       {this.state.option_5 ? (
                           <div>
                             <input type="checkbox" id="item17" name="item17" value={this.state.option_5}/>
-                            <label for="item17" className="cbox-label">{this.state.option_5}</label>
+                            <label htmlFor="item17" className="cbox-label">{this.state.option_5}</label>
                             <br/>
                           </div>
                         ) : null
                       } 
 
                       <input type="checkbox" id="item12" name="item12" value="General Inquiry"/>
-                      <label for="item12" className="cbox-label">General Inquiry</label>   
+                      <label htmlFor="item12" className="cbox-label">General Inquiry</label>   
                     </div>                
                   </div>
                 </div>

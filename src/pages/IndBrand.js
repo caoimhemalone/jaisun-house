@@ -57,7 +57,12 @@ class IndBrands extends Component {
                                     {/* <a href="/brands">
                                         <Link to="/brands">Back to Brands</Link>
                                     </a> */}
-                                    <span className="d-flex justify-content-center ind-brands__text"  dangerouslySetInnerHTML={{ __html:indbrandtable.acf.bio}}></span>
+                                    <Col xs={12} md={3} className="ind-brands__logo">
+                                        <img src={indbrandtable.acf.tile_image} alt="brand logo"/>
+                                    </Col>
+                                    <Col xs={12} md={9}>
+                                        <span className="d-flex justify-content-center ind-brands__text"  dangerouslySetInnerHTML={{ __html:indbrandtable.acf.bio}}></span>
+                                    </Col>
                                 </Col>
                             </Row>
                             <Row className="ind-brands__tiles">

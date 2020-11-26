@@ -93,9 +93,9 @@ class About extends Component {
                         <Col xs={12} md={12}>
                             <h2 className="d-flex justify-content-center">Our Brands</h2>
                         </Col>
-                        {/* <Col xs={12} md={12}>
-                            <p className="d-flex justify-content-center">Some companies that have worked with us</p>
-                        </Col> */}
+                        <Col xs={12} md={12}>
+                            <p className="d-flex justify-content-center">Current and forward collections viewings available in our Dublin based showrooms</p>
+                        </Col>
                         <Row className="brands-tiles">
                             {brandLoop}
                         </Row>

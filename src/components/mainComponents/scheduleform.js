@@ -37,23 +37,7 @@ class ScheduleForm extends Component {
       datetime: '',
       subject: '',
       message: '',
-      item1: '',
-      item2: '',
-      item3: '',
-      item4: '',
-      item5: '',
-      item6: '',
-      item7: '',
-      item8: '',
-      item9: '',
-      item10: '',
-      item11: '',
-      item12: '',
-      item13: '',
-      item14: '',
-      item15: '',
-      item16: '',
-      item17: '',
+      interested_in: [],
       formErrors: {
         name: '',
         email: '',
@@ -61,23 +45,7 @@ class ScheduleForm extends Component {
         datetime: '',
         subject: '',
         message: '',
-        item1: '',
-        item2: '',
-        item3: '',
-        item4: '',
-        item5: '',
-        item6: '',
-        item7: '',
-        item8: '',
-        item9: '',
-        item10: '',
-        item11: '',
-        item12: '',
-        item13: '',
-        item14: '',
-        item15: '',
-        item16: '',
-        item17: '',
+        interested_in: [],
       },
       scheduletable: [],
       contact: [],
@@ -109,7 +77,7 @@ class ScheduleForm extends Component {
   }
 
   toastifyFail() {
-    toast.error('Form failed to send!', {
+    toast.error('Form failed to send! Please fill out all fields with *', {
       position: 'bottom-right',
       autoClose: 5000,
       hideProgressBar: true,
@@ -125,7 +93,7 @@ class ScheduleForm extends Component {
 
     if (formValid(this.state)) {
       // Handle form validation success
-      const { name, email, phone, datetime, subject, message,  item1, item2, item3, item4, item5, item6, item7, item8, item9, item10, item11, item12, item13, item14, item15, item16, item17 } = this.state;
+      const { name, email, phone, datetime, subject, message, interested_in} = this.state;
 
       // Set template params
       let templateParams = {
@@ -135,23 +103,7 @@ class ScheduleForm extends Component {
         datetime: datetime,
         subject: subject,
         message: message,
-        item1: item1,
-        item2: item2,
-        item3: item3,
-        item4: item4,
-        item5: item5,
-        item6: item6,
-        item7: item7,
-        item8: item8,
-        item9: item9,
-        item10: item10,
-        item11: item11,
-        item12: item12,
-        item13: item13,
-        item14: item14,
-        item15: item15,
-        item16: item16,
-        item17: item17,
+        interested_in: interested_in
       };
 
       emailjs.send('service_662pzke', 'template_qdfhleg', templateParams, 'user_5uqyqAaIiZdCW43R2ytVL');
@@ -164,23 +116,7 @@ class ScheduleForm extends Component {
         DateTime: ${datetime}
         Subject: ${subject}
         Message: ${message}
-        Item_1: ${item1}
-        Item_2: ${item2}
-        Item_3: ${item3}
-        Item_4: ${item4}
-        Item_5: ${item5}
-        Item_6: ${item6}
-        Item_7: ${item7}
-        Item_8: ${item8}
-        Item_9: ${item9}
-        Item_10: ${item10}
-        Item_11: ${item11}
-        Item_12: ${item12}
-        Item_13: ${item13}
-        Item_14: ${item14}
-        Item_15: ${item15}
-        Item_16: ${item16}
-        Item_17: ${item17}
+        Interested In: ${interested_in}
       `);
       
       this.toastifySuccess();
@@ -201,23 +137,7 @@ class ScheduleForm extends Component {
       datetime: '',
       subject: '',
       message: '',
-      item1: '',
-      item2: '',
-      item3: '',
-      item4: '',
-      item5: '',
-      item6: '',
-      item7: '',
-      item8: '',
-      item9: '',
-      item10: '',
-      item11: '',
-      item12: '',
-      item13: '',
-      item14: '',
-      item15: '',
-      item16: '',
-      item17: '',
+      interested_in: []
     });
   }
 
@@ -244,13 +164,24 @@ class ScheduleForm extends Component {
     }
     this.setState({ formErrors, [name]: value });
   };
+
+  handleCheckboxChange = event => {
+    let newArray = [...this.state.interested_in, event.target.id];
+    if (this.state.interested_in.includes(event.target.id)) {
+      newArray = newArray.filter(day => day !== event.target.id);
+    }
+    this.setState({
+      interested_in: newArray
+    });
+  };
+
   render() {
     const { formErrors, isLoaded } = this.state;
 
     if(isLoaded) {
       return (
         <div className='ContactForm'>
-          <form id='contact-form' onSubmit={this.handleSubmit} noValidate>
+          <form id='contact-form' className="contact-form" onSubmit={this.handleSubmit} noValidate>
             <Row>
               <Col xs={12} md={12}>
                 <label htmlFor="name">Name *</label>
@@ -293,6 +224,7 @@ class ScheduleForm extends Component {
                   className={`form-control formInput ${formErrors.email.length > 0 ? 'error' : null}`}
                   onChange={this.handleChange}
                   noValidate
+                  required
                 ></input>
                 {formErrors.email.length > 0 && (
                   <span className='errorMessage'>{formErrors.email}</span>
@@ -300,12 +232,13 @@ class ScheduleForm extends Component {
               </Col>
 
               <Col xs={12} md={12}>
-                <label htmlFor="meeting-time">Choose a time for your appointment:</label>
+                <label htmlFor="meeting-time">Choose a time for your appointment: *</label>
                 <input
                   type='datetime-local'
                   name='datetime'
                   value={this.state.datetime}
                   className={`form-control formInput ${formErrors.email.length > 0 ? 'error' : null}`}
+                  id="meeting-time"
                   onChange={this.handleChange}
                   noValidate
                   required
@@ -334,7 +267,7 @@ class ScheduleForm extends Component {
               </Col>
 
               <Col xs={12} md={12}>
-                <label htmlFor="message">Comments/Questions</label>
+                <label htmlFor="message">Comments/Questions *</label>
                 <textarea
                   rows='5'
                   name='message'
@@ -344,6 +277,7 @@ class ScheduleForm extends Component {
                   }`}
                   onChange={this.handleChange}
                   noValidate
+                  required
                 ></textarea>
                 {formErrors.message.length > 0 && (
                   <span className='errorMessage'>{formErrors.message}</span>
@@ -370,162 +304,162 @@ class ScheduleForm extends Component {
                 <br/>
                 <div className="cbox-right">
                   {this.state.scheduletable.acf.form_brand_6 ? (
-                      <div>
-                        <input type="checkbox" id="item1" name="item1" value={this.state.scheduletable.acf.form_brand_6} onChange={this.handleChange} noValidate/>
-                        <label htmlFor="item1" className="cbox-label">{this.state.scheduletable.acf.form_brand_6}</label>
+                      <div className="checkbox-item">
+                        <input type="checkbox" id={this.state.scheduletable.acf.form_brand_6} name={this.state.scheduletable.acf.form_brand_6} value={this.state.scheduletable.acf.form_brand_6} onChange={this.handleCheckboxChange}/>
+                        <label htmlFor={this.state.scheduletable.acf.form_brand_6} className="cbox-label">{this.state.scheduletable.acf.form_brand_6}</label>
                         <br/>
                       </div>
                     ) : null
                   }
 
                   {this.state.scheduletable.acf.form_brand_7 ? (
-                      <div>
-                        <input type="checkbox" id="item2" name="item2" value={this.state.scheduletable.acf.form_brand_7} onChange={this.handleChange} noValidate/>
-                        <label htmlFor="item2" className="cbox-label">{this.state.scheduletable.acf.form_brand_7}</label>
+                      <div className="checkbox-item">
+                        <input type="checkbox" id={this.state.scheduletable.acf.form_brand_7} name={this.state.scheduletable.acf.form_brand_7} value={this.state.scheduletable.acf.form_brand_7} onChange={this.handleCheckboxChange}/>
+                        <label htmlFor={this.state.scheduletable.acf.form_brand_7} className="cbox-label">{this.state.scheduletable.acf.form_brand_7}</label>
                         <br/>
                       </div>
                     ) : null
                   } 
 
                   {this.state.scheduletable.acf.form_brand_8 ? (
-                      <div>
-                        <input type="checkbox" id="item3" name="item3" value={this.state.scheduletable.acf.form_brand_8} onChange={this.handleChange} noValidate/>
-                        <label htmlFor="item3" className="cbox-label">{this.state.scheduletable.acf.form_brand_8}</label>
+                      <div className="checkbox-item">
+                        <input type="checkbox" id={this.state.scheduletable.acf.form_brand_8} name={this.state.scheduletable.acf.form_brand_8} value={this.state.scheduletable.acf.form_brand_8} onChange={this.handleCheckboxChange}/>
+                        <label htmlFor={this.state.scheduletable.acf.form_brand_8} className="cbox-label">{this.state.scheduletable.acf.form_brand_8}</label>
                         <br/>
                       </div>
                     ) : null
                   } 
 
                   {this.state.scheduletable.acf.form_brand_9 ? (
-                      <div>
-                        <input type="checkbox" id="item4" name="item4" value={this.state.scheduletable.acf.form_brand_9} onChange={this.handleChange} noValidate/>
-                        <label htmlFor="item4" className="cbox-label">{this.state.scheduletable.acf.form_brand_9}</label>
+                      <div className="checkbox-item">
+                        <input type="checkbox" id={this.state.scheduletable.acf.form_brand_9} name={this.state.scheduletable.acf.form_brand_9} value={this.state.scheduletable.acf.form_brand_9} onChange={this.handleCheckboxChange}/>
+                        <label htmlFor={this.state.scheduletable.acf.form_brand_9} className="cbox-label">{this.state.scheduletable.acf.form_brand_9}</label>
                         <br/>
                       </div>
                     ) : null
                   } 
 
                   {this.state.scheduletable.acf.form_brand_10 ? (
-                      <div>
-                        <input type="checkbox" id="item5" name="item5" value={this.state.scheduletable.acf.form_brand_10} onChange={this.handleChange} noValidate/>
-                        <label htmlFor="item5" className="cbox-label">{this.state.scheduletable.acf.form_brand_10}</label>
+                      <div className="checkbox-item">
+                        <input type="checkbox" id={this.state.scheduletable.acf.form_brand_10} name={this.state.scheduletable.acf.form_brand_10} value={this.state.scheduletable.acf.form_brand_10} onChange={this.handleCheckboxChange}/>
+                        <label htmlFor={this.state.scheduletable.acf.form_brand_10} className="cbox-label">{this.state.scheduletable.acf.form_brand_10}</label>
                         <br/>
                       </div>
                     ) : null
                   } 
 
                   {this.state.scheduletable.acf.form_brand_11 ? (
-                      <div>
-                        <input type="checkbox" id="item6" name="item6" value={this.state.scheduletable.acf.form_brand_11} onChange={this.handleChange} noValidate/>
-                        <label htmlFor="item6" className="cbox-label">{this.state.scheduletable.acf.form_brand_11}</label>
+                      <div className="checkbox-item">
+                        <input type="checkbox" id={this.state.scheduletable.acf.form_brand_11} name={this.state.scheduletable.acf.form_brand_11} value={this.state.scheduletable.acf.form_brand_11} onChange={this.handleCheckboxChange}/>
+                        <label htmlFor={this.state.scheduletable.acf.form_brand_11} className="cbox-label">{this.state.scheduletable.acf.form_brand_11}</label>
                         <br/>
                       </div>
                     ) : null
                   }  
 
                   {this.state.scheduletable.acf.form_brand_12 ? (
-                      <div>
-                        <input type="checkbox" id="item7" name="item7" value={this.state.scheduletable.acf.form_brand_12} onChange={this.handleChange} noValidate/>
-                        <label htmlFor="item7" className="cbox-label">{this.state.scheduletable.acf.form_brand_12}</label>
+                      <div className="checkbox-item">
+                        <input type="checkbox" id={this.state.scheduletable.acf.form_brand_12} name={this.state.scheduletable.acf.form_brand_12} value={this.state.scheduletable.acf.form_brand_12} onChange={this.handleCheckboxChange}/>
+                        <label htmlFor={this.state.scheduletable.acf.form_brand_12} className="cbox-label">{this.state.scheduletable.acf.form_brand_12}</label>
                         <br/>
                       </div>
                     ) : null
                   }  
 
                   {this.state.scheduletable.acf.form_brand_13 ? (
-                      <div>
-                        <input type="checkbox" id="item8" name="item8" value={this.state.scheduletable.acf.form_brand_13} onChange={this.handleChange} noValidate/>
-                        <label htmlFor="item8" className="cbox-label">{this.state.scheduletable.acf.form_brand_13}</label>
+                      <div className="checkbox-item">
+                        <input type="checkbox" id={this.state.scheduletable.acf.form_brand_13} name={this.state.scheduletable.acf.form_brand_13} value={this.state.scheduletable.acf.form_brand_13} onChange={this.handleCheckboxChange}/>
+                        <label htmlFor={this.state.scheduletable.acf.form_brand_13} className="cbox-label">{this.state.scheduletable.acf.form_brand_13}</label>
                         <br/>
                       </div>
                     ) : null
                   } 
 
                   {this.state.scheduletable.acf.form_brand_14 ? (
-                      <div>
-                        <input type="checkbox" id="item9" name="item9" value={this.state.scheduletable.acf.form_brand_14} onChange={this.handleChange} noValidate/>
-                        <label htmlFor="item9" className="cbox-label">{this.state.scheduletable.acf.form_brand_14}</label>
+                      <div className="checkbox-item">
+                        <input type="checkbox" id={this.state.scheduletable.acf.form_brand_14} name={this.state.scheduletable.acf.form_brand_14} value={this.state.scheduletable.acf.form_brand_14} onChange={this.handleCheckboxChange}/>
+                        <label htmlFor={this.state.scheduletable.acf.form_brand_14} className="cbox-label">{this.state.scheduletable.acf.form_brand_14}</label>
                         <br/>
                       </div>
                     ) : null
                   } 
 
                   {this.state.scheduletable.acf.form_brand_15 ? (
-                      <div>
-                        <input type="checkbox" id="item10" name="item10" value={this.state.scheduletable.acf.form_brand_15} onChange={this.handleChange} noValidate/>
-                        <label htmlFor="item10" className="cbox-label">{this.state.scheduletable.acf.form_brand_15}</label>
+                      <div className="checkbox-item">
+                        <input type="checkbox" id={this.state.scheduletable.acf.form_brand_15} name={this.state.scheduletable.acf.form_brand_15} value={this.state.scheduletable.acf.form_brand_15} onChange={this.handleCheckboxChange}/>
+                        <label htmlFor={this.state.scheduletable.acf.form_brand_15} className="cbox-label">{this.state.scheduletable.acf.form_brand_15}</label>
                         <br/>
                       </div>
                     ) : null
                   } 
 
                   {this.state.scheduletable.acf.form_brand_16 ? (
-                      <div>
-                        <input type="checkbox" id="item11" name="item11" value={this.state.scheduletable.acf.form_brand_16} onChange={this.handleChange} noValidate/>
-                        <label htmlFor="item11" className="cbox-label">{this.state.scheduletable.acf.form_brand_16}</label>
+                      <div className="checkbox-item">
+                        <input type="checkbox" id={this.state.scheduletable.acf.form_brand_16} name={this.state.scheduletable.acf.form_brand_16} value={this.state.scheduletable.acf.form_brand_16} onChange={this.handleCheckboxChange}/>
+                        <label htmlFor={this.state.scheduletable.acf.form_brand_16} className="cbox-label">{this.state.scheduletable.acf.form_brand_16}</label>
                         <br/>
                       </div>
                     ) : null
                   } 
 
                   {this.state.scheduletable.acf.form_brand_17 ? (
-                      <div>
-                        <input type="checkbox" id="item12" name="item12" value={this.state.scheduletable.acf.form_brand_17} onChange={this.handleChange} noValidate/>
-                        <label htmlFor="item7" className="cbox-label">{this.state.scheduletable.acf.form_brand_17}</label>
+                      <div className="checkbox-item">
+                        <input type="checkbox" id={this.state.scheduletable.acf.form_brand_17} name={this.state.scheduletable.acf.form_brand_17} value={this.state.scheduletable.acf.form_brand_17} onChange={this.handleCheckboxChange}/>
+                        <label htmlFor={this.state.scheduletable.acf.form_brand_17} className="cbox-label">{this.state.scheduletable.acf.form_brand_17}</label>
                         <br/>
                       </div>
                     ) : null
                   } 
                 </div>  
                 <div className="cbox-left">
-                        {this.state.scheduletable.acf.form_brand_1 ? (
-                            <div>
-                              <input type="checkbox" id="item13" name="item13" value={this.state.scheduletable.acf.form_brand_1} onChange={this.handleChange} noValidate/>
-                              <label htmlFor="item13" className="cbox-label">{this.state.scheduletable.acf.form_brand_1}</label>
-                              <br/>
-                            </div>
-                          ) : null
-                        } 
-
-                        {this.state.scheduletable.acf.form_brand_2 ? (
-                            <div>
-                              <input type="checkbox" id="item14" name="item14" value={this.state.scheduletable.acf.form_brand_2} onChange={this.handleChange} noValidate/>
-                              <label htmlFor="item14" className="cbox-label">{this.state.scheduletable.acf.form_brand_2}</label>
-                              <br/>
-                            </div>
-                          ) : null
-                        } 
-
-                        {this.state.scheduletable.acf.form_brand_3 ? (
-                            <div>
-                              <input type="checkbox" id="item15" name="item15" value={this.state.scheduletable.acf.form_brand_3} onChange={this.handleChange} noValidate/>
-                              <label htmlFor="item15" className="cbox-label">{this.state.scheduletable.acf.form_brand_3}</label>
-                              <br/>
-                            </div>
-                          ) : null
-                        } 
-
-                        {this.state.scheduletable.acf.form_brand_4 ? (
-                            <div>
-                              <input type="checkbox" id="item16" name="item16" value={this.state.scheduletable.acf.form_brand_4} onChange={this.handleChange} noValidate/>
-                              <label htmlFor="item16" className="cbox-label">{this.state.scheduletable.acf.form_brand_4}</label>
-                              <br/>
-                            </div>
-                          ) : null
-                        } 
-
-                        {this.state.scheduletable.acf.form_brand_5 ? (
-                            <div>
-                              <input type="checkbox" id="item17" name="item17" value={this.state.scheduletable.acf.form_brand_5} onChange={this.handleChange} noValidate/>
-                              <label htmlFor="item17" className="cbox-label">{this.state.scheduletable.acf.form_brand_5}</label>
-                              <br/>
-                            </div>
-                          ) : null
-                        } 
-
-                        <input type="checkbox" id="item12" name="item12" value="General Inquiry" onChange={this.handleChange} noValidate/>
-                        <label htmlFor="item12" className="cbox-label">General Inquiry</label>   
+                  {this.state.scheduletable.acf.form_brand_1 ? (
+                      <div className="checkbox-item">
+                        <input type="checkbox" id={this.state.scheduletable.acf.form_brand_1} name={this.state.scheduletable.acf.form_brand_1} value={this.state.scheduletable.acf.form_brand_1} onChange={this.handleCheckboxChange}/>
+                        <label htmlFor={this.state.scheduletable.acf.form_brand_1} className="cbox-label">{this.state.scheduletable.acf.form_brand_1}</label>
+                        <br/>
                       </div>
+                    ) : null
+                  } 
+
+                  {this.state.scheduletable.acf.form_brand_2 ? (
+                      <div className="checkbox-item">
+                        <input type="checkbox" id={this.state.scheduletable.acf.form_brand_2} name={this.state.scheduletable.acf.form_brand_2} value={this.state.scheduletable.acf.form_brand_2} onChange={this.handleCheckboxChange}/>
+                        <label htmlFor={this.state.scheduletable.acf.form_brand_2} className="cbox-label">{this.state.scheduletable.acf.form_brand_2}</label>
+                        <br/>
+                      </div>
+                    ) : null
+                  } 
+
+                  {this.state.scheduletable.acf.form_brand_3 ? (
+                      <div className="checkbox-item">
+                        <input type="checkbox" id={this.state.scheduletable.acf.form_brand_3} name={this.state.scheduletable.acf.form_brand_3} value={this.state.scheduletable.acf.form_brand_3} onChange={this.handleCheckboxChange}/>
+                        <label htmlFor={this.state.scheduletable.acf.form_brand_3} className="cbox-label">{this.state.scheduletable.acf.form_brand_3}</label>
+                        <br/>
+                      </div>
+                    ) : null
+                  } 
+
+                  {this.state.scheduletable.acf.form_brand_4 ? (
+                      <div className="checkbox-item">
+                        <input type="checkbox" id={this.state.scheduletable.acf.form_brand_4} name={this.state.scheduletable.acf.form_brand_4} value={this.state.scheduletable.acf.form_brand_4} onChange={this.handleCheckboxChange}/>
+                        <label htmlFor={this.state.scheduletable.acf.form_brand_4} className="cbox-label">{this.state.scheduletable.acf.form_brand_4}</label>
+                        <br/>
+                      </div>
+                    ) : null
+                  } 
+
+                  {this.state.scheduletable.acf.form_brand_5 ? (
+                      <div className="checkbox-item">
+                        <input type="checkbox" id={this.state.scheduletable.acf.form_brand_5} name={this.state.scheduletable.acf.form_brand_5} value={this.state.scheduletable.acf.form_brand_5} onChange={this.handleCheckboxChange}/>
+                        <label htmlFor={this.state.scheduletable.acf.form_brand_5} className="cbox-label">{this.state.scheduletable.acf.form_brand_5}</label>
+                        <br/>
+                      </div>
+                    ) : null
+                  } 
+
+                  <input type="checkbox" id="General Inquiry" name="General Inquiry" value="General Inquiry" onChange={this.handleCheckboxChange}/>
+                  <label htmlFor="General Inquiry" className="cbox-label">General Inquiry</label>   
+                </div>
               </Col>
             </Row>
             <button type="submit" className="btn btn-primary">Submit</button>

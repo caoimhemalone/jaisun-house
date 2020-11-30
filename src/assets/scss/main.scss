@@ -1400,15 +1400,21 @@ nav {
                     width: 100%;
                     margin-top: 3%;
 
-                    &:first-child {
-                        margin-top: 0;
-                    }
+                    // &:first-child {
+                    //     margin-top: 0;
+                    // }
                 }
 
                 .cbox {
                     &-label {
                         width: auto;
-                        margin-left: 1%;
+                        margin: 2% 0 2% 6%;
+                        align-self: center;
+
+                        @media only screen and (min-width: 992px) {
+                            width: 80%;
+                            margin: 2% 0 2% 3%;
+                        }
                     }
 
                     &-left {
@@ -1422,6 +1428,10 @@ nav {
                     }
                 }
 
+                .checkbox-item {
+                    display: flex;
+                }
+
                 input {
                     max-height: 10px;
                     transition: max-height .15s ease-out;
@@ -1429,6 +1439,7 @@ nav {
                     border: none;
                     border-bottom: 1px solid #ced4da;
                     border-radius: unset;
+                    align-self: center;
 
                     &:focus {
                         max-height: 30px;
@@ -1443,34 +1454,49 @@ nav {
                     max-height: unset;
                 }
 
-                .form {
-                    &-top {
-                        display: flex;
-                    }
+                button {
+                    background-color: $apricot;
+                    margin: auto;
+                    width: 20%;
+                    margin: 20px auto;
+                    display: block;
+                    border-color: $apricot;
 
-                    &-group {
-                        width: 100%;
-                    }
-
-                    &-bottom {
-                        width: 100%;
-
-                        button {
-                            background-color: $apricot;
-                            margin: auto;
-                            width: 20%;
-                            margin: 20px auto;
-                            display: block;
-                            border-color: $apricot;
-
-                            &:hover {
-                                border-color: $apricot;
-                                background-color: $white;
-                                color: $apricot;
-                            }
-                        }
+                    &:hover {
+                        border-color: $blueberry;
+                        background-color: $blueberry;
+                        color: $apple-core;
                     }
                 }
+
+                // .form {
+                //     &-top {
+                //         display: flex;
+                //     }
+
+                //     &-group {
+                //         width: 100%;
+                //     }
+
+                //     &-bottom {
+                //         width: 100%;
+
+                //         button {
+                //             background-color: $apricot;
+                //             margin: auto;
+                //             width: 20%;
+                //             margin: 20px auto;
+                //             display: block;
+                //             border-color: $apricot;
+
+                //             &:hover {
+                //                 border-color: $apricot;
+                //                 background-color: $white;
+                //                 color: $apricot;
+                //             }
+                //         }
+                //     }
+                // }
             }
 
             &-message {

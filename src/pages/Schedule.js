@@ -152,7 +152,7 @@ componentDidMount (){
                 </div>
               </div>
               <ScheduleForm />
-              <form action={this.state.email_mailto} method="POST" encType="multipart/form-data" name="EmailForm">
+              {/* <form action={this.state.email_mailto} method="POST" encType="multipart/form-data" name="EmailForm">
                 <div className="form-top">
                   <div className="form-group">
                     <label htmlFor="name">Name *</label>
@@ -340,7 +340,7 @@ componentDidMount (){
                 <div className="form-bottom">
                   <button type="submit" className="btn btn-primary">Submit</button>
                 </div>
-              </form>
+              </form> */}
             </Col>
           </Row>
         </Grid>

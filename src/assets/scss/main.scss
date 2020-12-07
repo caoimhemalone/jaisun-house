@@ -1200,10 +1200,12 @@ nav {
             .ind-brands__details__container {
                 // padding: 2% 60% 8% 20px;
                 padding: 3% 10%;
+                display: flex;
 
-                // @media only screen and (max-width: 767px) {
-                //     padding: 2%;
-                // }
+                @media only screen and (max-width: 767px) {
+                    //padding: 2%;
+                    flex-wrap: wrap;
+                }
 
                 // @media only screen and (min-width: 768px) and (max-width: 991px) {
                 //     padding: 2% 30% 3% 20px;
@@ -1221,10 +1223,20 @@ nav {
                 // }
 
 
-
                 .ind-brands{
                     &__logo {
                         float: left;
+                        align-self: center;
+
+                        @media only screen and (max-width: 559px) and (min-width: 360px) {
+                            padding-left: 20%;
+                            padding-right: 20%;
+                        }
+
+                        @media only screen and (max-width: 767px) and (min-width: 560px) {
+                            padding-left: 40%;
+                            padding-right: 40%;
+                        }
 
                         img {
                             width: 100%;

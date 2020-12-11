@@ -34,24 +34,30 @@ class ContactForm extends Component {
       name: '',
       email: '',
       phone: '',
-      datetime: '',
-      subject: '',
       message: '',
       interested_in: [],
       i_require : [],
       company_name: '',
-      company_address_name: '',
+      company_address: '',
+      address2: '',
+      town_city: '',
+      county_state: '',
+      postcode_zip: '',
+      country: '',
       formErrors: {
         name: '',
         email: '',
         phone: '',
-        datetime: '',
-        subject: '',
         message: '',
         interested_in: [],
         i_require:[],
         company_name: '',
-        company_address_name: ''
+        company_address: '',
+        address2: '',
+        town_city: '',
+        county_state: '',
+        postcode_zip: '',
+        country: '',
       },
       scheduletable: [],
       contact: [],
@@ -99,20 +105,23 @@ class ContactForm extends Component {
 
     if (formValid(this.state)) {
       // Handle form validation success
-      const { name, email, phone, datetime, subject, message, interested_in, i_require, company_name, company_address_name} = this.state;
+      const { name, email, phone, message, interested_in, i_require, company_name, company_address, address2, town_city, county_state, postcode_zip, country} = this.state;
 
       // Set template params
       let templateParams = {
         name: name,
         email: email,
         phone: phone,
-        datetime: datetime,
-        subject: subject,
         message: message,
         interested_in: interested_in,
         i_require: i_require,
         company_name: company_name,
-        company_address_name: company_address_name
+        company_address: company_address,
+        address2: address2,
+        town_city: town_city,
+        county_state: county_state,
+        postcode_zip: postcode_zip,
+        country: country,
       };
 
       emailjs.send('service_662pzke', 'template_xtc7lrp', templateParams, 'user_5uqyqAaIiZdCW43R2ytVL');
@@ -122,13 +131,16 @@ class ContactForm extends Component {
         Name: ${name}
         Email: ${email}
         Phone: ${phone}
-        DateTime: ${datetime}
-        Subject: ${subject}
         Message: ${message}
         Interested In: ${interested_in}
-        I Require: ${i_require}
+        I Would Like: ${i_require}
         Company Name: ${company_name}
-        Company Address: ${company_address_name}
+        Company Address: ${company_address}
+        Address2: ${address2}
+        Town/City: ${town_city}
+        County/State: ${county_state}
+        Postcode/Zip: ${postcode_zip}
+        Country: ${country}
       `);
       
       this.toastifySuccess();
@@ -146,13 +158,16 @@ class ContactForm extends Component {
       name: '',
       email: '',
       phone: '',
-      datetime: '',
-      subject: '',
       message: '',
       interested_in: [],
       i_require: [],
       company_name: '',
-      company_address_name: ''
+      company_address: '',
+      address2: '',
+      town_city: '',
+      county_state: '',
+      postcode_zip: '',
+      country: '',
     });
   }
 
@@ -168,17 +183,32 @@ class ContactForm extends Component {
       case 'email':
         formErrors.email = emailRegex.test(value) ? '' : 'Please enter a valid email address.';
         break;
-      case 'subject':
-        formErrors.subject = value.length < 1 ? 'Please enter a subject.' : '';
+      case 'phone':
+        formErrors.phone = value.length < 1 ? 'Please enter a Phone Number' : '';
         break;
       case 'message':
         formErrors.message = value.length < 1 ? 'Please enter a message' : '';
         break;
       case 'company_name':
-        formErrors.name = value.length < 1 ? 'Please enter your Companies name.' : '';
+        formErrors.company_name = value.length < 1 ? 'Please enter your Companies name.' : '';
         break;
-      case 'company_address_name':
-        formErrors.name = value.length < 1 ? 'Please enter your Companies Address.' : '';
+      case 'company_address':
+        formErrors.company_address = value.length < 1 ? 'Please enter your Companies Address.' : '';
+        break;
+      case 'address2':
+        formErrors.address2 = value.length < 1 ? 'Please enter your Companies Address line 2.' : '';
+        break;
+      case 'town_city':
+        formErrors.town_city = value.length < 1 ? 'Please enter your Companies Town/City.' : '';
+        break;
+      case 'county_state':
+        formErrors.county_state = value.length < 1 ? 'Please enter your Companies County/State.' : '';
+        break;
+      case 'postcode_zip':
+        formErrors.postcode_zip = value.length < 1 ? 'Please enter your Companies Postcode/Zip.' : '';
+        break;
+      case 'country':
+        formErrors.country = value.length < 1 ? 'Please enter your Companies Country.' : '';
         break;
       default:
         break;
@@ -240,80 +270,92 @@ class ContactForm extends Component {
                       <label htmlFor="address">Registered Company Address *</label>
                       <input
                         type='text'
-                        name='company_address_name'
-                        value={this.state.company_address_name}
-                        className={`form-control formInput ${formErrors.company_address_name.length > 0 ? 'error' : null}`}
+                        name='company_address'
+                        value={this.state.company_address}
+                        className={`form-control formInput ${formErrors.company_address.length > 0 ? 'error' : null}`}
                         onChange={this.handleChange}
                         noValidate
                         required
                       ></input>
-                      {formErrors.company_address_name.length > 0 && (
-                        <span className='errorMessage'>{formErrors.company_address_name}</span>
+                      {formErrors.company_address.length > 0 && (
+                        <span className='errorMessage'>{formErrors.company_address}</span>
                       )}
                     </Col>
                     <Col xs={12} md={12}>
                       <label htmlFor="address 2">Address2</label>
                       <input
                         type='text'
-                        name='name'
-                        value={this.state.name}
-                        className={`form-control formInput ${formErrors.name.length > 0 ? 'error' : null}`}
+                        name='address2'
+                        value={this.state.address2}
+                        className={`form-control formInput ${formErrors.address2.length > 0 ? 'error' : null}`}
                         onChange={this.handleChange}
                         noValidate
                       ></input>
-                      {formErrors.name.length > 0 && (
-                        <span className='errorMessage'>{formErrors.name}</span>
+                      {formErrors.address2.length > 0 && (
+                        <span className='errorMessage'>{formErrors.address2}</span>
                       )}
 
                       <label htmlFor="town">Town/City*</label>
                       <input
                         type='text'
-                        name='name'
-                        value={this.state.name}
-                        className={`form-control formInput ${formErrors.name.length > 0 ? 'error' : null}`}
+                        name='town_city'
+                        value={this.state.town_city}
+                        className={`form-control formInput ${formErrors.town_city.length > 0 ? 'error' : null}`}
                         onChange={this.handleChange}
                         noValidate
                         required
                       ></input>
-                      {formErrors.name.length > 0 && (
-                        <span className='errorMessage'>{formErrors.name}</span>
+                      {formErrors.town_city.length > 0 && (
+                        <span className='errorMessage'>{formErrors.town_city}</span>
                       )}
 
                       <label htmlFor="county">County/State</label>
                       <input
                         type='text'
-                        name='name'
-                        value={this.state.name}
-                        className={`form-control formInput ${formErrors.name.length > 0 ? 'error' : null}`}
+                        name='county_state'
+                        value={this.state.county_state}
+                        className={`form-control formInput ${formErrors.county_state.length > 0 ? 'error' : null}`}
                         onChange={this.handleChange}
                         noValidate
                         required
                       ></input>
-                      {formErrors.name.length > 0 && (
-                        <span className='errorMessage'>{formErrors.name}</span>
+                      {formErrors.county_state.length > 0 && (
+                        <span className='errorMessage'>{formErrors.county_state}</span>
                       )}
 
                       <label htmlFor="postcode">Postcode/Zip*</label>
                       <input
                         type='text'
-                        name='name'
-                        value={this.state.name}
-                        className={`form-control formInput ${formErrors.name.length > 0 ? 'error' : null}`}
+                        name='postcode_zip'
+                        value={this.state.postcode_zip}
+                        className={`form-control formInput ${formErrors.postcode_zip.length > 0 ? 'error' : null}`}
                         onChange={this.handleChange}
                         noValidate
                         required
                       ></input>
-                      {formErrors.name.length > 0 && (
-                        <span className='errorMessage'>{formErrors.name}</span>
+                      {formErrors.postcode_zip.length > 0 && (
+                        <span className='errorMessage'>{formErrors.postcode_zip}</span>
                       )}
 
                       <label htmlFor="country">Country *</label>
                       {/* <input type="text" className="form-control" required/> */}
-                      <select id="country" name="country" required>
+                      {/* <select id="country" name="country" required>
                         <option value="Ireland">Ireland</option>
                         <option value="United Kingdom">United Kingdom</option>
                         <option value="USA">USA</option>
-                      </select>
+                      </select> */}
+                      <input
+                        type='text'
+                        name='country'
+                        value={this.state.country}
+                        className={`form-control formInput ${formErrors.country.length > 0 ? 'error' : null}`}
+                        onChange={this.handleChange}
+                        noValidate
+                        required
+                      ></input>
+                      {formErrors.country.length > 0 && (
+                        <span className='errorMessage'>{formErrors.country}</span>
+                      )}
                     </Col>
                   </Row>
 
@@ -354,13 +396,13 @@ class ContactForm extends Component {
                         type='number'
                         name='phone'
                         value={this.state.phone}
-                        className={`form-control formInput ${formErrors.email.length > 0 ? 'error' : null}`}
+                        className={`form-control formInput ${formErrors.phone.length > 0 ? 'error' : null}`}
                         onChange={this.handleChange}
                         noValidate
                         required
                       ></input>
-                      {formErrors.email.length > 0 && (
-                        <span className='errorMessage'>{formErrors.email}</span>
+                      {formErrors.phone.length > 0 && (
+                        <span className='errorMessage'>{formErrors.phone}</span>
                       )}
                     </Col>
                   </Row>
@@ -368,7 +410,7 @@ class ContactForm extends Component {
               </div>
 
               <div className="form-right">
-                {/* <div className="form-group">
+                <div className="form-group">
                   <span>Other Details</span>
                   <Row>
                     <Col xs={12} md={12}>
@@ -529,43 +571,59 @@ class ContactForm extends Component {
                           ) : null
                         } 
 
-                        <input type="checkbox" id="General Inquiry" name="General Inquiry" value="General Inquiry" onChange={this.handleCheckboxChange}/>
-                        <label htmlFor="General Inquiry" className="cbox-label">General Inquiry</label>   
+                        {/* <div className="checkbox-item">
+                          <input type="checkbox" id="General Inquiry" name="General Inquiry" value="General Inquiry " onChange={this.handleCheckboxChange}/>
+                          <label htmlFor="General Inquiry" className="cbox-label">General Inquiry</label>   
+                        </div> */}
                       </div>
                     </Col>
                   </Row>      
-                </div> */}
+                </div>
 
-                <div className="form-group">
-                  <label>I require</label>
+                <div className="form-group i-require">
+                  <label>I would like</label>
                   <br/>
 
-                  <input type="checkbox" id="To Book an appointment to view our collection" name="To Book an appointment to view our collection" value="To Book an appointment to view our collection" onChange={this.handleCheckboxChangeTwo}/>
-                  <label className="cbox" htmlFor="To Book an appointment to view our collection">To Book an appointment to view our collection</label>
+                  <div className="checkbox-item">
+                    <input type="checkbox" id="To Book an appointment to view our collection" name="To Book an appointment to view our collection" value="To Book an appointment to view our collection " onChange={this.handleCheckboxChangeTwo}/>
+                    <label className="cbox" htmlFor="To Book an appointment to view our collection">To Book an appointment to view our collection</label>
+                  </div>
                   <br/>
 
-                  <input type="checkbox" id="To Arrange a meeting for more information" name="To Arrange a meeting for more information" value="To Arrange a meeting for more information" onChange={this.handleCheckboxChangeTwo}/>
+                  <div className="checkbox-item">
+                  <input type="checkbox" id="To Arrange a meeting for more information" name="To Arrange a meeting for more information" value="To Arrange a meeting for more information " onChange={this.handleCheckboxChangeTwo}/>
                   <label className="cbox" htmlFor="To Arrange a meeting for more information">To Arrange a meeting for more information</label>
+                  </div>
                   <br/>
 
-                  <input type="checkbox" id="Brand Marketing & Imagery" name="Brand Marketing & Imagery" value="Brand Marketing & Imagery" onChange={this.handleCheckboxChangeTwo}/>
+                  <div className="checkbox-item">
+                  <input type="checkbox" id="Brand Marketing & Imagery" name="Brand Marketing & Imagery" value="Brand Marketing & Imagery " onChange={this.handleCheckboxChangeTwo}/>
                   <label className="cbox" htmlFor="Brand Marketing & Imagery">Brand Marketing & Imagery</label>
+                  </div>
                   <br/>
 
-                  <input type="checkbox" id="Retail Consultancy" name="Retail Consultancy" value="Retail Consultancy" onChange={this.handleCheckboxChangeTwo}/>
+                  <div className="checkbox-item">
+                  <input type="checkbox" id="Retail Consultancy" name="Retail Consultancy" value="Retail Consultancy " onChange={this.handleCheckboxChangeTwo}/>
                   <label className="cbox" htmlFor="Retail Consultancy">Retail Consultancy</label>
+                  </div>
                   <br/>
 
-                  <input type="checkbox" id="Long Term Partnership & Wholesale" name="Long Term Partnership & Wholesale" value="Long Term Partnership & Wholesale" onChange={this.handleCheckboxChangeTwo}/>
+                  <div className="checkbox-item">
+                  <input type="checkbox" id="Long Term Partnership & Wholesale" name="Long Term Partnership & Wholesale" value="Long Term Partnership & Wholesale " onChange={this.handleCheckboxChangeTwo}/>
                   <label className="cbox" htmlFor="Long Term Partnership & Wholesale">Long Term Partnership & Wholesale</label>
+                  </div>
                   <br/>
 
-                  <input type="checkbox" id="Marketing & PR" name="Marketing & PR" value="Marketing & PR" onChange={this.handleCheckboxChangeTwo}/>
+                  <div className="checkbox-item">
+                  <input type="checkbox" id="Marketing & PR" name="Marketing & PR" value="Marketing & PR " onChange={this.handleCheckboxChangeTwo}/>
                   <label className="cbox" htmlFor="Marketing & PR">Marketing & PR</label>
+                  </div>
                   <br/>
 
-                  <input type="checkbox" id="A General Inquiry" name="A General Inquiry" value="A General Inquiry" onChange={this.handleCheckboxChangeTwo}/>
+                  <div className="checkbox-item">
+                  <input type="checkbox" id="A General Inquiry" name="A General Inquiry" value="A General Inquiry " onChange={this.handleCheckboxChangeTwo}/>
                   <label className="cbox" htmlFor="A General Inquiry">A General Inquiry</label>
+                  </div>
                   <br/>
                 </div>
 
@@ -573,7 +631,7 @@ class ContactForm extends Component {
                 <div className="form-group">
                   <Row>
                   <Col xs={12} md={12}>
-                    <label htmlFor="message">Other Details</label>
+                    <label htmlFor="message">Message *</label>
                     <textarea
                       rows='5'
                       name='message'

@@ -1662,7 +1662,7 @@ nav {
         }
 
         .contact__form {
-            margin: 0 20% 5% 20%;
+            margin: 0 10% 5% 10%;
 
             @media only screen and (max-width: 991px) {
                 margin: 0 5% 15% 5%;
@@ -1693,6 +1693,21 @@ nav {
                     display: flex;
                     flex-wrap: wrap;
 
+                    &.i-require {
+                        .checkbox-item {
+                            display: flex;
+                            width: 100%;
+
+                            input {
+                                align-self: center;
+                            }
+                            .cbox {
+                                align-self: center;
+                                margin: 5px 5%;
+                            }
+                        }
+                    }
+
                     span {
                         display: block;
                         width: 100%;
@@ -1706,11 +1721,11 @@ nav {
 
                         width: 100%;
 
-                        &.cbox {
-                            margin-left: 1%;
-                            width: fit-content;
-                            font-size: 12px;
-                        }
+                        // &.cbox {
+                        //     margin-left: 1%;
+                        //     width: fit-content;
+                        //     font-size: 12px;
+                        // }
                     }
 
                     .cbox-left {
@@ -1724,6 +1739,27 @@ nav {
                         width: 50%;
                         float: right;
                     }
+
+                    .cbox-left, .cbox-right {
+                        .checkbox-item {
+                            display: flex;
+
+                            input {
+                                align-self: center;
+                            }
+
+                            .cbox-label {
+                                width: auto;
+                                margin: 2% 0 2% 6%;
+                                align-self: center;
+
+                                @media only screen and (min-width: 992px) {
+                                    width: 80%;
+                                    margin: 2% 0 2% 3%;
+                                }
+                            }
+                        }
+                    }
                 }
 
                 .form-left {
@@ -1736,6 +1772,8 @@ nav {
                 }
 
                 .form-right {
+                    padding-left: 20px;
+                    
                     @media only screen and (min-width: 991px){
                         max-width: 50%;
                         float: right;

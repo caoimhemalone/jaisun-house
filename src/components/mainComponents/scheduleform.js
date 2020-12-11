@@ -153,6 +153,9 @@ class ScheduleForm extends Component {
       case 'email':
         formErrors.email = emailRegex.test(value) ? '' : 'Please enter a valid email address.';
         break;
+      case 'phone':
+        formErrors.phone = value.length < 1 ? 'Please enter a phone number.' : '';
+        break;
       case 'subject':
         formErrors.subject = value.length < 1 ? 'Please enter a subject.' : '';
         break;
@@ -221,13 +224,13 @@ class ScheduleForm extends Component {
                   type='number'
                   name='phone'
                   value={this.state.phone}
-                  className={`form-control formInput ${formErrors.email.length > 0 ? 'error' : null}`}
+                  className={`form-control formInput ${formErrors.phone.length > 0 ? 'error' : null}`}
                   onChange={this.handleChange}
                   noValidate
                   required
                 ></input>
-                {formErrors.email.length > 0 && (
-                  <span className='errorMessage'>{formErrors.email}</span>
+                {formErrors.phone.length > 0 && (
+                  <span className='errorMessage'>{formErrors.phone}</span>
                 )}
               </Col>
 

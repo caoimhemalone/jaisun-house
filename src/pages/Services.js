@@ -50,10 +50,10 @@ class Services extends Component {
       <div className="services">
           <Header heading={this.header}/>
         <Grid>
-            <Row className="services__intro px-5">
+            {/* <Row className="services__intro px-5">
                 <h2>{this.state.service_heading}</h2>
                 <p>{this.state.service_intro}</p>
-            </Row>
+            </Row> */}
             
             <Row className="services__container px-5">
                 <Col xs={12} md={12} className="service-item">

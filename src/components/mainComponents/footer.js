@@ -45,7 +45,7 @@ class Footer extends Component {
                         <Row>
                             <Col xs={12} md={12} className="footer-top">
                                 <Row>
-                                    <Col xs={6} md={4} className="footer-section">
+                                    <Col xs={12} md={4} className="footer-section">
                                         <ul>
                                             <li className="footer-logo">
                                                 <a href="/">
@@ -58,8 +58,45 @@ class Footer extends Component {
                                                 </a>
                                             </li>
                                         </ul>
+
+                                        <ul className="social-media-footer">
+                                            {this.state.footer.acf.instagram ? (
+                                                <li className="social-media-footer__header">Connect With Us On Social Media</li>) : null
+                                            }
+                                            {this.state.footer.acf.instagram ? (
+                                                <li className="social-media-footer__link">
+                                                    <a className="social-media" href={this.state.footer.acf.instagram} traget="_blank">
+                                                        <img src={instagram_img} alt="instagram" />
+                                                    </a>
+                                                </li>) : null
+                                            }
+
+                                            {this.state.footer.acf.twitter ? (
+                                                <li className="social-media-footer__link">
+                                                    <a className="social-media" href={this.state.footer.acf.twitter} traget="_blank">
+                                                        <img src={twitter_img} alt="twitter" />
+                                                    </a>
+                                                </li>) : null
+                                            }
+
+                                            {this.state.footer.acf.linkedin ? (
+                                                <li className="social-media-footer__link">
+                                                    <a className="social-media" href={this.state.footer.acf.linkedin} traget="_blank">
+                                                        <img src={linkedin_img} alt="linkedin" />
+                                                    </a>
+                                                </li>) : null
+                                            }
+
+                                            {this.state.footer.acf.facebook ? (
+                                                <li className="social-media-footer__link">
+                                                    <a className="social-media" href={this.state.footer.acf.facebook} traget="_blank">
+                                                        <img src={facebook_img} alt="facebook" />
+                                                    </a>
+                                                </li>) : null
+                                            }
+                                        </ul>
                                     </Col>
-                                    <Col xs={6} md={4} className="footer-section">
+                                    <Col xs={12} md={4} className="footer-section">
                                         <ul>
                                             <li>
                                             <ion-icon name="time-outline"></ion-icon>
@@ -69,7 +106,7 @@ class Footer extends Component {
                                             </li>
                                         </ul>
                                     </Col>
-                                    <Col xs={6} md={4} >
+                                    <Col xs={12} md={4} className="footer-section">
                                         <ul>
                                             <li>
                                                 <a href="/about">
@@ -113,10 +150,11 @@ class Footer extends Component {
                                             </li>
                                         </ul>
                                     </Col>
-                                    <Col xs={6} md={4} >
-                                        <ul className="social-media-footer">
+                                
+                                    <Col xs={12} md={4} className="footer-section-mobile">
+                                    <ul className="social-media-footer">
                                             {this.state.footer.acf.instagram ? (
-                                                <li className="social-media-footer__header">Follow Us On Social Media</li>) : null
+                                                <li className="social-media-footer__header">Connect With Us On Social Media</li>) : null
                                             }
                                             {this.state.footer.acf.instagram ? (
                                                 <li className="social-media-footer__link">
@@ -150,9 +188,7 @@ class Footer extends Component {
                                                 </li>) : null
                                             }
                                         </ul>
-                                    </Col>
-                                    {/*<Col xs={6} md={4} className="footer-section">
-                                        <ul>
+                                        {/*<ul>
                                             <li><ion-icon name="call-outline"></ion-icon></li>
                                             <li>
                                                 <a href={this.state.phone}>
@@ -174,14 +210,15 @@ class Footer extends Component {
                                                     <img src={Logo} alt="logo" />
                                                 </a>
                                             </li> */}
-                                        {/* </ul>
-                                    </Col> */}
+                                        {/* </ul> */}
+                                    </Col>
                                 </Row>
                             </Col>
                             <hr/>
                             <Col xs={12} md={12} className="footer-bottom">
                                 <span className="left">Registered in Ireland No. 476267</span>
                                 <span className="right">All stock images are from <a href="https://www.unsplash.com" target="_blank" rel="noopener noreferrer">Unsplash.com</a></span>
+                                <br/>
                                 <span className="right">Web design and development by <a href="https://www.key-vah.com" target="_blank" rel="noopener noreferrer">key-vah web creations</a></span>
                             </Col>
                         </Row>

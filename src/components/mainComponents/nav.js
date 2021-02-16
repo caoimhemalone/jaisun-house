@@ -29,27 +29,11 @@ import Logo from '../../assets/images/logos/logo_6_transparent.png';
 
 class Nav extends React.Component {
     state = {
-        //hamburger: '#fff'
         isSubNavVisible: false
     }
 
-    // listenScrollEvent = e => {
-    //     if (window.scrollY > 300) {
-    //         this.setState({hamburger: '#000', trans: '2s ease-in'})
-    //     } else {
-    //         this.setState({hamburger: '#fff', trans: 'unset'})
-    //     }
-    // }
 
     componentDidMount() {
-        //window.addEventListener('scroll', this.listenScrollEvent)
-        //console.log(this.props.navColor);
-        // if(this.props.navColor === 'apricot') {
-        //     this.setState({color: 'apricot'})
-        // } else if(this.props.navColor === 'blueberry'){
-        //     this.setState({color: 'blueberry'})
-        // }
-
         const brandUrl = 'http://www.jaisunhouse.com/wp/wp-json/wp/v2/individual_brand';
     
         fetch(brandUrl)
@@ -101,7 +85,6 @@ class Nav extends React.Component {
         return (
             <div>
                 <BrowserRouter history={hist}>
-                    {/* <nav style={{backgroundColor: this.state.nav, transition: this.state.trans}} className={this.state.color}> */}
                     <nav>
                         <input type="checkbox" className="toggler"/>
                         <div className="hamburger">
@@ -114,11 +97,6 @@ class Nav extends React.Component {
                                 <a href="/">
                                     <img src={Logo} alt="logo" style={{height: this.state.logo, transition: '4s ease-in'}}/>
                                 </a>
-                                  {/* <div className="header-logo">
-                                        <a href="/">
-                                            <img src={Logo} alt="logo"/>
-                                        </a>
-                                    </div> */}
                                 </Col>
                                 <Col xs={12} md={10} className="nav-right">
                                     <Row end="xs" middle="xs">
@@ -140,33 +118,15 @@ class Nav extends React.Component {
                                                 {brandLoop}
                                             </ul>
                                         </Col>
-                                        {/* <Col xs={12} md className="nav-item brands-link"> 
-                                            <Dropdown drop={toggleDirection} onClick={this.boxClick} as={ButtonGroup}>
-                                                <Dropdown.Toggle id="dropdown-basic">
-                                                    Brands
-                                                </Dropdown.Toggle>
-
-                                                <Dropdown.Menu>
-                                                    <Dropdown.Item href="/brands">All Brands</Dropdown.Item>
-                                                    {brandLoop}
-                                                </Dropdown.Menu>
-                                            </Dropdown>
-                                        </Col> */}
                                         <Col xs={12} md className="nav-item"> 
                                             <a href="/services">Services</a>
                                         </Col>
-                                        {/* <Col xs={12} md className="nav-item"> 
-                                            <a href="/b2b">B2B</a>
-                                        </Col>  */}
                                         <Col xs={12} md className="nav-item"> 
                                             <a href="/schedule">Schedule</a>
                                         </Col>
                                         <Col xs={12} md className="nav-item"> 
                                             <a href="/contact">Contact</a>
                                         </Col>
-                                        {/* <Col xs={12} md className="nav-item"> 
-                                            <a href="/sign-in">Sign in</a>
-                                        </Col> */}
                                     </Row>
                                 </Col>
                             </Row>

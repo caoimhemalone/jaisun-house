@@ -36,18 +36,30 @@ componentDidMount (){
         .then(res => this.setState({
         scheduletable: res.data,
         latest_collection: res.data.acf.latest_collection,
-        latest_col_img_1: res.data.acf.latest_collection_image_1.sizes.large,
-        latest_col_img_2: res.data.acf.latest_collection_image_2.sizes.large,
-        latest_col_img_3: res.data.acf.latest_collection_image_3.sizes.large,
-        latest_col_img_4: res.data.acf.latest_collection_image_4.sizes.large,
-        latest_col_img_5: res.data.acf.latest_collection_image_5.sizes.large,
-        latest_col_img_6: res.data.acf.latest_collection_image_6.sizes.large,
-        latest_col_img_7: res.data.acf.latest_collection_image_7.sizes.large,
-        latest_col_img_8: res.data.acf.latest_collection_image_8.sizes.large,
-        latest_col_img_9: res.data.acf.latest_collection_image_9.sizes.large,
-        latest_col_img_10: res.data.acf.latest_collection_image_10.sizes.large,
-        latest_col_img_11: res.data.acf.latest_collection_image_11.sizes.large,
-        latest_col_img_12: res.data.acf.latest_collection_image_12.sizes.large,
+        latest_col_img_1: res.data.acf.latest_collection_image_1,
+        latest_col_img_2: res.data.acf.latest_collection_image_2,
+        latest_col_img_3: res.data.acf.latest_collection_image_3,
+        latest_col_img_4: res.data.acf.latest_collection_image_4,
+        latest_col_img_5: res.data.acf.latest_collection_image_5,
+        latest_col_img_6: res.data.acf.latest_collection_image_6,
+        latest_col_img_7: res.data.acf.latest_collection_image_7,
+        latest_col_img_8: res.data.acf.latest_collection_image_8,
+        latest_col_img_9: res.data.acf.latest_collection_image_9,
+        latest_col_img_10: res.data.acf.latest_collection_image_10,
+        latest_col_img_11: res.data.acf.latest_collection_image_11,
+        latest_col_img_12: res.data.acf.latest_collection_image_12,
+        lc_img_orientation_1: res.data.acf.lc_image_orientation_1,
+        lc_img_orientation_2: res.data.acf.lc_image_orientation_2,
+        lc_img_orientation_3: res.data.acf.lc_image_orientation_3,
+        lc_img_orientation_4: res.data.acf.lc_image_orientation_4,
+        lc_img_orientation_5: res.data.acf.lc_image_orientation_5,
+        lc_img_orientation_6: res.data.acf.lc_image_orientation_6,
+        lc_img_orientation_7: res.data.acf.lc_image_orientation_7,
+        lc_img_orientation_8: res.data.acf.lc_image_orientation_8,
+        lc_img_orientation_9: res.data.acf.lc_image_orientation_9,
+        lc_img_orientation_10: res.data.acf.lc_image_orientation_10,
+        lc_img_orientation_11: res.data.acf.lc_image_orientation_11,
+        lc_img_orientation_12: res.data.acf.lc_image_orientation_12,
         next_launch: res.data.acf.next_launch,
         option_1: res.data.acf.form_brand_1,
         option_2: res.data.acf.form_brand_2,
@@ -74,6 +86,7 @@ componentDidMount (){
   render() {
     console.log(this.state.scheduletable);
     const mailTo = "mailto:admin@key-vah.com?subject = Feedback&body = Message"
+    const scheduletable = this.state.scheduletable;
     //return (
       let renderContainer = <div className="loading"></div>
       if(this.state.render) { //If this.state.render == true, which is set to true by the timer.
@@ -88,42 +101,104 @@ componentDidMount (){
             <Col xs={12} md={12}>
                 <p className="d-flex justify-content-center latest_collection" dangerouslySetInnerHTML={{ __html:this.state.latest_collection}}></p>
             </Col>
-            <Col xs={6} md={4} className="schedule__image">
-              <img src={this.state.latest_col_img_1} alt="Placeholder"/>
-            </Col>
-            <Col xs={6} md={4} className="schedule__image">
-              <img src={this.state.latest_col_img_2} alt="Placeholder"/>
-            </Col>
-            <Col xs={6} md={4} className="schedule__image">
-                <img src={this.state.latest_col_img_3} alt="Placeholder"/>
-            </Col>
-            <Col xs={6} md={4} className="schedule__image"> 
-                <img src={this.state.latest_col_img_4} alt="Placeholder"/>
-            </Col>
-            <Col xs={6} md={4} className="schedule__image">
-                <img src={this.state.latest_col_img_5} alt="Placeholder"/>
-            </Col>
-            <Col xs={6} md={4} className="schedule__image">
-                <img src={this.state.latest_col_img_6} alt="Placeholder"/>
-            </Col>
-            <Col xs={6} md={4} className="schedule__image">
-                <img src={this.state.latest_col_img_7} alt="Placeholder"/>
-            </Col>
-            <Col xs={6} md={4} className="schedule__image">
-                <img src={this.state.latest_col_img_8} alt="Placeholder"/>
-            </Col>
-            <Col xs={6} md={4} className="schedule__image">
-                <img src={this.state.latest_col_img_9} alt="Placeholder"/>
-            </Col>
-            <Col xs={6} md={4} className="schedule__image">
-                <img src={this.state.latest_col_img_10} alt="Placeholder"/>
-            </Col>
-            <Col xs={6} md={4} className="schedule__image">
-                <img src={this.state.latest_col_img_11} alt="Placeholder"/>
-            </Col>
-            <Col xs={6} md={4} className="schedule__image">
-                <img src={this.state.latest_col_img_12} alt="Placeholder"/>
-            </Col>
+            {/* <Col xs={6} md={4} className="schedule__image"> */}
+            <Row className="schedule__image">
+              {/* <img src={this.state.latest_col_img_1} alt="Placeholder"/> */}
+               {/* Image 1 */}
+               {this.state.latest_col_img_1 ? (         
+                        <div className={this.state.lc_img_orientation_1}>
+                            <img src={this.state.latest_col_img_1} alt="Latest Collection Image 1"/>
+                        </div> 
+                    ) : null
+                }  
+
+                {/* Image 2 */}
+               {this.state.latest_col_img_2 ? (         
+                        <div className={this.state.lc_img_orientation_2}>
+                            <img src={this.state.latest_col_img_2} alt="Latest Collection Image 2"/>
+                        </div> 
+                    ) : null
+                } 
+
+                {/* Image 3 */}
+               {this.state.latest_col_img_3 ? (         
+                        <div className={this.state.lc_img_orientation_3}>
+                            <img src={this.state.latest_col_img_3} alt="Latest Collection Image 3"/>
+                        </div> 
+                    ) : null
+                } 
+
+                {/* Image 4 */}
+               {this.state.latest_col_img_4 ? (         
+                        <div className={this.state.lc_img_orientation_4}>
+                            <img src={this.state.latest_col_img_4} alt="Latest Collection Image 4"/>
+                        </div> 
+                    ) : null
+                } 
+
+                {/* Image 5 */}
+               {this.state.latest_col_img_5 ? (         
+                        <div className={this.state.lc_img_orientation_5}>
+                            <img src={this.state.latest_col_img_5} alt="Latest Collection Image 5"/>
+                        </div> 
+                    ) : null
+                } 
+
+                {/* Image 6 */}
+               {this.state.latest_col_img_6 ? (         
+                        <div className={this.state.lc_img_orientation_6}>
+                            <img src={this.state.latest_col_img_6} alt="Latest Collection Image 6"/>
+                        </div> 
+                    ) : null
+                } 
+
+                {/* Image 7 */}
+               {this.state.latest_col_img_7 ? (         
+                        <div className={this.state.lc_img_orientation_7}>
+                            <img src={this.state.latest_col_img_7} alt="Latest Collection Image 7"/>
+                        </div> 
+                    ) : null
+                } 
+
+                {/* Image 8 */}
+               {this.state.latest_col_img_8 ? (         
+                        <div className={this.state.lc_img_orientation_8}>
+                            <img src={this.state.latest_col_img_8} alt="Latest Collection Image 8"/>
+                        </div> 
+                    ) : null
+                } 
+                {/* Image 9 */}
+               {this.state.latest_col_img_9 ? (         
+                        <div className={this.state.lc_img_orientation_9}>
+                            <img src={this.state.latest_col_img_9} alt="Latest Collection Image 9"/>
+                        </div> 
+                    ) : null
+                } 
+
+                {/* Image 10 */}
+               {this.state.latest_col_img_10 ? (         
+                        <div className={this.state.lc_img_orientation_10}>
+                            <img src={this.state.latest_col_img_10} alt="Latest Collection Image 10"/>
+                        </div> 
+                    ) : null
+                } 
+
+                {/* Image 11 */}
+               {this.state.latest_col_img_11 ? (         
+                        <div className={this.state.lc_img_orientation_11}>
+                            <img src={this.state.latest_col_img_11} alt="Latest Collection Image 11"/>
+                        </div> 
+                    ) : null
+                } 
+
+                {/* Image 12 */}
+               {this.state.latest_col_img_12 ? (         
+                        <div className={this.state.lc_img_orientation_12}>
+                            <img src={this.state.latest_col_img_12} alt="Latest Collection Image 12"/>
+                        </div> 
+                    ) : null
+                } 
+            </Row>
           </Row>
 
           <Row className="schedule__next">

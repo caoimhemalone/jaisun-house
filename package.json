@@ -57,6 +57,8 @@
     "react-scrollspy-nav": "^1.2.4",
     "react-slick": "^0.26.1",
     "react-toastify": "^6.1.0",
+    "react-top-loader": "^1.0.0",
+    "react-top-loading-bar": "^2.0.1",
     "react_google_calendar": "^2.2.4444",
     "sass": "^1.26.8",
     "skeleton-flexbox": "^3.0.0-beta.3",

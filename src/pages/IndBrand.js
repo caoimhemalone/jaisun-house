@@ -47,16 +47,11 @@ class IndBrands extends Component {
 
         if(isLoaded) {
             return (
-                // <div className={classes} style={{backgroundImage: `url(${imageUrl})` }}>
                 <div className={classes}>
-                    {/* <div className="overlay">    */}
                         <Header heading={indbrandtable.title.rendered} image={`url(${imageUrl})`}/>
                         <Grid fluid className="ind-brands-container px-0">
                             <Row className="ind-brands__details">
                                 <Col xs={12} md={12} className="ind-brands__details__container">
-                                    {/* <a href="/brands">
-                                        <Link to="/brands">Back to Brands</Link>
-                                    </a> */}
                                     <Col xs={12} md={3} className="ind-brands__logo">
                                         <img src={indbrandtable.acf.tile_image} alt="brand logo"/>
                                     </Col>
@@ -171,7 +166,8 @@ class IndBrands extends Component {
                 </div>
             );
        } 
-        return <MyListLoader/>;
+    //     return <MyListLoader/>;
+    return null;
     }
 }
 

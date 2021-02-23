@@ -13,7 +13,7 @@ import Cookie from './components/mainComponents/cookie';
 import './assets/css/main.css';
 
 //images
-import Logo from './assets/images/logos/logo_6_transparent.png';
+import Logo from './assets/images/logos/logo192.png';
 
 $(document).ready(function(){
   setTimeout(function(){

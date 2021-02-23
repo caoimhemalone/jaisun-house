@@ -3,7 +3,7 @@ import { BrowserRouter as Link} from "react-router-dom";
 import { Grid, Row, Col } from 'react-flexbox-grid';
 
 //images
-import Logo from '../../assets/images/logos/logo_6_transparent.png';
+import Logo from '../../assets/images/logos/logo192.png';
 import instagram_img from '../../assets/images/icons/instagram.png'
 import facebook_img from '../../assets/images/icons/facebook.png'
 import linkedin_img from '../../assets/images/icons/linkedin.png'

@@ -73,7 +73,7 @@ class About extends Component {
                             <h2 className="d-flex justify-content-center heading">Who are we</h2>
                         </Col>
                         <Col xs={12} md={12} lg={5} className="about-us__image">
-                            <img src={this.state.who_are_we_image} alt="Office Meeting"/>
+                            <img src={this.state.who_are_we_image} alt="Quote"/>
                         </Col>
                         <Col xs={12} md={12} lg={7} className="text-container">
                             <div dangerouslySetInnerHTML={{ __html: this.state.who_are_we }}></div>

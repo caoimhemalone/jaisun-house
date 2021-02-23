@@ -23,7 +23,7 @@ import PrivacyPolicy from '../../pages/PrivacyPolicy';
 import Terms from '../../pages/Terms';
 
 //images
-import Logo from '../../assets/images/logos/logo_6_transparent.png';
+import Logo from '../../assets/images/logos/logo192.png';
 
 
 

@@ -46,7 +46,7 @@ class History extends React.Component {
 
                         <Row className="history-info">
                             <Col xs={12} md={5} className="align-center">
-                                <img src={historytable.acf.history_image} alt="Apparel"/>
+                                <img src={historytable.acf.history_image} alt="Quote"/>
                             </Col>
                             <Col xs={12} md={7} className="text-container align-center">
                                 {/* {historytable.map(home_history => ( */}

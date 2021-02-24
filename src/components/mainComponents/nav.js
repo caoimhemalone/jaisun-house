@@ -72,7 +72,7 @@ class Nav extends React.Component {
         let brandLoop = brands.map((brand, index)=> {
             let link = brand.slug
             return (
-                <li className="sub-nav-item">
+                <li className="sub-nav-item" key={ Math.random().toString(36).substr(2, 9) }>
                     <a href={link}>
                         <img src={brand.acf.tile_image} alt={brand.title.rendered}/>
                         <span><u>{brand.title.rendered}</u></span>
@@ -106,8 +106,9 @@ class Nav extends React.Component {
                                         <Col xs={12} md className="nav-item"> 
                                             <a href="/about">About</a>
                                         </Col>
-                                        <Col xs={12} md className="nav-item brands-link" onClick={this.toggleSubNav}> 
-                                            <a href="/brands">Brands</a>
+                                        <Col xs={12} md className="nav-item brands-link"> 
+                                            <a className="brands-link__desktop" href="/brands">Brands</a>
+                                            <a className="brands-link__mobile" onClick={this.toggleSubNav}>Brands</a>
 
                                             <ul className={`sub-menu ${isSubNavVisible ? "" : "hidden"}`}>
                                                 <li className="sub-nav-item all-brands">

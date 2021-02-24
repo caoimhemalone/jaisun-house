@@ -18,7 +18,8 @@
 ******* NAV *******
 */
 nav {
-    position: fixed;
+    //position: fixed;
+    position: sticky;
     top: 0;
     display: block;
     width: 100%;
@@ -29,7 +30,9 @@ nav {
         background-color: $white;
     }
 
-    @media only screen and (max-width: 767px) {			
+    @media only screen and (max-width: 767px) {	
+        position: fixed;
+
 		.hamburger {
             position: absolute;
             top: 0;
@@ -223,10 +226,10 @@ nav {
             img {
                 //width: 100%;
                 //width: auto;
-                padding: 3px;
+                margin: 10px 5px;
                 //height: 100%;
-                width: 70px;
-                height: 70px;
+                width: 90px;
+                height: 90px;
             }
         }
 
@@ -309,11 +312,25 @@ nav {
                         }
                     }
 
-                    a {
+                    .brands-link__desktop {
                         @media only screen and (max-width: 767px) {
-                            pointer-events: none;
+                            display: none;
                         }
                     }
+
+                    .brands-link__mobile {
+                        display: none;
+
+                        @media only screen and (max-width: 767px) {
+                            display: block;
+                        }
+                    }
+
+                    // a {
+                    //     @media only screen and (max-width: 767px) {
+                    //         pointer-events: none;
+                    //     }
+                    // }
                 }
 
                 &.home-link {
@@ -399,6 +416,9 @@ nav {
                 }
 
                 &.all-brands {
+                    margin: 0 0 auto 0;
+                    width: fit-content;
+
                     @media only screen and (min-width: 768px) {
                         display: none;
                     }
@@ -500,7 +520,7 @@ nav {
 */
 .header {
     .header-container {
-        margin: 40px 0 0 0;
+        //margin: 40px 0 0 0;
         padding-left: 0;
         padding-right: 0;
 
@@ -516,6 +536,7 @@ nav {
             text-align: center;
             align-self: center;
             text-shadow: 1px 1px rgba(93,92,92,.59);
+            color: $white;
         }
 
         .header-logo {
@@ -541,8 +562,10 @@ nav {
         }
 
         .header-item {
-            padding: 0;
+            //padding: 0;
             position: relative;
+            padding: 8% 0;
+            background-color: $burnt-orange;
 
             @media only screen and (max-width: 992px) {
                 height: 200px;
@@ -607,7 +630,7 @@ nav {
 */
 .appointment {
     .appointment-container {
-        background-color: $grey;
+        background-color: $burnt-orange;
         color: $white;
         display: flex;
         padding: 20px 0;
@@ -639,9 +662,9 @@ nav {
             }
 
             &:hover {
-                color: $white;
-                background-color: $apricot;
-                text-decoration: none;
+                // color: $white;
+                background-color: $apple-core;
+                // text-decoration: none;
             }
         }
     }
@@ -660,6 +683,9 @@ nav {
     .header {
         &-container {
             .header-item {
+                padding: 0;
+                background-color: transparent;
+
                 @media only screen and (max-width: 992px) {
                     height: auto;
                 }
@@ -671,7 +697,7 @@ nav {
         display: flex;
         flex-wrap: wrap;
         //background-color: $apple-core;
-        background-color: $grey;
+        background-color: $burnt-orange;
         color: $white;
 
         h1 {
@@ -850,13 +876,13 @@ nav {
         //margin-top: 4em;
 
         .header-item {
-            background-image: url('/header_images/services.jpg');
-            background-size: cover;
-            background-position: left;
-            padding: 8% 0 5% 0;
+            // background-image: url('/header_images/services.jpg');
+            // background-size: cover;
+            // background-position: left;
+            //padding: 8% 0 5% 0;
 
             @media only screen and (max-width: 767px) {
-                background-position: center;
+                //background-position: center;
                 padding: 0;
             }
 
@@ -888,6 +914,10 @@ nav {
 
     &__container {
         margin: 40px 0 0 0;
+
+        @media only screen and (max-width: 767px) {
+            padding: 0 10px;
+        }
 
         ion-icon {
             margin: 10px auto;
@@ -968,10 +998,10 @@ nav {
         //margin-top: 4em;
 
         .header-item {
-            background-image: url("/header_images/about.jpg");
-            height: 400px;
-            background-position: center;
-            background-size: cover;
+            //background-image: url("/header_images/about.jpg");
+            //height: 400px;
+            // background-position: center;
+            // background-size: cover;
 
             h1 {
                 color: $white;
@@ -1096,13 +1126,13 @@ nav {
         // }
 
         .header-item {
-            background-image: url('/header_images/brands.jpg');
-            background-size: cover;
-            background-position: left;
-            padding: 8% 0 5% 0;
+            // background-image: url('/header_images/brands.jpg');
+            // background-size: cover;
+            // background-position: left;
+            //padding: 8% 0 5% 0;
 
             @media only screen and (max-width: 767px) {
-                background-position: center;
+                //background-position: center;
                 padding: 0;
             }
 
@@ -1192,7 +1222,7 @@ nav {
             h1 {
                 color: $white;
                 align-self: center;
-                margin-top: 3em;
+                //margin-top: 3em;
                 //font-family: 'Montserrat', sans-serif;
                 //font-family: 'Playfair Display', serif;
                 font-family: 'Bitter', serif;
@@ -1204,30 +1234,12 @@ nav {
     .ind-brands-container {
         .ind-brands__details {
             .ind-brands__details__container {
-                // padding: 2% 60% 8% 20px;
                 padding: 3% 10%;
                 display: flex;
 
                 @media only screen and (max-width: 767px) {
-                    //padding: 2%;
                     flex-wrap: wrap;
                 }
-
-                // @media only screen and (min-width: 768px) and (max-width: 991px) {
-                //     padding: 2% 30% 3% 20px;
-                // }
-
-                // a {
-                //     color: $black;
-                //     text-align: left;
-
-                //     &:hover {
-                //         cursor: pointer;
-                //         text-decoration: underline;
-                //         color: rgba($color: #000, $alpha: 0.7);
-                //     }
-                // }
-
 
                 .ind-brands{
                     &__logo {
@@ -1252,14 +1264,8 @@ nav {
                     &__text {
                         line-height: 1.8;
                         color: $black;
-                        // padding-top: 10px;
                         flex-wrap: wrap;
-                        // width: 80%;
                         float: right;
-
-                        // @media only screen and (max-width: 991px) {
-                        //     padding-top: 40px;
-                        // }
 
                         p {
                             display: block;
@@ -1292,7 +1298,6 @@ nav {
 
                 .Vertical, .Horizontal {
                     display: flex;
-                    // background-color: $apple-core;
 
                     @media only screen and (max-width: 767px) {
                         width: 100%;
@@ -1303,6 +1308,12 @@ nav {
                     width: 100%;
                     align-self: center;
                     padding: 5%;
+                }
+
+                .lazyload-wrapper {
+                    @media only screen and (max-width: 767px) {
+                        margin: auto;
+                    }
                 }
             }
 
@@ -1331,15 +1342,15 @@ nav {
 .schedule {
     .header-container {
         .header-item {
-            background-image: url("/header_images/schedule.jpg");
+            //background-image: url("/header_images/schedule.jpg");
             //https://pngtree.com/freebackground/yellow-gray-minimalist-cut-geometry-memphis-banner_931578.html
             //height: 200px;  
-            background-size: cover;
-            background-position: left;
-            padding: 8% 0 5% 0;
+            // background-size: cover;
+            // background-position: left;
+            //padding: 8% 0 5% 0;
 
             @media only screen and (max-width: 767px) {
-                background-position: center;
+                //background-position: center;
                 padding: 0;
             }
 
@@ -1419,8 +1430,8 @@ nav {
         .schedule__next {
             padding-top: 20px;
             //background-color: $apple-core;
-            background-color: $grey;
-            // color: $white;
+            background-color: $burnt-orange;
+            color: $apple-core;
 
             ion-icon {
                 font-size: 50px;
@@ -1615,10 +1626,10 @@ nav {
 .contact {
     .header-container {
         .header-item {
-            background-image: url("/header_images/contact.jpg");
+            //background-image: url("/header_images/contact.jpg");
             //height: 200px;  
-            background-position: center;
-            padding: 8% 0 5% 0;
+            //background-position: center;
+            //padding: 8% 0 5% 0;
 
             @media only screen and (max-width: 767px) {
                 padding: 0;
@@ -1660,6 +1671,14 @@ nav {
                 .map-container {
                     height: 100%;
                     padding: 5% 0;
+                    overflow: hidden;
+                    align-items: center;
+                    display: flex;
+
+                    iframe {
+                        width: 100%;
+                        height: 40vh;
+                    }
                 }
             }
 
@@ -1696,6 +1715,8 @@ nav {
                     align-self: center;
                     min-width: 15px;
                     min-height: 15px;
+                    width: 15px;
+                    height: 15px;
 
                     @media only screen and (max-width: 991px) {
                         font-size: 24px;
@@ -1716,7 +1737,11 @@ nav {
         .contact__form {
             margin: 0 10% 5% 10%;
 
-            @media only screen and (max-width: 991px) {
+            @media only screen and (max-width: 767px) {
+                margin: 0 2% 5% 2%;
+            }
+
+            @media only screen and (min-width: 768px) and (max-width: 991px) {
                 margin: 0 5% 15% 5%;
             }
 
@@ -1793,6 +1818,10 @@ nav {
                     }
 
                     .cbox-left, .cbox-right {
+                        @media only screen and (max-width: 767px) {
+                            width: 100%;
+                        }
+
                         .checkbox-item {
                             display: flex;
 
@@ -1878,7 +1907,7 @@ nav {
 .legal-pages {
     .header-container {
         .header-item {
-            height: 200px;  
+            //height: 200px;  
 
             h1 {
                 align-self: center;
@@ -1898,8 +1927,8 @@ nav {
 .sitemap {
     .header-container {
         .header-item {
-            height: 200px;  
-            background-color: $blueberry;
+            // height: 200px;  
+            // background-color: $blueberry;
 
             h1 {
                 align-self: center;

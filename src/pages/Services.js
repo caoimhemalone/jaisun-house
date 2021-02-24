@@ -55,7 +55,7 @@ class Services extends Component {
                 <p>{this.state.service_intro}</p>
             </Row> */}
             
-            <Row className="services__container px-5">
+            <Row className="services__container">
                 <Col xs={12} md={12} className="service-item">
                     <Col xs={12} md={3} className="service-left align-center">
                         <Zoom>

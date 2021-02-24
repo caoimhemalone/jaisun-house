@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Grid, Row, Col } from 'react-flexbox-grid';
 import Fade from 'react-reveal/Fade';
 import axios from 'axios';
+import LazyLoad from 'react-lazyload';
 
 //components
 import Header from '../components/mainComponents/headerSection';
@@ -107,7 +108,9 @@ componentDidMount (){
                {/* Image 1 */}
                {this.state.latest_col_img_1 ? (         
                         <div className={this.state.lc_img_orientation_1}>
+                          <LazyLoad height={200}>
                             <img src={this.state.latest_col_img_1} alt="Latest Collection Image 1"/>
+                          </LazyLoad>
                         </div> 
                     ) : null
                 }  
@@ -115,7 +118,9 @@ componentDidMount (){
                 {/* Image 2 */}
                {this.state.latest_col_img_2 ? (         
                         <div className={this.state.lc_img_orientation_2}>
+                          <LazyLoad height={200}>
                             <img src={this.state.latest_col_img_2} alt="Latest Collection Image 2"/>
+                          </LazyLoad>
                         </div> 
                     ) : null
                 } 
@@ -123,7 +128,9 @@ componentDidMount (){
                 {/* Image 3 */}
                {this.state.latest_col_img_3 ? (         
                         <div className={this.state.lc_img_orientation_3}>
+                          <LazyLoad height={200}>
                             <img src={this.state.latest_col_img_3} alt="Latest Collection Image 3"/>
+                          </LazyLoad>
                         </div> 
                     ) : null
                 } 
@@ -131,7 +138,9 @@ componentDidMount (){
                 {/* Image 4 */}
                {this.state.latest_col_img_4 ? (         
                         <div className={this.state.lc_img_orientation_4}>
+                          <LazyLoad height={200}>
                             <img src={this.state.latest_col_img_4} alt="Latest Collection Image 4"/>
+                          </LazyLoad>
                         </div> 
                     ) : null
                 } 
@@ -139,7 +148,9 @@ componentDidMount (){
                 {/* Image 5 */}
                {this.state.latest_col_img_5 ? (         
                         <div className={this.state.lc_img_orientation_5}>
+                          <LazyLoad height={200}>
                             <img src={this.state.latest_col_img_5} alt="Latest Collection Image 5"/>
+                          </LazyLoad>
                         </div> 
                     ) : null
                 } 
@@ -147,7 +158,9 @@ componentDidMount (){
                 {/* Image 6 */}
                {this.state.latest_col_img_6 ? (         
                         <div className={this.state.lc_img_orientation_6}>
+                          <LazyLoad height={200}>
                             <img src={this.state.latest_col_img_6} alt="Latest Collection Image 6"/>
+                          </LazyLoad>
                         </div> 
                     ) : null
                 } 
@@ -155,7 +168,9 @@ componentDidMount (){
                 {/* Image 7 */}
                {this.state.latest_col_img_7 ? (         
                         <div className={this.state.lc_img_orientation_7}>
+                          <LazyLoad height={200}>
                             <img src={this.state.latest_col_img_7} alt="Latest Collection Image 7"/>
+                          </LazyLoad>
                         </div> 
                     ) : null
                 } 
@@ -163,14 +178,18 @@ componentDidMount (){
                 {/* Image 8 */}
                {this.state.latest_col_img_8 ? (         
                         <div className={this.state.lc_img_orientation_8}>
+                          <LazyLoad height={200}>
                             <img src={this.state.latest_col_img_8} alt="Latest Collection Image 8"/>
+                          </LazyLoad>
                         </div> 
                     ) : null
                 } 
                 {/* Image 9 */}
                {this.state.latest_col_img_9 ? (         
                         <div className={this.state.lc_img_orientation_9}>
+                          <LazyLoad height={200}>
                             <img src={this.state.latest_col_img_9} alt="Latest Collection Image 9"/>
+                          </LazyLoad>
                         </div> 
                     ) : null
                 } 
@@ -178,7 +197,9 @@ componentDidMount (){
                 {/* Image 10 */}
                {this.state.latest_col_img_10 ? (         
                         <div className={this.state.lc_img_orientation_10}>
+                          <LazyLoad height={200}>
                             <img src={this.state.latest_col_img_10} alt="Latest Collection Image 10"/>
+                          </LazyLoad>
                         </div> 
                     ) : null
                 } 
@@ -186,7 +207,9 @@ componentDidMount (){
                 {/* Image 11 */}
                {this.state.latest_col_img_11 ? (         
                         <div className={this.state.lc_img_orientation_11}>
+                          <LazyLoad height={200}>
                             <img src={this.state.latest_col_img_11} alt="Latest Collection Image 11"/>
+                          </LazyLoad>
                         </div> 
                     ) : null
                 } 
@@ -194,7 +217,9 @@ componentDidMount (){
                 {/* Image 12 */}
                {this.state.latest_col_img_12 ? (         
                         <div className={this.state.lc_img_orientation_12}>
+                          <LazyLoad height={200}>
                             <img src={this.state.latest_col_img_12} alt="Latest Collection Image 12"/>
+                          </LazyLoad>
                         </div> 
                     ) : null
                 } 

@@ -44,6 +44,7 @@
     "react-ga": "^3.1.2",
     "react-google-maps": "^9.4.5",
     "react-helmet": "^6.1.0",
+    "react-lazyload": "^3.2.0",
     "react-moment": "^1.0.0",
     "react-placeholder": "^4.0.3",
     "react-pure-render": "^1.0.2",

@@ -405,7 +405,7 @@ nav {
                 width: 20%;
                 float: left;
                 padding: 5px 10px;
-                //height: 120px;
+                height: 80px;
                 font-size: 12px;
                 position: relative;
 
@@ -470,6 +470,11 @@ nav {
                     }
                 }
 
+                @media only screen and (min-width: 768px) and (max-width: 991px) {
+                    //height: 60px;
+                    width: 33%;
+                }
+
                 span {
                     opacity: 0;
                     position: absolute;
@@ -491,8 +496,15 @@ nav {
                     }
                 }
 
+                .sub-nav-item__link {
+                    height: 100%;
+                    width: 100%;
+                    display: flex;
+                }
+
                 img {
                     width: 100%;
+                    align-self: center;
                 }
             }
         }
@@ -1156,8 +1168,12 @@ nav {
             }
 
             .brands__tiles-item {
-                margin-bottom: 20px;
+                margin-bottom: 60px;
                 width: 100%;
+
+                @media only screen and (max-width: 767px) {
+                    margin-bottom: 3%;
+                }
             }
 
             img {
@@ -1168,14 +1184,14 @@ nav {
                 box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.1);
                 padding: 10px;
                 width: 100%;
-
-                // @media only screen and (max-width: 991px) {
-                //     width: 100%;
-                // }
+                //min-height: 252px;
+                //height: 100%;
+                min-height: 80%;
+                height: 80%;
             }
 
             span {
-                margin-top: 10px;
+                margin-top: 20px;
             }
 
             svg {

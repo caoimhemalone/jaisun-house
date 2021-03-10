@@ -34,7 +34,7 @@ class Nav extends React.Component {
 
 
     componentDidMount() {
-        const brandUrl = 'http://www.jaisunhouse.com/wp/wp-json/wp/v2/individual_brand';
+        const brandUrl = 'http://www.jaisunhouse.com/wp/wp-json/wp/v2/individual_brand?per_page=100';
     
         fetch(brandUrl)
         .then(response => response.json())
@@ -73,7 +73,7 @@ class Nav extends React.Component {
             let link = brand.slug
             return (
                 <li className="sub-nav-item" key={ Math.random().toString(36).substr(2, 9) }>
-                    <a href={link}>
+                    <a href={link} className="sub-nav-item__link">
                         <img src={brand.acf.tile_image} alt={brand.title.rendered}/>
                         <span><u>{brand.title.rendered}</u></span>
                     </a>

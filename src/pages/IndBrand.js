@@ -55,7 +55,7 @@ class IndBrands extends Component {
                             <Row className="ind-brands__details">
                                 <Col xs={12} md={12} className="ind-brands__details__container">
                                     <Col xs={12} md={3} className="ind-brands__logo">
-                                        <img src={indbrandtable.acf.tile_image} alt="brand logo"/>
+                                        <img src={indbrandtable.acf.tile_image} alt={`${indbrandtable.title.rendered} logo`}/>
                                     </Col>
                                     <Col xs={12} md={9}>
                                         <span className="d-flex justify-content-center ind-brands__text"  dangerouslySetInnerHTML={{ __html:indbrandtable.acf.bio}}></span>
@@ -67,8 +67,8 @@ class IndBrands extends Component {
                                 {indbrandtable.acf.brand_image_1 ? (
                                      
                                         <div className={indbrandtable.acf.image_1_orientation}>
-                                            <LazyLoad height={200}>
-                                            <img src={indbrandtable.acf.brand_image_1} alt={ indbrandtable.title.rendered}/>
+                                            <LazyLoad height={200} className="image-container">
+                                                <img src={indbrandtable.acf.brand_image_1} alt={ indbrandtable.title.rendered}/>
                                             </LazyLoad>
                                         </div> 
                                     ) : null
@@ -78,8 +78,8 @@ class IndBrands extends Component {
                                  {indbrandtable.acf.brand_image_2 ? (
                                      
                                         <div className={indbrandtable.acf.image_2_orientation}>
-                                            <LazyLoad height={200}>
-                                            <img src={indbrandtable.acf.brand_image_2} alt={ indbrandtable.title.rendered}/>
+                                            <LazyLoad height={200} className="image-container">
+                                                <img src={indbrandtable.acf.brand_image_2} alt={ indbrandtable.title.rendered}/>
                                             </LazyLoad>
                                         </div> 
                                     ) : null
@@ -89,8 +89,8 @@ class IndBrands extends Component {
                                  {indbrandtable.acf.brand_image_3 ? (
                                      
                                         <div className={indbrandtable.acf.image_3_orientation}>
-                                            <LazyLoad height={200}>
-                                            <img src={indbrandtable.acf.brand_image_3} alt={ indbrandtable.title.rendered}/>
+                                            <LazyLoad height={200} className="image-container">
+                                                <img src={indbrandtable.acf.brand_image_3} alt={ indbrandtable.title.rendered}/>
                                             </LazyLoad>
                                         </div> 
                                     ) : null
@@ -100,8 +100,8 @@ class IndBrands extends Component {
                                  {indbrandtable.acf.brand_image_4 ? (
                                      
                                         <div className={indbrandtable.acf.image_4_orientation}>
-                                            <LazyLoad height={200}>
-                                            <img src={indbrandtable.acf.brand_image_4} alt={ indbrandtable.title.rendered}/>
+                                            <LazyLoad height={200} className="image-container">
+                                                <img src={indbrandtable.acf.brand_image_4} alt={ indbrandtable.title.rendered}/>
                                             </LazyLoad>
                                         </div> 
                                     ) : null
@@ -111,8 +111,8 @@ class IndBrands extends Component {
                                  {indbrandtable.acf.brand_image_5 ? (
                                      
                                         <div className={indbrandtable.acf.image_5_orientation}>
-                                            <LazyLoad height={200}>
-                                            <img src={indbrandtable.acf.brand_image_5} alt={ indbrandtable.title.rendered}/>
+                                            <LazyLoad height={200} className="image-container">
+                                                <img src={indbrandtable.acf.brand_image_5} alt={ indbrandtable.title.rendered}/>
                                             </LazyLoad>
                                         </div> 
                                     ) : null
@@ -122,8 +122,8 @@ class IndBrands extends Component {
                                  {indbrandtable.acf.brand_image_6 ? (
                                      
                                         <div className={indbrandtable.acf.image_6_orientation}>
-                                            <LazyLoad height={200}>
-                                            <img src={indbrandtable.acf.brand_image_6} alt={ indbrandtable.title.rendered}/>
+                                            <LazyLoad height={200} className="image-container">
+                                                <img src={indbrandtable.acf.brand_image_6} alt={ indbrandtable.title.rendered}/>
                                             </LazyLoad>
                                         </div> 
                                     ) : null
@@ -133,8 +133,8 @@ class IndBrands extends Component {
                                  {indbrandtable.acf.brand_image_7 ? (
                                      
                                         <div className={indbrandtable.acf.image_7_orientation}>
-                                            <LazyLoad height={200}>
-                                            <img src={indbrandtable.acf.brand_image_7} alt={ indbrandtable.title.rendered}/>
+                                            <LazyLoad height={200} className="image-container">
+                                                <img src={indbrandtable.acf.brand_image_7} alt={ indbrandtable.title.rendered}/>
                                             </LazyLoad>
                                         </div> 
                                     ) : null
@@ -144,8 +144,8 @@ class IndBrands extends Component {
                                  {indbrandtable.acf.brand_image_8 ? (
                                      
                                         <div className={indbrandtable.acf.image_8_orientation}>
-                                            <LazyLoad height={200}>
-                                            <img src={indbrandtable.acf.brand_image_8} alt={ indbrandtable.title.rendered}/>
+                                            <LazyLoad height={200} className="image-container">
+                                                <img src={indbrandtable.acf.brand_image_8} alt={ indbrandtable.title.rendered}/>
                                             </LazyLoad>
                                         </div> 
                                     ) : null
@@ -167,8 +167,8 @@ class IndBrands extends Component {
                                 {indbrandtable.acf.brand_image_10 ? (
                                      
                                      <div className={indbrandtable.acf.image_10_orientation}>
-                                         <LazyLoad height={200}>
-                                         <img src={indbrandtable.acf.brand_image_10} alt={ indbrandtable.title.rendered}/>
+                                         <LazyLoad height={200} className="image-container">
+                                            <img src={indbrandtable.acf.brand_image_10} alt={ indbrandtable.title.rendered}/>
                                          </LazyLoad>
                                      </div> 
                                  
@@ -179,7 +179,7 @@ class IndBrands extends Component {
                             {indbrandtable.acf.video ? (
                                 <Row className="ind-brands__video">
                                     <Col xs={12} md={12}> 
-                                        <div dangerouslySetInnerHTML={{ __html:indbrandtable.acf.video}}></div> 
+                                        <div className="video" dangerouslySetInnerHTML={{ __html:indbrandtable.acf.video}}></div> 
                                    </Col>
                                </Row>) : null
                             }

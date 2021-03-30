@@ -304,8 +304,53 @@ class ScheduleForm extends Component {
                 )} */}
 
                 <label>I am interested in *</label>
-                <br/>
-                <div className="cbox-right">
+                <br/> 
+                <div className="cbox-left">
+                  {this.state.scheduletable.acf.form_brand_1 ? (
+                      <div className="checkbox-item">
+                        <input type="checkbox" id={this.state.scheduletable.acf.form_brand_1} name={this.state.scheduletable.acf.form_brand_1} value={this.state.scheduletable.acf.form_brand_1} onChange={this.handleCheckboxChange}/>
+                        <label htmlFor={this.state.scheduletable.acf.form_brand_1} className="cbox-label">{this.state.scheduletable.acf.form_brand_1}</label>
+                        <br/>
+                      </div>
+                    ) : null
+                  } 
+
+                  {this.state.scheduletable.acf.form_brand_2 ? (
+                      <div className="checkbox-item">
+                        <input type="checkbox" id={this.state.scheduletable.acf.form_brand_2} name={this.state.scheduletable.acf.form_brand_2} value={this.state.scheduletable.acf.form_brand_2} onChange={this.handleCheckboxChange}/>
+                        <label htmlFor={this.state.scheduletable.acf.form_brand_2} className="cbox-label">{this.state.scheduletable.acf.form_brand_2}</label>
+                        <br/>
+                      </div>
+                    ) : null
+                  } 
+
+                  {this.state.scheduletable.acf.form_brand_3 ? (
+                      <div className="checkbox-item">
+                        <input type="checkbox" id={this.state.scheduletable.acf.form_brand_3} name={this.state.scheduletable.acf.form_brand_3} value={this.state.scheduletable.acf.form_brand_3} onChange={this.handleCheckboxChange}/>
+                        <label htmlFor={this.state.scheduletable.acf.form_brand_3} className="cbox-label">{this.state.scheduletable.acf.form_brand_3}</label>
+                        <br/>
+                      </div>
+                    ) : null
+                  } 
+
+                  {this.state.scheduletable.acf.form_brand_4 ? (
+                      <div className="checkbox-item">
+                        <input type="checkbox" id={this.state.scheduletable.acf.form_brand_4} name={this.state.scheduletable.acf.form_brand_4} value={this.state.scheduletable.acf.form_brand_4} onChange={this.handleCheckboxChange}/>
+                        <label htmlFor={this.state.scheduletable.acf.form_brand_4} className="cbox-label">{this.state.scheduletable.acf.form_brand_4}</label>
+                        <br/>
+                      </div>
+                    ) : null
+                  } 
+
+                  {this.state.scheduletable.acf.form_brand_5 ? (
+                      <div className="checkbox-item">
+                        <input type="checkbox" id={this.state.scheduletable.acf.form_brand_5} name={this.state.scheduletable.acf.form_brand_5} value={this.state.scheduletable.acf.form_brand_5} onChange={this.handleCheckboxChange}/>
+                        <label htmlFor={this.state.scheduletable.acf.form_brand_5} className="cbox-label">{this.state.scheduletable.acf.form_brand_5}</label>
+                        <br/>
+                      </div>
+                    ) : null
+                  } 
+
                   {this.state.scheduletable.acf.form_brand_6 ? (
                       <div className="checkbox-item">
                         <input type="checkbox" id={this.state.scheduletable.acf.form_brand_6} name={this.state.scheduletable.acf.form_brand_6} value={this.state.scheduletable.acf.form_brand_6} onChange={this.handleCheckboxChange}/>
@@ -351,6 +396,10 @@ class ScheduleForm extends Component {
                     ) : null
                   } 
 
+                  {/* <input type="checkbox" id="General Inquiry" name="General Inquiry" value="General Inquiry" onChange={this.handleCheckboxChange}/>
+                  <label htmlFor="General Inquiry" className="cbox-label">General Inquiry</label>    */}
+                </div>
+                <div className="cbox-right">
                   {this.state.scheduletable.acf.form_brand_11 ? (
                       <div className="checkbox-item">
                         <input type="checkbox" id={this.state.scheduletable.acf.form_brand_11} name={this.state.scheduletable.acf.form_brand_11} value={this.state.scheduletable.acf.form_brand_11} onChange={this.handleCheckboxChange}/>
@@ -413,56 +462,34 @@ class ScheduleForm extends Component {
                       </div>
                     ) : null
                   } 
-                </div>  
-                <div className="cbox-left">
-                  {this.state.scheduletable.acf.form_brand_1 ? (
+
+                  {this.state.scheduletable.acf.form_brand_18 ? (
                       <div className="checkbox-item">
-                        <input type="checkbox" id={this.state.scheduletable.acf.form_brand_1} name={this.state.scheduletable.acf.form_brand_1} value={this.state.scheduletable.acf.form_brand_1} onChange={this.handleCheckboxChange}/>
-                        <label htmlFor={this.state.scheduletable.acf.form_brand_1} className="cbox-label">{this.state.scheduletable.acf.form_brand_1}</label>
+                        <input type="checkbox" id={this.state.scheduletable.acf.form_brand_18} name={this.state.scheduletable.acf.form_brand_18} value={this.state.scheduletable.acf.form_brand_18} onChange={this.handleCheckboxChange}/>
+                        <label htmlFor={this.state.scheduletable.acf.form_brand_18} className="cbox-label">{this.state.scheduletable.acf.form_brand_18}</label>
                         <br/>
                       </div>
                     ) : null
                   } 
 
-                  {this.state.scheduletable.acf.form_brand_2 ? (
+                  {this.state.scheduletable.acf.form_brand_19 ? (
                       <div className="checkbox-item">
-                        <input type="checkbox" id={this.state.scheduletable.acf.form_brand_2} name={this.state.scheduletable.acf.form_brand_2} value={this.state.scheduletable.acf.form_brand_2} onChange={this.handleCheckboxChange}/>
-                        <label htmlFor={this.state.scheduletable.acf.form_brand_2} className="cbox-label">{this.state.scheduletable.acf.form_brand_2}</label>
+                        <input type="checkbox" id={this.state.scheduletable.acf.form_brand_19} name={this.state.scheduletable.acf.form_brand_19} value={this.state.scheduletable.acf.form_brand_19} onChange={this.handleCheckboxChange}/>
+                        <label htmlFor={this.state.scheduletable.acf.form_brand_19} className="cbox-label">{this.state.scheduletable.acf.form_brand_19}</label>
                         <br/>
                       </div>
                     ) : null
                   } 
 
-                  {this.state.scheduletable.acf.form_brand_3 ? (
+                  {this.state.scheduletable.acf.form_brand_20 ? (
                       <div className="checkbox-item">
-                        <input type="checkbox" id={this.state.scheduletable.acf.form_brand_3} name={this.state.scheduletable.acf.form_brand_3} value={this.state.scheduletable.acf.form_brand_3} onChange={this.handleCheckboxChange}/>
-                        <label htmlFor={this.state.scheduletable.acf.form_brand_3} className="cbox-label">{this.state.scheduletable.acf.form_brand_3}</label>
+                        <input type="checkbox" id={this.state.scheduletable.acf.form_brand_20} name={this.state.scheduletable.acf.form_brand_20} value={this.state.scheduletable.acf.form_brand_20} onChange={this.handleCheckboxChange}/>
+                        <label htmlFor={this.state.scheduletable.acf.form_brand_20} className="cbox-label">{this.state.scheduletable.acf.form_brand_20}</label>
                         <br/>
                       </div>
                     ) : null
                   } 
-
-                  {this.state.scheduletable.acf.form_brand_4 ? (
-                      <div className="checkbox-item">
-                        <input type="checkbox" id={this.state.scheduletable.acf.form_brand_4} name={this.state.scheduletable.acf.form_brand_4} value={this.state.scheduletable.acf.form_brand_4} onChange={this.handleCheckboxChange}/>
-                        <label htmlFor={this.state.scheduletable.acf.form_brand_4} className="cbox-label">{this.state.scheduletable.acf.form_brand_4}</label>
-                        <br/>
-                      </div>
-                    ) : null
-                  } 
-
-                  {this.state.scheduletable.acf.form_brand_5 ? (
-                      <div className="checkbox-item">
-                        <input type="checkbox" id={this.state.scheduletable.acf.form_brand_5} name={this.state.scheduletable.acf.form_brand_5} value={this.state.scheduletable.acf.form_brand_5} onChange={this.handleCheckboxChange}/>
-                        <label htmlFor={this.state.scheduletable.acf.form_brand_5} className="cbox-label">{this.state.scheduletable.acf.form_brand_5}</label>
-                        <br/>
-                      </div>
-                    ) : null
-                  } 
-
-                  <input type="checkbox" id="General Inquiry" name="General Inquiry" value="General Inquiry" onChange={this.handleCheckboxChange}/>
-                  <label htmlFor="General Inquiry" className="cbox-label">General Inquiry</label>   
-                </div>
+                </div> 
               </Col>
             </Row>
             <button type="submit" className="btn btn-primary">Submit</button>

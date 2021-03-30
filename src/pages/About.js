@@ -53,14 +53,13 @@ class About extends Component {
 
         // const brandsInfo = this.state.brands.slice(0, 6);
         const brandsInfo = this.state.brands;
-        console.log(brandsInfo);
         const brandLoop = brandsInfo.map((brand, index)=> {
             return (
-                <Col xs={6} md={2} className="brands-tiles__item" key={index}>
+                <div className="brands-tiles__item" key={index}>
                     <a href={brand.slug}>
                         <img src={brand.acf.tile_image} alt={brand.title.rendered}/>
                     </a>
-                </Col>
+                </div>
             )
         })
 

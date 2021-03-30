@@ -47,9 +47,6 @@ class Brands extends React.Component {
             return (
                 <a href={brand.slug} className="brands-tiles__item" key={index}>
                     <img src={brand.acf.tile_image} alt={brand.title.rendered}/>
-                    {/* <span>
-                        {brand.title.rendered}
-                    </span> */}
                 </a>      
             )
         })

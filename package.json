@@ -16,7 +16,7 @@
     "@types/googlemaps": "^3.39.8",
     "@types/markerclustererplus": "^2.1.33",
     "animate.css": "^4.1.0",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "babel-core": "^7.0.0-bridge.0",
     "bootstrap": "^4.5.3",
     "classnames": "^2.2.6",

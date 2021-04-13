@@ -18,7 +18,7 @@ import Logo from './assets/images/logos/logo192.png';
 $(document).ready(function(){
   setTimeout(function(){
     $('#loader').css('display', 'none');
-  }, 2500);
+  }, 2800);
 });
 
 

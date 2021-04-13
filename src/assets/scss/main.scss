@@ -24,6 +24,9 @@ nav {
     width: 100%;
     z-index: 5;
     //transition: 2s ease-out;
+    -webkit-box-shadow: -1px -2px 18px 0px rgba(143,143,143,0.3);
+    -moz-box-shadow: -1px -2px 18px 0px rgba(143,143,143,0.3);
+    box-shadow: -1px -2px 18px 0px rgba(143,143,143,0.3);
 
     @media only screen and (min-width: 768px) {
         background-color: $white;
@@ -588,7 +591,8 @@ nav {
         .header-carousel {
             width: 100%;
             overflow: hidden;
-            height: 80vh;
+            //height: 80vh;
+            //margin-top: 2%;
 
             @media only screen and (max-width: 767px) {
                 //height: 50vh;
@@ -631,7 +635,7 @@ nav {
 
                 @media only screen and (min-width: 1025px) {
                     //height: auto;
-                    margin-top: -12%;
+                    //margin-top: -12%;
                 }
             }
         }
@@ -1232,8 +1236,21 @@ nav {
                 width: 100%;
                 //min-height: 252px;
                 //height: 100%;
-                min-height: 80%;
-                height: 80%;
+                // min-height: 80%;
+                // height: 80%;
+                height: 190px;
+
+                @media only screen and (max-width: 499px) {
+                    height: 180px;
+                }
+
+                @media only screen and (min-width: 500px) and (max-width: 767px) {
+                    height: 250px;
+                }
+
+                @media only screen and (min-width: 768px) and (max-width: 991px) {
+                    height: 180px;
+                }
             }
 
             span {

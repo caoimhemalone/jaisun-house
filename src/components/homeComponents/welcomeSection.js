@@ -12,7 +12,7 @@ class Welcome extends React.Component {
     }
   
      componentDidMount(){
-        axios.get('http://www.jaisunhouse.com/wp/wp-json/wp/v2/home/')
+        axios.get('https://www.jaisunhouse.com/wp/wp-json/wp/v2/home/')
         .then(res => this.setState({
            hometable: res.data,
            isLoaded: true

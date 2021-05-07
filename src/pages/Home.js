@@ -20,7 +20,7 @@ class Home extends Component {
       <div className="home-page">
         <Helmet>
           <title>Jaisun House | Home</title>
-          <meta name="description" content="Jaisun House" />
+          <meta name="description" content="Jaisun House - Representing the International Fashion Brands in Ireland" />
           <meta name="theme-color" content="#F7882F" />
         </Helmet>
 

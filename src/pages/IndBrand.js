@@ -4,7 +4,7 @@ import { Grid, Row, Col } from 'react-flexbox-grid';
 import { List } from 'react-content-loader';
 import { BrowserRouter as Link} from "react-router-dom";
 import LazyLoad from 'react-lazyload';
-
+import {Helmet} from "react-helmet";
 
 //components
 import Header from '../components/mainComponents/headerSection';
@@ -17,7 +17,7 @@ class IndBrands extends Component {
     }
 
     componentDidMount (){
-        const indBrandUrl = 'http://www.jaisunhouse.com/wp/wp-json/wp/v2/individual_brand/?slug=' + this.props.match.params.slug;
+        const indBrandUrl = 'https://www.jaisunhouse.com/wp/wp-json/wp/v2/individual_brand/?slug=' + this.props.match.params.slug;
         fetch(indBrandUrl)
         .then(response => response.json())
         .then(response => {
@@ -50,6 +50,11 @@ class IndBrands extends Component {
         if(isLoaded) {
             return (
                 <div className={classes}>
+                    <Helmet>
+                        <title>Jaisun House | {indbrandtable.title.rendered}</title>
+                        <meta name="description" content="Jaisun House - Representing the International Fashion Brands in Ireland" />
+                        <meta name="theme-color" content="#F7882F" />
+                    </Helmet>
                         <Header heading={indbrandtable.title.rendered} image={`url(${imageUrl})`}/>
                         <Grid fluid className="ind-brands-container px-0">
                             <Row className="ind-brands__details">

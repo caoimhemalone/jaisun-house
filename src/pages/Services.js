@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Grid, Row, Col } from 'react-flexbox-grid';
 import Zoom from 'react-reveal/Zoom';
 import axios from 'axios';
+import {Helmet} from "react-helmet";
 
 //components
 import Header from '../components/mainComponents/headerSection';
@@ -13,7 +14,7 @@ class Services extends Component {
      }
   
      componentDidMount(){
-        axios.get('http://www.jaisunhouse.com/wp/wp-json/wp/v2/services/')
+        axios.get('https://www.jaisunhouse.com/wp/wp-json/wp/v2/services/')
         .then(res => {
             //console.log(res.data);
             this.setState({
@@ -48,6 +49,11 @@ class Services extends Component {
   render() {
     return (
       <div className="services">
+          <Helmet>
+            <title>Jaisun House | Services</title>
+            <meta name="description" content="Jaisun House - Representing the International Fashion Brands in Ireland" />
+            <meta name="theme-color" content="#F7882F" />
+        </Helmet>
           <Header heading={this.header}/>
         <Grid>
             {/* <Row className="services__intro px-5">

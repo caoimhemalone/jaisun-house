@@ -3,6 +3,7 @@ import { Grid, Row, Col } from 'react-flexbox-grid';
 import Fade from 'react-reveal/Fade';
 import axios from 'axios';
 import LazyLoad from 'react-lazyload';
+import {Helmet} from "react-helmet";
 
 //components
 import Header from '../components/mainComponents/headerSection';
@@ -20,7 +21,7 @@ class Schedule extends Component {
 }
 
 componentDidMount (){
-  const contactUrl = 'http://www.jaisunhouse.com/wp/wp-json/wp/v2/contact_us/116';
+  const contactUrl = 'https://www.jaisunhouse.com/wp/wp-json/wp/v2/contact_us/116';
   fetch(contactUrl)
   .then(response => response.json())
   .then(response => {
@@ -33,7 +34,7 @@ componentDidMount (){
   })
 }
   componentDidMount() {
-    axios.get("http://www.jaisunhouse.com/wp/wp-json/wp/v2/schedule/79")
+    axios.get("https://www.jaisunhouse.com/wp/wp-json/wp/v2/schedule/79")
         .then(res => this.setState({
         scheduletable: res.data,
         latest_collection: res.data.acf.latest_collection,
@@ -93,6 +94,11 @@ componentDidMount (){
       if(this.state.render) { //If this.state.render == true, which is set to true by the timer.
       renderContainer =
       <div className="schedule">
+        <Helmet>
+            <title>Jaisun House | Schedule</title>
+            <meta name="description" content="Jaisun House - Representing the International Fashion Brands in Ireland" />
+            <meta name="theme-color" content="#F7882F" />
+        </Helmet>
         <Header heading={this.header}/>
         <Grid fluid className="schedule-container px-0">
           <Row className="schedule__latest">

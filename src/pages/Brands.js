@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import {Helmet} from "react-helmet";
 
 //components
 import BrandItems from '../components/brandComponents/brandItem';
@@ -15,7 +16,7 @@ class Brands extends Component {
 
   componentDidMount (){
 
-    const brandUrl = 'http://www.jaisunhouse.com/wp/wp-json/wp/v2/individual_brand?per_page=100';
+    const brandUrl = 'https://www.jaisunhouse.com/wp/wp-json/wp/v2/individual_brand?per_page=100';
 
     fetch(brandUrl)
     .then(response => response.json())
@@ -33,6 +34,11 @@ class Brands extends Component {
   render() {
     return (
       <div className="brands">
+        <Helmet>
+          <title>Jaisun House | Brands</title>
+          <meta name="description" content="Jaisun House - Representing the International Fashion Brands in Ireland" />
+          <meta name="theme-color" content="#F7882F" />
+        </Helmet>
         <div className="brands-items">
           <Header heading={this.header} />
           <BrandItems brands={this.state.brands} isLoaded={this.state.isLoaded} />

@@ -54,7 +54,7 @@ class ScheduleForm extends Component {
   }
 
   componentDidMount() {
-    axios.get("http://www.jaisunhouse.com/wp/wp-json/wp/v2/schedule/79")
+    axios.get("https://www.jaisunhouse.com/wp/wp-json/wp/v2/schedule/79")
         .then(res => this.setState({
         scheduletable: res.data,
         appt_msg: res.data.acf.appt_msg,

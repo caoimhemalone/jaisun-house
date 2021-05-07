@@ -34,7 +34,7 @@ class Nav extends React.Component {
 
 
     componentDidMount() {
-        const brandUrl = 'http://www.jaisunhouse.com/wp/wp-json/wp/v2/individual_brand?per_page=100';
+        const brandUrl = 'https://www.jaisunhouse.com/wp/wp-json/wp/v2/individual_brand?per_page=100';
     
         fetch(brandUrl)
         .then(response => response.json())

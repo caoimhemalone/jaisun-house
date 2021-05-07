@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Grid, Row, Col } from 'react-flexbox-grid';
 import Pulse from 'react-reveal/Pulse';
 import axios from 'axios';
-
+import {Helmet} from "react-helmet";
 
 //components
 import Header from '../components/mainComponents/headerSection';
@@ -20,7 +20,7 @@ class Contact extends Component {
 }
 
   componentDidMount() {
-  const contactUrl = 'http://www.jaisunhouse.com/wp/wp-json/wp/v2/contact_us/116';
+  const contactUrl = 'https://www.jaisunhouse.com/wp/wp-json/wp/v2/contact_us/116';
   fetch(contactUrl)
   .then(response => response.json())
   .then(response => {
@@ -36,7 +36,7 @@ class Contact extends Component {
       })
     })
     
-      axios.get("http://www.jaisunhouse.com/wp/wp-json/wp/v2/schedule/79")
+      axios.get("https://www.jaisunhouse.com/wp/wp-json/wp/v2/schedule/79")
         .then(res => this.setState({
         scheduletable: res.data,
         option_1: res.data.acf.form_brand_1,
@@ -78,6 +78,11 @@ class Contact extends Component {
       if(this.state.render) { //If this.state.render == true, which is set to true by the timer.
       renderContainer =
       <div className="contact">
+        <Helmet>
+          <title>Jaisun House | Contact Us</title>
+          <meta name="description" content="Jaisun House - Representing the International Fashion Brands in Ireland" />
+          <meta name="theme-color" content="#F7882F" />
+        </Helmet>
         <Header heading={this.header}/>
         <Grid fluid className="contact-container">
           <Row className="contact__info">

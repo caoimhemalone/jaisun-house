@@ -11,7 +11,7 @@ class History extends React.Component {
      }
   
      componentDidMount(){
-        axios.get('http://www.jaisunhouse.com/wp/wp-json/wp/v2/home/17')
+        axios.get('https://www.jaisunhouse.com/wp/wp-json/wp/v2/home/17')
         .then(res => this.setState({
            historytable: res.data,
            isLoaded: true

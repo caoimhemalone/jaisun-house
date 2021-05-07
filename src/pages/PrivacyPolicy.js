@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Grid, Row, Col } from 'react-flexbox-grid';
 import Pulse from 'react-reveal/Pulse';
 import axios from 'axios';
-
+import {Helmet} from "react-helmet";
 
 //components
 import Header from '../components/mainComponents/headerSection';
@@ -17,7 +17,7 @@ class PrivacyPolicy extends Component {
 }
 
   componentDidMount() {
-  const contactUrl = 'http://www.jaisunhouse.com/wp/wp-json/wp/v2/legal_pages/311';
+  const contactUrl = 'https://www.jaisunhouse.com/wp/wp-json/wp/v2/legal_pages/311';
   fetch(contactUrl)
   .then(response => response.json())
   .then(response => {
@@ -34,6 +34,11 @@ class PrivacyPolicy extends Component {
     if(isLoaded) {
         return (
             <div className="legal-pages">
+              <Helmet>
+                  <title>Jaisun House | Privacy Policy</title>
+                  <meta name="description" content="Jaisun House - Representing the International Fashion Brands in Ireland" />
+                  <meta name="theme-color" content="#F7882F" />
+              </Helmet>
                 <Header heading={this.header}/>
                 <Grid fluid className="legal-container">
                     <Row>

@@ -19,7 +19,7 @@ class Footer extends Component {
     }
   
     componentDidMount (){
-      const contactUrl = 'http://www.jaisunhouse.com/wp/wp-json/wp/v2/contact_us/116';
+      const contactUrl = 'https://www.jaisunhouse.com/wp/wp-json/wp/v2/contact_us/116';
       fetch(contactUrl)
       .then(response => response.json())
       .then(response => {

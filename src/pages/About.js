@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Grid, Row, Col } from 'react-flexbox-grid';
 import axios from 'axios';
+import {Helmet} from "react-helmet";
 
 
 //components
@@ -19,7 +20,7 @@ class About extends Component {
     }
   
      componentDidMount(){
-        const brandUrl = 'http://www.jaisunhouse.com/wp/wp-json/wp/v2/individual_brand?per_page=100';
+        const brandUrl = 'https://www.jaisunhouse.com/wp/wp-json/wp/v2/individual_brand?per_page=100';
     
         fetch(brandUrl)
         .then(response => response.json())
@@ -33,7 +34,7 @@ class About extends Component {
           })
         })
 
-        axios.get('http://www.jaisunhouse.com/wp/wp-json/wp/v2/about_us/')
+        axios.get('https://www.jaisunhouse.com/wp/wp-json/wp/v2/about_us/')
         .then(res => {
             //console.log(res.data);
             this.setState({
@@ -65,6 +66,11 @@ class About extends Component {
 
         return (
             <div className="about-us">
+                <Helmet>
+                    <title>Jaisun House | About Us</title>
+                    <meta name="description" content="Jaisun House - Representing the International Fashion Brands in Ireland" />
+                    <meta name="theme-color" content="#F7882F" />
+                </Helmet>
                 <Header heading={this.header}/>
                 <Grid fluid className="about-us-container px-0">
                     <Row className="about-us__bio">

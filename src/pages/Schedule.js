@@ -86,7 +86,6 @@ componentDidMount (){
 
   header = "Schedule";
   render() {
-    console.log(this.state.scheduletable);
     const mailTo = "mailto:admin@key-vah.com?subject = Feedback&body = Message"
     const scheduletable = this.state.scheduletable;
     //return (

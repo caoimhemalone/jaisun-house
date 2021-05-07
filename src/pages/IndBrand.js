@@ -21,7 +21,6 @@ class IndBrands extends Component {
         fetch(indBrandUrl)
         .then(response => response.json())
         .then(response => {
-          console.log(response[0]);
           this.setState({
             indbrandtable: response[0],
             header_image: response[0].acf.header_image,

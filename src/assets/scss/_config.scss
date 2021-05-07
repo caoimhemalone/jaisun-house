@@ -108,6 +108,17 @@ form {
 		min-width: 16px;
 		min-height: 16px;
 	}
+
+	.form-group {
+		span {
+			&.errorMessage {
+				color: red;
+				font-weight: 700;
+				border-bottom: none !important;
+				margin-top: 0 !important;
+			}
+		}
+	}
 }
 
 /*

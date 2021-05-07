@@ -20,7 +20,6 @@ class Sitemap extends Component {
         fetch(brandUrl)
         .then(response => response.json())
         .then(response => {
-          console.log(response);
           //response.sort((a, b) => a.id - b.id);
           response.sort((a, b) => parseFloat(a.acf['order_no']) - parseFloat(b.acf['order_no']));
           this.setState({
@@ -32,7 +31,6 @@ class Sitemap extends Component {
   header = "Sitemap";
   render() {
     const brandsInfo = this.state.brands;
-    console.log(brandsInfo);
     const brandLoop = brandsInfo.map((brand, index)=> {
         return (
             <li key={index}>

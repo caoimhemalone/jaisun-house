@@ -73,7 +73,6 @@ class ContactForm extends Component {
         isLoaded: true
         }))
     .catch(error => console.log(error));
-    //console.log(this.state.scheduletable);
   }
 
   toastifySuccess() {
@@ -174,7 +173,7 @@ class ContactForm extends Component {
   handleChange = (e) => {
     e.preventDefault();
     const { name, value } = e.target;
-    let formErrors = { ...this.state.formErrors };
+    let formErrors =  this.state.formErrors ;
 
     switch (name) {
       case 'name':
@@ -217,7 +216,7 @@ class ContactForm extends Component {
   };
 
   handleCheckboxChange = event => {
-    let newArray = [...this.state.interested_in, event.target.id];
+    let newArray = [this.state.interested_in, event.target.id];
     if (this.state.interested_in.includes(event.target.id)) {
       newArray = newArray.filter(day => day !== event.target.id);
     }
@@ -227,7 +226,7 @@ class ContactForm extends Component {
   };
 
   handleCheckboxChangeTwo = event => {
-    let newArray = [...this.state.i_require, event.target.id];
+    let newArray = [this.state.i_require, event.target.id];
     if (this.state.i_require.includes(event.target.id)) {
       newArray = newArray.filter(day => day !== event.target.id);
     }
@@ -282,7 +281,7 @@ class ContactForm extends Component {
                       )}
                     </Col>
                     <Col xs={12} md={12}>
-                      <label htmlFor="address 2">Address2</label>
+                      <label htmlFor="address 2">Address2*</label>
                       <input
                         type='text'
                         name='address2'
@@ -290,6 +289,7 @@ class ContactForm extends Component {
                         className={`form-control formInput ${formErrors.address2.length > 0 ? 'error' : null}`}
                         onChange={this.handleChange}
                         noValidate
+                        required
                       ></input>
                       {formErrors.address2.length > 0 && (
                         <span className='errorMessage'>{formErrors.address2}</span>
@@ -309,7 +309,7 @@ class ContactForm extends Component {
                         <span className='errorMessage'>{formErrors.town_city}</span>
                       )}
 
-                      <label htmlFor="county">County/State</label>
+                      <label htmlFor="county">County/State*</label>
                       <input
                         type='text'
                         name='county_state'
@@ -620,10 +620,10 @@ class ContactForm extends Component {
                   </div>
                   <br/>
 
-                  <div className="checkbox-item">
+                  {/* <div className="checkbox-item">
                   <input type="checkbox" id="A General Inquiry" name="A General Inquiry" value="A General Inquiry " onChange={this.handleCheckboxChangeTwo}/>
                   <label className="cbox" htmlFor="A General Inquiry">A General Inquiry</label>
-                  </div>
+                  </div> */}
                   <br/>
                 </div>
 

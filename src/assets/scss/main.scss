@@ -1590,7 +1590,8 @@ nav {
                 }
 
                 input {
-                    max-height: 10px;
+                    //max-height: 10px;
+                    max-height: 30px;
                     transition: max-height .15s ease-out;
                     overflow: hidden;
                     border: none;
@@ -1599,7 +1600,7 @@ nav {
                     align-self: center;
 
                     &:focus {
-                        max-height: 30px;
+                        // max-height: 30px;
                         transition: max-height .25s ease-in;
                         border-color: #f7882f;
                         border-width: 2px;
@@ -1831,7 +1832,9 @@ nav {
 
             form {
                 .form-control {
-                    max-height: 10px;
+                    //max-height: 10px;
+                    max-height: 30px;
+                    height: 30px;
                     transition: max-height 0.15s ease-out;
                     overflow: hidden;
                     border-top: none;
@@ -1841,7 +1844,7 @@ nav {
                     border-radius: unset;
 
                     &:focus {
-                        max-height: 30px;
+                        //max-height: 30px;
                         transition: max-height 0.25s ease-in;
                         border-color: $apricot;
                         border-width: 2px;

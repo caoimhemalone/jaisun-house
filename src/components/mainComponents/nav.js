@@ -80,8 +80,7 @@ class Nav extends React.Component {
                 </li>
             )
         })
-        console.log(this.state.hamburger);
-
+        
         return (
             <div>
                 <BrowserRouter history={hist}>

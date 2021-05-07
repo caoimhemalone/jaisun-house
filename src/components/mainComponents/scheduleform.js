@@ -144,7 +144,7 @@ class ScheduleForm extends Component {
   handleChange = (e) => {
     e.preventDefault();
     const { name, value } = e.target;
-    let formErrors = { ...this.state.formErrors };
+    let formErrors =  this.state.formErrors ;
 
     switch (name) {
       case 'name':
@@ -169,7 +169,7 @@ class ScheduleForm extends Component {
   };
 
   handleCheckboxChange = event => {
-    let newArray = [...this.state.interested_in, event.target.id];
+    let newArray = [this.state.interested_in, event.target.id];
     if (this.state.interested_in.includes(event.target.id)) {
       newArray = newArray.filter(day => day !== event.target.id);
     }
@@ -246,9 +246,6 @@ class ScheduleForm extends Component {
                   noValidate
                   required
                 ></input>
-                {formErrors.email.length > 0 && (
-                  <span className='errorMessage'>{formErrors.email}</span>
-                )}
               </Col>
           
               <Col xs={12} md={12}>

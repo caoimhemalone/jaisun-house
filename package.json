@@ -114,7 +114,6 @@
     "webpack": "^4.42.0",
     "webpack-cli": "^3.3.12"
   },
-
   "start": "webpack-dev-server --inline --content-base . --history-api-fallback",
   "homepage": "https://www.jaisunhouse.com/"
 }

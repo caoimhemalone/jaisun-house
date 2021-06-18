@@ -18,7 +18,7 @@ import Logo from './assets/images/logos/logo192.png';
 $(document).ready(function(){
   setTimeout(function(){
     $('#loader').css('display', 'none');
-  }, 2800);
+  }, 1200);
 });
 
 
@@ -28,7 +28,7 @@ class App extends Component {
       <div>
         <div className="loader-container" id="loader">
           <div className="loader">
-            <TopLoader backgroundColor="#C0C5CB" show fixed={false} color="#F7882F" duration={800}/>
+            <TopLoader backgroundColor="#C0C5CB" show fixed={false} color="#F7882F" duration={600}/>
           </div>
         </div>
 
